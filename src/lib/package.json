@@ -1,0 +1,26 @@
+{
+  "name": "david-mi-react-windate",
+  "private": false,
+  "version": "0.0.0",
+  "description": "React date input package with windows skin",
+  "type": "module",
+  "main": "index.js",
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/david-mi/React_WinDate.git"
+  },
+  "keywords": [
+    "react",
+    "table"
+  ],
+  "author": "david-mi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/david-mi/React_WinDate/issues"
+  },
+  "homepage": "https://github.com/david-mi/React_WinDate#readme"
+}

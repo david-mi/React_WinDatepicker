@@ -1,0 +1,9 @@
+.date {
+  justify-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: papayawhip;
+  width: 2rem;
+  aspect-ratio: 1/1;
+}
