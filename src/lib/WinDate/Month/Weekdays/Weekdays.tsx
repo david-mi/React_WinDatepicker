@@ -6,7 +6,9 @@ const Weekdays = () => {
   return (
     <div className={styles.weekDays}>
       {weekDaysArr.map((weekDay) => {
-        return <span key={weekDay}>{weekDay}</span>
+        return (
+          <span data-testid="weekday" key={weekDay}>{weekDay}</span>
+        )
       })}
     </div>
   )
