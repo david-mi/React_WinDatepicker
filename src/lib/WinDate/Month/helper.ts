@@ -1,4 +1,4 @@
-const daysToGetFromPreviousMonth = {
+const getDayIndex = {
   0: 6,
   1: 0,
   2: 1,
@@ -8,32 +8,39 @@ const daysToGetFromPreviousMonth = {
   6: 5
 }
 
-type DaysKeys = keyof typeof daysToGetFromPreviousMonth
+type DaysIndexKeys = keyof typeof getDayIndex
 
-export function getDates(date: Date) {
-  const dateCopy = new Date(date)
-  const requiredDatesAmount = 42
+/**
+ * Retrieve all 42 dates to display on a calendar page
+ * 
+ * - If the first day of the month from the {@link chosenDate} does not
+ *   start with monday, add the last dates from the previous month to compensate
+ * - Add all dates from the {@link chosenDate} month
+ * - If the length of {@link monthDates} is below 42, add the first dates from the next month to compensate
+ * 
+ * @returns array of dates
+ */
+
+export function getDates(chosenDate: Date): number[] {
+  /** make a copy of {@link chosenDate} to not mutate it */
+  const date = new Date(chosenDate)
+
   const monthDates = []
+  const amountOfDatesToReturn = 42
+  const firstDateOfTheMonth = 1
 
-  dateCopy.setDate(1)
-  let dayDate = 1
+  date.setDate(firstDateOfTheMonth)
+  const firstDayOfTheMonth = date.getDay()
 
-  const previousMonthLastDay = new Date(date)
-  previousMonthLastDay.setDate(0)
+  const amountOfDatesToGetFromPreviousMonth = getDayIndex[firstDayOfTheMonth as DaysIndexKeys]
+  date.setDate(firstDateOfTheMonth - amountOfDatesToGetFromPreviousMonth)
 
-  let daysFromPrevMonth = daysToGetFromPreviousMonth[dateCopy.getDay() as DaysKeys]
+  let dayDate: number
 
-  while (daysFromPrevMonth > 0) {
-    const previousMonthDate = previousMonthLastDay.getDate()
-    monthDates.unshift(previousMonthDate)
-    previousMonthLastDay.setDate(previousMonthDate - 1)
-    daysFromPrevMonth--
-  }
-
-  while (monthDates.length !== requiredDatesAmount) {
+  while (monthDates.length !== amountOfDatesToReturn) {
+    dayDate = date.getDate()
     monthDates.push(dayDate)
-    dateCopy.setDate(dayDate + 1)
-    dayDate = dateCopy.getDate()
+    date.setDate(dayDate + 1)
   }
 
   return monthDates
