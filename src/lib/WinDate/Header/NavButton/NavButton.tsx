@@ -7,7 +7,7 @@ export interface Props {
 
 const NavButton = ({ handler, direction }: Props) => {
   return (
-    <button onClick={handler}>
+    <button data-testid="nav-button" onClick={handler}>
       <NavButtonIcon direction={direction} />
     </button>
   )

@@ -2,7 +2,7 @@ import { expect } from "vitest";
 import { render, screen, getNodeText } from "@testing-library/react";
 import Weekdays from "../../lib/WinDate/Month/Weekdays/Weekdays";
 
-describe("Calling <WeekDays", () => {
+describe("<WeekDays>", () => {
   it("Should display all days of the week as abbreviation", () => {
     render(<Weekdays />)
     const expectedRetrievedText = ["lu", "ma", "me", "je", "ve", "sa", "di"]
