@@ -2,7 +2,7 @@ import { useMemo } from "react"
 import Header from "../Header/Header"
 import Weekdays from "./Weekdays/Weekdays"
 import Dates from "./Dates/Dates"
-import { getDates } from "../../utils"
+import { getDates } from "./helper"
 import { monthsAbbrev, MonthIndex } from "./data"
 import type { DateProps } from "../WinDate"
 
