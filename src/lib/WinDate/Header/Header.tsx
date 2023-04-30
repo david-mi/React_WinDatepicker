@@ -1,54 +1,19 @@
 import Infos from "./Infos/Infos"
 import NavButton from "./NavButton/NavButton"
 import styles from "./header.module.css"
-import type { DateProps } from "../WinDate"
 
+interface Props {
+  handlePrevious: () => void
+  handleNext: () => void
+  infos: string
+}
 
-const monthsString = {
-  0: 'Janvier',
-  1: 'Février',
-  2: 'Mars',
-  3: 'Avril',
-  4: 'Mai',
-  5: 'Juin',
-  6: 'Juillet',
-  7: 'Août',
-  8: 'Septembre',
-  9: 'Octobre',
-  10: 'Novembre',
-  11: 'Décembre'
-};
-
-type MonthIndex = keyof typeof monthsString
-
-
-const Header = ({ date, setDate }: DateProps) => {
-  const currentMonth = date.getMonth()
-  const currentYear = date.getFullYear()
-
-  function setNextMonth() {
-    const nextMonth = new Date(date)
-    nextMonth.setMonth(currentMonth + 1)
-
-    setDate(nextMonth)
-  }
-
-  function setPreviousMonth() {
-    const previousMonth = new Date(date)
-    previousMonth.setMonth(currentMonth - 1)
-
-    setDate(previousMonth)
-  }
-
-
+const Header = ({ handlePrevious, handleNext, infos }: Props) => {
   return (
     <header className={styles.header}>
-      <Infos>
-        <span>{monthsString[currentMonth as MonthIndex]}</span>
-        <span>{currentYear}</span>
-      </Infos>
-      <NavButton handler={setPreviousMonth} direction="up" />
-      <NavButton handler={setNextMonth} direction="down" />
+      <Infos infos={infos} />
+      <NavButton handler={handlePrevious} direction="up" />
+      <NavButton handler={handleNext} direction="down" />
     </header>
   )
 }

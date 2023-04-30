@@ -1,8 +1,9 @@
 import { useMemo } from "react"
 import Header from "../Header/Header"
+import Weekdays from "./Weekdays/Weekdays"
 import Dates from "./Dates/Dates"
 import { getDates } from "../../utils"
-import Weekdays from "./Weekdays/Weekdays"
+import { monthsAbbrev, MonthIndex } from "./data"
 import type { DateProps } from "../WinDate"
 
 const Month = ({ date, setDate }: DateProps) => {
@@ -10,9 +11,32 @@ const Month = ({ date, setDate }: DateProps) => {
     return getDates(date)
   }, [date])
 
+  const chosenMonth = date.getMonth()
+  const chosenYear = date.getFullYear()
+
+  const infos = `${monthsAbbrev[chosenMonth as MonthIndex]} ${chosenYear}`
+
+  function setNextMonth() {
+    const nextMonth = new Date(date)
+    nextMonth.setMonth(chosenMonth + 1)
+
+    setDate(nextMonth)
+  }
+
+  function setPreviousMonth() {
+    const previousMonth = new Date(date)
+    previousMonth.setMonth(chosenMonth - 1)
+
+    setDate(previousMonth)
+  }
+
   return (
     <div>
-      <Header date={date} setDate={setDate} />
+      <Header
+        handlePrevious={setPreviousMonth}
+        handleNext={setNextMonth}
+        infos={infos}
+      />
       <Weekdays />
       <Dates dates={dates} />
     </div>

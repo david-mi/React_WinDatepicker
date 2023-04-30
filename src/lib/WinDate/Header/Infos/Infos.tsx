@@ -1,13 +1,13 @@
 import styles from "./infos.module.css"
 
 interface Props {
-  children: JSX.Element[]
+  infos: string
 }
 
-const Infos = ({ children }: Props) => {
+const Infos = ({ infos }: Props) => {
   return (
     <div className={styles.infos}>
-      {children}
+      {infos}
     </div>
   )
 }
