@@ -1,8 +1,8 @@
 import Infos from "./Infos/Infos"
-import Next from "./Next/Next"
-import Previous from "./Previous/Previous"
+import NavButton from "./NavButton/NavButton"
 import styles from "./header.module.css"
 import type { DateProps } from "../WinDate"
+
 
 const monthsString = {
   0: 'Janvier',
@@ -47,8 +47,8 @@ const Header = ({ date, setDate }: DateProps) => {
         <span>{monthsString[currentMonth as MonthIndex]}</span>
         <span>{currentYear}</span>
       </Infos>
-      <Previous handler={setPreviousMonth} />
-      <Next handler={setNextMonth} />
+      <NavButton handler={setPreviousMonth} direction="up" />
+      <NavButton handler={setNextMonth} direction="down" />
     </header>
   )
 }

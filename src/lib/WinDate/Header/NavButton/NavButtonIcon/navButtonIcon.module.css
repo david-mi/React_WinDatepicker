@@ -1,0 +1,11 @@
+.icon path {
+  fill: black;
+}
+
+.up {
+  rotate: 90deg;
+}
+
+.down {
+  rotate: -90deg;
+}
