@@ -1,7 +1,7 @@
 import { expect } from "vitest";
 import { render, screen, getNodeText } from "@testing-library/react";
-import Dates from "../../lib/WinDate/Month/Dates/Dates";
-import { getDates } from "../../lib/WinDate/Month/helper";
+import Dates from "../../lib/WinDate/Calendar/Month/Dates/Dates";
+import { getDates } from "../../lib/WinDate/Calendar/Month/helper";
 
 describe("<Dates>", () => {
   it("Should page with all getDates values from getDates", () => {

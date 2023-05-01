@@ -1,6 +1,6 @@
 import { expect, vi } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
-import NavButton, { Props as NavButtonProps } from "../../lib/WinDate/Header/NavButton/NavButton";
+import NavButton, { Props as NavButtonProps } from "../../lib/WinDate/Calendar/Header/NavButton/NavButton";
 
 describe("<NavButton>", () => {
   let navButtonProps: NavButtonProps

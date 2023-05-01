@@ -1,11 +1,11 @@
 import type { MonthDateFormat } from "../../type"
-import styles from "./date.module.css"
+import styles from "./dateButton.module.css"
 
 interface Props {
   date: MonthDateFormat
 }
 
-const Date = ({ date }: Props) => {
+const DateButton = ({ date }: Props) => {
   const { getDate, getFormatedDate, isFromChosenMonth, isToday } = date
 
   /** Create classNames based on props values */
@@ -27,4 +27,4 @@ const Date = ({ date }: Props) => {
   )
 }
 
-export default Date
+export default DateButton

@@ -1,8 +1,8 @@
 import { expect } from "vitest";
 import { render, screen } from "@testing-library/react";
-import DateComponent from "../../lib/WinDate/Month/Dates/Date/Date";
-import type { MonthDateFormat } from "../../lib/WinDate/Month/type";
-import { formatDate } from "../../lib/WinDate/Month/helper";
+import DateButton from "../../lib/WinDate/Calendar/Month/Dates/DateButton/DateButton";
+import type { MonthDateFormat } from "../../lib/WinDate/Calendar/Month/type";
+import { formatDate } from "../../lib/WinDate/Calendar/Month/helper";
 
 describe("<Date>", () => {
   let date: Date
@@ -21,7 +21,7 @@ describe("<Date>", () => {
   })
 
   beforeEach(() => {
-    render(<DateComponent date={dateProps} />)
+    render(<DateButton date={dateProps} />)
     dateElement = screen.getByTestId("date")
   })
 

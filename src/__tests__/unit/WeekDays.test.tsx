@@ -1,6 +1,6 @@
 import { expect } from "vitest";
 import { render, screen, getNodeText } from "@testing-library/react";
-import Weekdays from "../../lib/WinDate/Month/Weekdays/Weekdays";
+import Weekdays from "../../lib/WinDate/Calendar/Month/Weekdays/Weekdays";
 
 describe("<WeekDays>", () => {
   it("Should display all days of the week as abbreviation", () => {

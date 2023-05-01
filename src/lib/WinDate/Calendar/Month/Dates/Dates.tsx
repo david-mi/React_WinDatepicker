@@ -1,5 +1,5 @@
 
-import Date from "./Date/Date"
+import DateButton from "./DateButton/DateButton"
 import type { MonthDateFormat } from "../type"
 import styles from "./dates.module.css"
 
@@ -11,7 +11,7 @@ const Dates = ({ dates }: Props) => {
   return (
     <div className={styles.dates}>
       {dates.map((date, index) => {
-        return <Date key={index} date={date} />
+        return <DateButton key={index} date={date} />
       })}
     </div>
   )

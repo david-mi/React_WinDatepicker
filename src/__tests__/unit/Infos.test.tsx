@@ -1,6 +1,6 @@
 import { expect } from "vitest";
 import { render, screen } from "@testing-library/react";
-import Infos from "../../lib/WinDate/Header/Infos/Infos";
+import Infos from "../../lib/WinDate/Calendar/Header/Infos/Infos";
 
 describe("<Infos>", () => {
   it("Shoud retrieve 'avril 2023' in the document", () => {

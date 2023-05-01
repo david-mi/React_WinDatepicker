@@ -1,6 +1,6 @@
 import { expect } from "vitest";
-import { getDates, formatDate, isDateToday } from "../../lib/WinDate/Month/helper";
-import type { MonthDateFormat } from "../../lib/WinDate/Month/type";
+import { getDates, formatDate, isDateToday } from "../../lib/WinDate/Calendar/Month/helper";
+import type { MonthDateFormat } from "../../lib/WinDate/Calendar/Month/type";
 
 describe("getDate helper", () => {
   describe("Tests for April 2023", () => {
