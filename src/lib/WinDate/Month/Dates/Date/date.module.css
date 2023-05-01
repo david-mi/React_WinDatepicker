@@ -10,7 +10,11 @@
   border: none;
 }
 
-.current {
+.chosenMonth {
   color: black;
   font-weight: bold;
+}
+
+.today {
+  background-color: orange;
 }

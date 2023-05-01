@@ -43,7 +43,8 @@ export function getDates(chosenDate: Date): MonthDateFormat[] {
     monthDates.push({
       getDate: dayDate,
       getFormatedDate: formatDate(date),
-      isFromChosenMonth: date.getMonth() === chosenMonth
+      isFromChosenMonth: date.getMonth() === chosenMonth,
+      isToday: isDateToday(date)
     })
     date.setDate(dayDate + 1)
   }
