@@ -1,5 +1,5 @@
 import { expect } from "vitest";
-import { getDates, formatDate } from "../../lib/WinDate/Month/helper";
+import { getDates, formatDate, isDateToday } from "../../lib/WinDate/Month/helper";
 import type { MonthDateFormat } from "../../lib/WinDate/Month/type";
 
 describe("getDate helper", () => {
@@ -471,5 +471,17 @@ describe("formatDate helper", () => {
   it("Should return 2023-12-24 for a new Date set to december 24th 2025", () => {
     const date = new Date(2025, 11, 24)
     expect(formatDate(date)).toBe("2025-12-24")
+  })
+})
+
+describe("isDateToday helper", () => {
+  it("Should return true for a new created Date", () => {
+    const date = new Date()
+    expect(isDateToday(date)).toBe(true)
+  })
+
+  it("Should return false for a new Date set to Jan 10th 2000", () => {
+    const date = new Date(2000, 10, 1)
+    expect(isDateToday(date)).toBe(false)
   })
 })

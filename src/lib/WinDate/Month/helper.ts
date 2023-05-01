@@ -62,3 +62,13 @@ export function formatDate(date: Date): string {
 
   return `${year}-${month}-${day}`
 }
+
+/**
+ * Checks if the passed date correspond to today
+ */
+
+export function isDateToday(date: Date) {
+  const todayToString = new Date().toDateString()
+  const dateToCompare = new Date(date).toDateString()
+  return todayToString === dateToCompare
+}
