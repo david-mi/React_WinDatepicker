@@ -10,26 +10,17 @@ const Date = ({ date }: Props) => {
 
   /** Create classNames based on props values */
 
-  function handleClassNames() {
-    let className = styles.date
-
-    if (isToday) {
-      className += ` ${styles.today}`
-    }
-
-    if (isFromChosenMonth) {
-      className += ` ${styles.chosenMonth}`
-    }
-
-    return className
-  }
-
   function handleDateClick() {
     console.info(getFormatedDate)
   }
 
   return (
-    <button className={handleClassNames()} onClick={handleDateClick}>
+    <button
+      data-today={isToday}
+      data-chosen-month={isFromChosenMonth}
+      className={styles.date}
+      onClick={handleDateClick}
+    >
       {getDate}
     </button>
   )

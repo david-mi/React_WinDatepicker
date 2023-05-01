@@ -10,11 +10,11 @@
   border: none;
 }
 
-.chosenMonth {
+.date[data-chosen-month="true"] {
   color: black;
   font-weight: bold;
 }
 
-.today {
+.date[data-today="true"] {
   background-color: orange;
 }
