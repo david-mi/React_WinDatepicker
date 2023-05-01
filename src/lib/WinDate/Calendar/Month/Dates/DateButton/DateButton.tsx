@@ -1,17 +1,19 @@
 import type { MonthDateFormat } from "../../type"
 import styles from "./dateButton.module.css"
+import type { DateProps } from "../../../../WinDate"
 
-interface Props {
+interface Props extends Pick<DateProps, "setDate"> {
   date: MonthDateFormat
 }
 
-const DateButton = ({ date }: Props) => {
+const DateButton = ({ date, setDate }: Props) => {
   const { getDate, getFormatedDate, isFromChosenMonth, isToday } = date
 
-  /** Create classNames based on props values */
+  /** Update date state with clicked date from calendar */
 
   function handleDateClick() {
-    console.info(getFormatedDate)
+    const newDate = new Date(getFormatedDate)
+    setDate(newDate)
   }
 
   return (

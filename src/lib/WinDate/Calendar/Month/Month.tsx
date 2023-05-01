@@ -4,7 +4,7 @@ import Weekdays from "./Weekdays/Weekdays"
 import Dates from "./Dates/Dates"
 import { getDates } from "./helper"
 import { monthsAbbrev, MonthIndex } from "./data"
-import type { DateProps } from "../WinDate"
+import type { DateProps } from "../../WinDate"
 import type { MonthDateFormat } from "./type"
 
 const Month = ({ date, setDate }: DateProps) => {
@@ -39,7 +39,7 @@ const Month = ({ date, setDate }: DateProps) => {
         infos={infos}
       />
       <Weekdays />
-      <Dates dates={dates} />
+      <Dates dates={dates} setDate={setDate} />
     </div>
   )
 }

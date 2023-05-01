@@ -1,4 +1,5 @@
 import Calendar from "./Calendar/Calendar"
+import DateInput from "./DateInput/DateInput"
 import { useState } from "react"
 import type { SetStateAction, Dispatch } from "react"
 import styles from "./winDate.module.css"
@@ -14,7 +15,9 @@ const Windate = () => {
   return (
     <div className={styles.winDate}>
       <Calendar date={date} setDate={setDate} />
+      <DateInput date={date} setDate={setDate} />
     </div>
   )
 }
+
 export default Windate
