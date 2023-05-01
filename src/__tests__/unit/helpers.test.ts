@@ -1,5 +1,5 @@
 import { expect } from "vitest";
-import { getDates } from "../../lib/WinDate/Month/helper";
+import { getDates, formatDate } from "../../lib/WinDate/Month/helper";
 import type { MonthDateFormat } from "../../lib/WinDate/Month/type";
 
 describe("getDate helper", () => {
@@ -222,13 +222,13 @@ describe("getDate helper", () => {
     })
 
     it("should return the expected result if we set April 1 2023 as parameter", () => {
-      const april2023Date = new Date(2023, 3, 1)
-      expect(getDates(april2023Date)).toEqual(expectedResultFromApril2023)
+      const date = new Date(2023, 3, 1)
+      expect(getDates(date)).toEqual(expectedResultFromApril2023)
     })
 
     it("should return the expected result as before if we set April 15 2023 as parameter", () => {
-      const april2023Date = new Date(2023, 3, 25)
-      expect(getDates(april2023Date)).toEqual(expectedResultFromApril2023)
+      const date = new Date(2023, 3, 25)
+      expect(getDates(date)).toEqual(expectedResultFromApril2023)
     })
   })
 
@@ -451,13 +451,25 @@ describe("getDate helper", () => {
     })
 
     it("should return the expected result if we set July 1 2023 as parameter", () => {
-      const july2023Date = new Date(2023, 6, 1)
-      expect(getDates(july2023Date)).toEqual(expectedResultFromJuly2023)
+      const date = new Date(2023, 6, 1)
+      expect(getDates(date)).toEqual(expectedResultFromJuly2023)
     })
 
     it("should return the expected result as before if we set July 11 2023 as parameter", () => {
-      const july2023Date = new Date(2023, 6, 11)
-      expect(getDates(july2023Date)).toEqual(expectedResultFromJuly2023)
+      const date = new Date(2023, 6, 11)
+      expect(getDates(date)).toEqual(expectedResultFromJuly2023)
     })
+  })
+})
+
+describe("formatDate helper", () => {
+  it("Should return 2023-04-01 for a new Date set to first april 2023", () => {
+    const date = new Date(2023, 3, 1)
+    expect(formatDate(date)).toBe("2023-04-01")
+  })
+
+  it("Should return 2023-12-24 for a new Date set to december 24th 2025", () => {
+    const date = new Date(2025, 11, 24)
+    expect(formatDate(date)).toBe("2025-12-24")
   })
 })
