@@ -1,13 +1,16 @@
+import { useContext } from "react"
+import { GlobalContext } from "../../../../../Context/Global"
 import type { MonthDateFormat } from "../../type"
 import styles from "./dateButton.module.css"
-import type { DateProps } from "../../../../WinDate"
 
-interface Props extends Pick<DateProps, "setDate"> {
+interface Props {
   date: MonthDateFormat
 }
 
-const DateButton = ({ date, setDate }: Props) => {
+const DateButton = ({ date }: Props) => {
   const { getDate, getFormatedDate, isFromChosenMonth, isToday } = date
+
+  const { setDate } = useContext(GlobalContext)
 
   /** Update date state with clicked date from calendar */
 

@@ -1,16 +1,16 @@
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useContext } from "react"
+import { GlobalContext } from "../../Context/Global"
 import type { ChangeEvent } from "react"
-import type { DateProps } from "../WinDate"
 import { formatDate } from "../Calendar/Month/helper"
 
-const DateInput = ({ date, setDate }: DateProps) => {
+const DateInput = () => {
   const dateInputRef = useRef<HTMLInputElement>(null!)
-
+  const { date, setDate } = useContext(GlobalContext)
 
   /**
- * Update date from retrieved date from input
- * - if retrieved date is null, add the current date
- */
+  * Update date from retrieved date from input
+  * - if retrieved date is null, add the current date
+  */
 
   function changeDateFromInput({ target }: ChangeEvent<HTMLInputElement>) {
     const targetDate = target.valueAsDate

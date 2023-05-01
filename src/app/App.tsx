@@ -1,8 +1,8 @@
-import { WinDate } from "../lib"
+import { WinDateWrapper } from "../lib"
 
 const App = () => {
   return (
-    <WinDate startDate={new Date()} />
+    <WinDateWrapper />
   )
 }
 

@@ -1,11 +1,10 @@
 import styles from "./calendar.module.css"
 import Month from "./Month/Month"
-import type { DateProps } from "../WinDate"
 
-const Calendar = ({ date, setDate }: DateProps) => {
+const Calendar = () => {
   return (
     <div className={styles.calendar}>
-      <Month date={date} setDate={setDate} />
+      <Month />
     </div>
   )
 }

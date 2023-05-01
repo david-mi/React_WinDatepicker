@@ -1,18 +1,16 @@
-
 import DateButton from "./DateButton/DateButton"
 import type { MonthDateFormat } from "../type"
 import styles from "./dates.module.css"
-import type { DateProps } from "../../../WinDate"
 
-interface Props extends Pick<DateProps, "setDate"> {
+interface Props {
   dates: MonthDateFormat[]
 }
 
-const Dates = ({ dates, setDate }: Props) => {
+const Dates = ({ dates }: Props) => {
   return (
     <div className={styles.dates}>
       {dates.map((date, index) => {
-        return <DateButton key={index} date={date} setDate={setDate} />
+        return <DateButton key={index} date={date} />
       })}
     </div>
   )

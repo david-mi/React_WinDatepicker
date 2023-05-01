@@ -1,13 +1,15 @@
-import { useMemo } from "react"
+import { useMemo, useContext } from "react"
+import { GlobalContext } from "../../../Context/Global"
 import Header from "../Header/Header"
 import Weekdays from "./Weekdays/Weekdays"
 import Dates from "./Dates/Dates"
 import { getDates } from "./helper"
 import { monthsAbbrev, MonthIndex } from "./data"
-import type { DateProps } from "../../WinDate"
 import type { MonthDateFormat } from "./type"
 
-const Month = ({ date, setDate }: DateProps) => {
+const Month = () => {
+  const { date, setDate } = useContext(GlobalContext)
+
   const dates: MonthDateFormat[] = useMemo(() => {
     return getDates(date)
   }, [date])
@@ -39,7 +41,7 @@ const Month = ({ date, setDate }: DateProps) => {
         infos={infos}
       />
       <Weekdays />
-      <Dates dates={dates} setDate={setDate} />
+      <Dates dates={dates} />
     </div>
   )
 }
