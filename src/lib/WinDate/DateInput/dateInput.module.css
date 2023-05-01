@@ -1,0 +1,17 @@
+.container {
+  background-color: red;
+  width: fit-content;
+  position: relative;
+}
+
+.icon {
+  position: absolute;
+  right: 2px;
+  background-color: white;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.icon path {
+  fill: black;
+}
