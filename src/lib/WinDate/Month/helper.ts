@@ -1,3 +1,5 @@
+import type { MonthDateFormat } from "./type"
+
 const getDayIndex = {
   0: 6,
   1: 0,
@@ -17,17 +19,16 @@ type DaysIndexKeys = keyof typeof getDayIndex
  *   start with monday, add the last dates from the previous month to compensate
  * - Add all dates from the {@link chosenDate} month
  * - If the length of {@link monthDates} is below 42, add the first dates from the next month to compensate
- * 
- * @returns array of dates
  */
 
-export function getDates(chosenDate: Date): number[] {
+export function getDates(chosenDate: Date): MonthDateFormat[] {
   /** make a copy of {@link chosenDate} to not mutate it */
   const date = new Date(chosenDate)
 
   const monthDates = []
   const amountOfDatesToReturn = 42
   const firstDateOfTheMonth = 1
+  const chosenMonth = date.getMonth()
 
   date.setDate(firstDateOfTheMonth)
   const firstDayOfTheMonth = date.getDay()
@@ -39,9 +40,25 @@ export function getDates(chosenDate: Date): number[] {
 
   while (monthDates.length !== amountOfDatesToReturn) {
     dayDate = date.getDate()
-    monthDates.push(dayDate)
+    monthDates.push({
+      getDate: dayDate,
+      getFormatedDate: formatDate(date),
+      isFromChosenMonth: date.getMonth() === chosenMonth
+    })
     date.setDate(dayDate + 1)
   }
 
   return monthDates
+}
+
+/**
+ * Format any date to a YYYY-MM-DD string format
+ */
+
+export function formatDate(date: Date): string {
+  const year = date.getFullYear()
+  const month = String(date.getMonth() + 1).padStart(2, "0")
+  const day = String(date.getDate()).padStart(2, "0")
+
+  return `${year}-${month}-${day}`
 }

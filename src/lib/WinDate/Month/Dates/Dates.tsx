@@ -1,9 +1,10 @@
 
 import Date from "./Date/Date"
+import type { MonthDateFormat } from "../type"
 import styles from "./dates.module.css"
 
 interface Props {
-  dates: number[]
+  dates: MonthDateFormat[]
 }
 
 const Dates = ({ dates }: Props) => {
