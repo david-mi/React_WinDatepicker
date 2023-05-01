@@ -1,11 +1,15 @@
+import { useContext } from "react"
+import { GlobalContext } from "../Context/Global"
 import Calendar from "./Calendar/Calendar"
 import DateInput from "./DateInput/DateInput"
 import styles from "./winDate.module.css"
 
 const Windate = () => {
+  const { isCalendarOpen } = useContext(GlobalContext)
+
   return (
     <div className={styles.winDate}>
-      <Calendar />
+      {isCalendarOpen && <Calendar />}
       <DateInput />
     </div>
   )

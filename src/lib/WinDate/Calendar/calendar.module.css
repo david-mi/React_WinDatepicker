@@ -1,4 +1,21 @@
+.bg {
+  display: grid;
+  place-items: center;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+}
+
+.wrapper {
+  background-color: rgba(66, 66, 66, 0.774);
+  position: fixed;
+  inset: 0;
+  z-index: 1001;
+}
+
 .calendar {
+  position: relative;
+  z-index: 1002;
   background-color: rgb(209, 209, 209);
   height: 500px;
   width: 500px

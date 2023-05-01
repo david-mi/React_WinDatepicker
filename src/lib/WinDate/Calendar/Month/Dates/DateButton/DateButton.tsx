@@ -10,13 +10,14 @@ interface Props {
 const DateButton = ({ date }: Props) => {
   const { getDate, getFormatedDate, isFromChosenMonth, isToday } = date
 
-  const { setDate } = useContext(GlobalContext)
+  const { setDate, closeCalendar } = useContext(GlobalContext)
 
   /** Update date state with clicked date from calendar */
 
   function handleDateClick() {
     const newDate = new Date(getFormatedDate)
     setDate(newDate)
+    closeCalendar()
   }
 
   return (

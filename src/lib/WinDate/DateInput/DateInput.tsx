@@ -1,18 +1,18 @@
-import { useEffect, useRef, useContext } from "react"
+import { useEffect, useRef, useContext, MouseEvent } from "react"
 import { GlobalContext } from "../../Context/Global"
 import type { ChangeEvent } from "react"
 import { formatDate } from "../Calendar/Month/helper"
 
 const DateInput = () => {
   const dateInputRef = useRef<HTMLInputElement>(null!)
-  const { date, setDate } = useContext(GlobalContext)
+  const { date, setDate, openCalendar } = useContext(GlobalContext)
 
   /**
   * Update date from retrieved date from input
   * - if retrieved date is null, add the current date
   */
 
-  function changeDateFromInput({ target }: ChangeEvent<HTMLInputElement>) {
+  function handleChange({ target }: ChangeEvent<HTMLInputElement>) {
     const targetDate = target.valueAsDate
 
     const newDate = targetDate
@@ -20,6 +20,11 @@ const DateInput = () => {
       : new Date()
 
     setDate(newDate)
+  }
+
+  function handleClick(event: MouseEvent<HTMLInputElement>) {
+    event.preventDefault()
+    openCalendar()
   }
 
   useEffect(() => {
@@ -31,7 +36,8 @@ const DateInput = () => {
       type="date"
       name="date"
       id="date"
-      onChange={changeDateFromInput}
+      onChange={handleChange}
+      onClick={handleClick}
       ref={dateInputRef}
     />
   )

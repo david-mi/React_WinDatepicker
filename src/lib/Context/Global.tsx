@@ -4,15 +4,17 @@ import { createContext, useState } from "react";
 interface Context {
   date: Date
   setDate: Dispatch<SetStateAction<Date>>
-  openCalendar: boolean
-  setOpenCalendar: Dispatch<SetStateAction<boolean>>
+  isCalendarOpen: boolean
+  openCalendar: () => void
+  closeCalendar: () => void
 }
 
 export const GlobalContext = createContext<Context>({
   date: new Date(),
   setDate: () => { },
-  openCalendar: false,
-  setOpenCalendar: () => { },
+  isCalendarOpen: false,
+  openCalendar: () => null,
+  closeCalendar: () => null
 })
 
 interface Props {
@@ -21,10 +23,26 @@ interface Props {
 
 const GlobalProvider = ({ children }: Props) => {
   const [date, setDate] = useState<Date>(new Date())
-  const [openCalendar, setOpenCalendar] = useState(false)
+  const [isCalendarOpen, setIsCalendarOpen] = useState(false)
+
+  function openCalendar() {
+    setIsCalendarOpen(true)
+  }
+
+  function closeCalendar() {
+    setIsCalendarOpen(false)
+  }
+
+  const contextValue = {
+    date,
+    setDate,
+    isCalendarOpen,
+    openCalendar,
+    closeCalendar
+  }
 
   return (
-    <GlobalContext.Provider value={{ date, setDate, openCalendar, setOpenCalendar }}>
+    <GlobalContext.Provider value={contextValue}>
       {children}
     </GlobalContext.Provider>
   )
