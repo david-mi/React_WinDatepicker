@@ -16,6 +16,7 @@ const Date = ({ date }: Props) => {
 
   return (
     <button
+      data-testid="date"
       data-today={isToday}
       data-chosen-month={isFromChosenMonth}
       className={styles.date}
