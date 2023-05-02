@@ -1,4 +1,4 @@
-export const monthsAbbrev = {
+export const monthsNamesIndexes = {
   0: 'Janvier',
   1: 'Février',
   2: 'Mars',
@@ -13,4 +13,4 @@ export const monthsAbbrev = {
   11: 'Décembre'
 };
 
-export type MonthIndex = keyof typeof monthsAbbrev
+export type MonthIndex = keyof typeof monthsNamesIndexes

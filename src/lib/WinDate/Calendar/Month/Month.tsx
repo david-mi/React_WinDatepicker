@@ -4,7 +4,7 @@ import Header from "../Header/Header"
 import Weekdays from "./Weekdays/Weekdays"
 import Dates from "./Dates/Dates"
 import { getDates } from "./helper"
-import { monthsAbbrev, MonthIndex } from "./data"
+import { monthsNamesIndexes, MonthIndex } from "./data"
 import type { DatesFormat } from "./type"
 
 const Month = () => {
@@ -17,7 +17,7 @@ const Month = () => {
   const chosenMonth = date.getMonth()
   const chosenYear = date.getFullYear()
 
-  const infos = `${monthsAbbrev[chosenMonth as MonthIndex]} ${chosenYear}`
+  const infos = `${monthsNamesIndexes[chosenMonth as MonthIndex]} ${chosenYear}`
 
   function setNextMonth() {
     const nextMonth = new Date(date)
