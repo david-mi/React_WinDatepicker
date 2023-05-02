@@ -2,6 +2,7 @@ import { useContext } from "react"
 import { GlobalContext } from "../../Context/Global"
 import styles from "./calendar.module.css"
 import Month from "./Month/Month"
+import Year from "./Year/Year"
 
 const Calendar = () => {
   const { closeCalendar } = useContext(GlobalContext)
@@ -15,7 +16,8 @@ const Calendar = () => {
       >
       </div>
       <div className={styles.calendar}>
-        <Month />
+        {/* <Month /> */}
+        <Year />
       </div>
     </div>
   )
