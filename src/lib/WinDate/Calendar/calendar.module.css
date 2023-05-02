@@ -1,4 +1,4 @@
-.bg {
+.wrapper {
   display: grid;
   place-items: center;
   position: fixed;
@@ -6,7 +6,7 @@
   z-index: 1000;
 }
 
-.wrapper {
+.closeBg {
   background-color: rgba(66, 66, 66, 0.774);
   position: fixed;
   inset: 0;
