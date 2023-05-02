@@ -1,7 +1,9 @@
 import { expect } from "vitest";
 import { getDates, areDatesIdentical } from "../../lib/WinDate/Calendar/Month/helper";
-import { formatDate } from "../../lib/WinDate/utils";
 import type { DatesFormat } from "../../lib/WinDate/Calendar/Month/type";
+import { getMonths, areMonthsIdentical } from "../../lib/WinDate/Calendar/Year/helper";
+import type { MonthsFormat } from "../../lib/WinDate/Calendar/Year/type";
+import { formatDate } from "../../lib/WinDate/utils";
 
 describe("getDate helper", () => {
   describe("Tests for April 2023", () => {
@@ -621,6 +623,135 @@ describe("getDate helper", () => {
   })
 })
 
+describe("getMonths helper", () => {
+  describe("tests for 2020", () => {
+    let expectedResultsFor2020: MonthsFormat[]
+
+    beforeAll(() => {
+      expectedResultsFor2020 = [
+        {
+          "getMonthAbbrev": "janv.",
+          "getFormatedDate": "2020-01-01",
+          "isFromChosenYear": true,
+          "isCurrentMonth": false,
+          "isChosenMonth": true
+        },
+        {
+          "getMonthAbbrev": "févr.",
+          "getFormatedDate": "2020-02-01",
+          "isFromChosenYear": true,
+          "isCurrentMonth": false,
+          "isChosenMonth": false
+        },
+        {
+          "getMonthAbbrev": "mars",
+          "getFormatedDate": "2020-03-01",
+          "isFromChosenYear": true,
+          "isCurrentMonth": false,
+          "isChosenMonth": false
+        },
+        {
+          "getMonthAbbrev": "avr.",
+          "getFormatedDate": "2020-04-01",
+          "isFromChosenYear": true,
+          "isCurrentMonth": false,
+          "isChosenMonth": false
+        },
+        {
+          "getMonthAbbrev": "mai",
+          "getFormatedDate": "2020-05-01",
+          "isFromChosenYear": true,
+          "isCurrentMonth": false,
+          "isChosenMonth": false
+        },
+        {
+          "getMonthAbbrev": "juin",
+          "getFormatedDate": "2020-06-01",
+          "isFromChosenYear": true,
+          "isCurrentMonth": false,
+          "isChosenMonth": false
+        },
+        {
+          "getMonthAbbrev": "juil.",
+          "getFormatedDate": "2020-07-01",
+          "isFromChosenYear": true,
+          "isCurrentMonth": false,
+          "isChosenMonth": false
+        },
+        {
+          "getMonthAbbrev": "août",
+          "getFormatedDate": "2020-08-01",
+          "isFromChosenYear": true,
+          "isCurrentMonth": false,
+          "isChosenMonth": false
+        },
+        {
+          "getMonthAbbrev": "sept.",
+          "getFormatedDate": "2020-09-01",
+          "isFromChosenYear": true,
+          "isCurrentMonth": false,
+          "isChosenMonth": false
+        },
+        {
+          "getMonthAbbrev": "oct.",
+          "getFormatedDate": "2020-10-01",
+          "isFromChosenYear": true,
+          "isCurrentMonth": false,
+          "isChosenMonth": false
+        },
+        {
+          "getMonthAbbrev": "nov.",
+          "getFormatedDate": "2020-11-01",
+          "isFromChosenYear": true,
+          "isCurrentMonth": false,
+          "isChosenMonth": false
+        },
+        {
+          "getMonthAbbrev": "déc.",
+          "getFormatedDate": "2020-12-01",
+          "isFromChosenYear": true,
+          "isCurrentMonth": false,
+          "isChosenMonth": false
+        },
+        {
+          "getMonthAbbrev": "janv.",
+          "getFormatedDate": "2021-01-01",
+          "isFromChosenYear": false,
+          "isCurrentMonth": false,
+          "isChosenMonth": false
+        },
+        {
+          "getMonthAbbrev": "févr.",
+          "getFormatedDate": "2021-02-01",
+          "isFromChosenYear": false,
+          "isCurrentMonth": false,
+          "isChosenMonth": false
+        },
+        {
+          "getMonthAbbrev": "mars",
+          "getFormatedDate": "2021-03-01",
+          "isFromChosenYear": false,
+          "isCurrentMonth": false,
+          "isChosenMonth": false
+        },
+        {
+          "getMonthAbbrev": "avr.",
+          "getFormatedDate": "2021-04-01",
+          "isFromChosenYear": false,
+          "isCurrentMonth": false,
+          "isChosenMonth": false
+        }
+      ]
+    })
+
+    it("should return the expected result if set a date from 2020 as parameter", () => {
+      const date = new Date(2020, 0, 1)
+      expect(getMonths(date)).toEqual(expectedResultsFor2020)
+    })
+  })
+
+})
+
 describe("formatDate helper", () => {
   it("Should return 2023-04-01 for a new Date set to April 1st 2023", () => {
     const date = new Date(2023, 3, 1)
@@ -644,5 +775,19 @@ describe("areDatesIdentical helper", () => {
     const firstDate = new Date(2020, 10, 11)
     const secondDate = new Date(2006, 1, 5)
     expect(areDatesIdentical(firstDate, secondDate)).toBe(false)
+  })
+})
+
+describe("areMonthsIdentical helper", () => {
+  it("Should return true for 2 dates with the same month and year", () => {
+    const firstDate = new Date(2010, 3, 5)
+    const secondDate = new Date(2010, 3, 15)
+    expect(areMonthsIdentical(firstDate, secondDate)).toBe(true)
+  })
+
+  it("Should return false for 2 dates with the same month but different years", () => {
+    const firstDate = new Date(2050, 1, 11)
+    const secondDate = new Date(2006, 1, 5)
+    expect(areMonthsIdentical(firstDate, secondDate)).toBe(false)
   })
 })
