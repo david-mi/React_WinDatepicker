@@ -1,7 +1,7 @@
 import { useEffect, useRef, useContext, KeyboardEvent } from "react"
 import { GlobalContext } from "../../Context/Global"
 import type { ChangeEvent } from "react"
-import { formatDate } from "../Calendar/Month/helper"
+import { formatDate } from "../utils"
 import styles from "./dateInput.module.css"
 import CalendarIcon from "./CalendarIcon/CalendarIcon"
 

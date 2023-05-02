@@ -2,7 +2,7 @@ import { expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import DateButton from "../../lib/WinDate/Calendar/Month/Dates/DateButton/DateButton";
 import type { MonthDateFormat } from "../../lib/WinDate/Calendar/Month/type";
-import { formatDate } from "../../lib/WinDate/Calendar/Month/helper";
+import { formatDate } from "../../lib/WinDate/utils";
 
 describe("<Date>", () => {
   let date: Date

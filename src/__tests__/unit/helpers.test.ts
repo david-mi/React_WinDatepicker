@@ -1,5 +1,6 @@
 import { expect } from "vitest";
-import { getDates, formatDate, areDatesIdentical } from "../../lib/WinDate/Calendar/Month/helper";
+import { getDates, areDatesIdentical } from "../../lib/WinDate/Calendar/Month/helper";
+import { formatDate } from "../../lib/WinDate/utils";
 import type { MonthDateFormat } from "../../lib/WinDate/Calendar/Month/type";
 
 describe("getDate helper", () => {
