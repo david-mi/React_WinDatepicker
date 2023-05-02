@@ -1,5 +1,5 @@
 import { expect } from "vitest";
-import { getDates, formatDate, isDateToday } from "../../lib/WinDate/Calendar/Month/helper";
+import { getDates, formatDate, areDatesIdentical } from "../../lib/WinDate/Calendar/Month/helper";
 import type { MonthDateFormat } from "../../lib/WinDate/Calendar/Month/type";
 
 describe("getDate helper", () => {
@@ -558,14 +558,16 @@ describe("formatDate helper", () => {
   })
 })
 
-describe("isDateToday helper", () => {
-  it("Should return true for a new created Date", () => {
-    const date = new Date()
-    expect(isDateToday(date)).toBe(true)
+describe("areDatesIdentical helper", () => {
+  it("Should return true for the same 2 dates", () => {
+    const firstDate = new Date(2005, 2, 5)
+    const secondDate = new Date(2005, 2, 5)
+    expect(areDatesIdentical(firstDate, secondDate)).toBe(true)
   })
 
-  it("Should return false for a new Date set to Jan 10th 2000", () => {
-    const date = new Date(2000, 10, 1)
-    expect(isDateToday(date)).toBe(false)
+  it("Should return false for 2 different dates", () => {
+    const firstDate = new Date(2020, 10, 11)
+    const secondDate = new Date(2006, 1, 5)
+    expect(areDatesIdentical(firstDate, secondDate)).toBe(false)
   })
 })

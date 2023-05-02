@@ -44,7 +44,7 @@ export function getDates(chosenDate: Date): MonthDateFormat[] {
       getDate: dayDate,
       getFormatedDate: formatDate(date),
       isFromChosenMonth: date.getMonth() === chosenMonth,
-      isToday: isDateToday(date)
+      isToday: areDatesIdentical(new Date(), date),
     })
     date.setDate(dayDate + 1)
   }
@@ -68,8 +68,8 @@ export function formatDate(date: Date): string {
  * Checks if the passed date correspond to today
  */
 
-export function isDateToday(date: Date) {
-  const todayToString = new Date().toDateString()
-  const dateToCompare = new Date(date).toDateString()
-  return todayToString === dateToCompare
+export function areDatesIdentical(firstDate: Date, secondDate: Date) {
+  const firstDateToString = new Date(firstDate).toDateString()
+  const secondDateToString = new Date(secondDate).toDateString()
+  return firstDateToString === secondDateToString
 }
