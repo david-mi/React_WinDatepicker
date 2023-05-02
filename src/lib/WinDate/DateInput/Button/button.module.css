@@ -1,0 +1,12 @@
+.button {
+  position: absolute;
+  right: 2px;
+  background-color: white;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+}
+
+.button path {
+  fill: black;
+}

@@ -3,7 +3,7 @@ import { GlobalContext } from "../../Context/Global"
 import type { ChangeEvent } from "react"
 import { formatDate } from "../utils"
 import styles from "./dateInput.module.css"
-import CalendarIcon from "./CalendarIcon/CalendarIcon"
+import Button from "./Button/Button"
 
 const DateInput = () => {
   const dateInputRef = useRef<HTMLInputElement>(null!)
@@ -66,7 +66,7 @@ const DateInput = () => {
         onBlur={handleBlur}
         onFocus={handleFocus}
       />
-      <CalendarIcon className={styles.icon} openCalendar={openCalendar} />
+      <Button handler={openCalendar} />
     </div>
   )
 }
