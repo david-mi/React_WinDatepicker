@@ -28,7 +28,7 @@ const MonthButton = ({ month }: Props) => {
 
   return (
     <button
-      data-testid="date"
+      data-testid="month"
       data-current-month={isCurrentMonth}
       data-chosen-year={isFromChosenYear}
       data-chosen-month={isChosenMonth}
