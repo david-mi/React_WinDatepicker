@@ -1,12 +1,17 @@
+import { useContext } from "react"
+import { GlobalContext } from "../../../Context/Global"
 import styles from "./button.module.css"
 
-interface Props {
-  handler: () => void
-}
+const Button = () => {
+  const { setTimeline, openCalendar } = useContext(GlobalContext)
 
-const Button = ({ handler }: Props) => {
+  function handleClick() {
+    setTimeline("MONTH")
+    openCalendar()
+  }
+
   return (
-    <button onClick={handler} className={styles.button}>
+    <button onClick={handleClick} className={styles.button}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="1em"

@@ -2,6 +2,6 @@
   display: flex;
 }
 
-.header div {
+.header button:first-child {
   margin-right: auto;
 }

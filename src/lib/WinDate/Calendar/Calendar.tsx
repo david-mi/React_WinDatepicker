@@ -3,9 +3,17 @@ import { GlobalContext } from "../../Context/Global"
 import styles from "./calendar.module.css"
 import Month from "./Month/Month"
 import Year from "./Year/Year"
+import type { Timeline } from "../../Context/Global"
 
 const Calendar = () => {
-  const { closeCalendar } = useContext(GlobalContext)
+  const { closeCalendar, timeline } = useContext(GlobalContext)
+
+  const componentsTimeline: {
+    [key in Timeline]: JSX.Element
+  } = {
+    "MONTH": <Month />,
+    "YEAR": <Year />
+  }
 
   return (
     <div data-testid="calendar-wrapper" className={styles.wrapper}>
@@ -16,8 +24,7 @@ const Calendar = () => {
       >
       </div>
       <div className={styles.calendar}>
-        <Month />
-        {/* <Year /> */}
+        {componentsTimeline[timeline]}
       </div>
     </div>
   )

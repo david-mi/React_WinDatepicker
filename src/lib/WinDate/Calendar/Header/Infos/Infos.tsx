@@ -1,3 +1,5 @@
+import { useContext } from "react"
+import { GlobalContext } from "../../../../Context/Global"
 import styles from "./infos.module.css"
 
 interface Props {
@@ -5,10 +7,16 @@ interface Props {
 }
 
 const Infos = ({ infos }: Props) => {
+  const { setTimeline } = useContext(GlobalContext)
+
+  function handleClick() {
+    setTimeline("YEAR")
+  }
+
   return (
-    <div className={styles.infos}>
+    <button onClick={handleClick} className={styles.infos}>
       {infos}
-    </div>
+    </button>
   )
 }
 export default Infos

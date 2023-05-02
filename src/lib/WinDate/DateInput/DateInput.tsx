@@ -66,7 +66,7 @@ const DateInput = () => {
         onBlur={handleBlur}
         onFocus={handleFocus}
       />
-      <Button handler={openCalendar} />
+      <Button />
     </div>
   )
 }

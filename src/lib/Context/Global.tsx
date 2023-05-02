@@ -7,6 +7,8 @@ interface Context {
   isCalendarOpen: boolean
   openCalendar: () => void
   closeCalendar: () => void
+  setTimeline: Dispatch<SetStateAction<Timeline>>
+  timeline: Timeline
 }
 
 export const GlobalContext = createContext<Context>({
@@ -14,8 +16,12 @@ export const GlobalContext = createContext<Context>({
   setDate: () => { },
   isCalendarOpen: false,
   openCalendar: () => null,
-  closeCalendar: () => null
+  closeCalendar: () => null,
+  setTimeline: () => { },
+  timeline: "MONTH"
 })
+
+export type Timeline = "MONTH" | "YEAR"
 
 interface Props {
   children: ReactNode
@@ -24,6 +30,7 @@ interface Props {
 const GlobalProvider = ({ children }: Props) => {
   const [date, setDate] = useState<Date>(new Date())
   const [isCalendarOpen, setIsCalendarOpen] = useState(false)
+  const [timeline, setTimeline] = useState<Timeline>("MONTH")
 
   function openCalendar() {
     setIsCalendarOpen(true)
@@ -38,7 +45,9 @@ const GlobalProvider = ({ children }: Props) => {
     setDate,
     isCalendarOpen,
     openCalendar,
-    closeCalendar
+    closeCalendar,
+    setTimeline,
+    timeline
   }
 
   return (
