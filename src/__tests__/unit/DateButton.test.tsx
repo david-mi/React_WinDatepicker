@@ -16,7 +16,8 @@ describe("<Date>", () => {
       getDate: date.getDate(),
       getFormatedDate: formatDate(date),
       isFromChosenMonth: true,
-      isToday: true
+      isToday: true,
+      isChosenDate: true
     }
   })
 
@@ -39,12 +40,20 @@ describe("<Date>", () => {
         expect(dataTodayBooleanAttribute).toBe("true")
       })
     })
+
+    describe("For a passed date props with isChosenDate set to true", () => {
+      it("Shoud have data-chosen-date boolean attribute corresponding to isChosenDate", () => {
+        const dataChosenDateBooleanAttribute = dateElement.getAttribute("data-chosen-date")
+        expect(dataChosenDateBooleanAttribute).toBe("true")
+      })
+    })
   })
 
   describe("For false values", () => {
     beforeAll(() => {
       dateProps.isFromChosenMonth = false
       dateProps.isToday = false
+      dateProps.isChosenDate = false
     })
 
     describe("For a passed date props with isFromChosenMonth set to false", () => {
@@ -58,6 +67,13 @@ describe("<Date>", () => {
       it("Shoud have data-today boolean attribute corresponding to isToday", () => {
         const dataTodayBooleanAttribute = dateElement.getAttribute("data-today")
         expect(dataTodayBooleanAttribute).toBe("false")
+      })
+    })
+
+    describe("For a passed date props with isChosenDate set to false", () => {
+      it("Shoud have data-chosen-date boolean attribute corresponding to isChosenDate", () => {
+        const dataChosenDateBooleanAttribute = dateElement.getAttribute("data-chosen-date")
+        expect(dataChosenDateBooleanAttribute).toBe("false")
       })
     })
   })
