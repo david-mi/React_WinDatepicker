@@ -7,6 +7,8 @@ import CalendarIcon from "./CalendarIcon/CalendarIcon"
 
 const DateInput = () => {
   const dateInputRef = useRef<HTMLInputElement>(null!)
+  const editFromInput = useRef(false)
+
   const { date, setDate, openCalendar } = useContext(GlobalContext)
 
   /**
@@ -16,16 +18,17 @@ const DateInput = () => {
 
   function handleChange({ target }: ChangeEvent<HTMLInputElement>) {
     const targetDate = target.valueAsDate
+    if (targetDate === null) return
 
-    const newDate = targetDate
-      ? new Date(targetDate)
-      : new Date()
-
+    const newDate = new Date(targetDate)
     setDate(newDate)
   }
 
   useEffect(() => {
-    dateInputRef.current.value = formatDate(date)
+    /** Change input value only if date edition is not coming from input */
+    if (editFromInput.current === false) {
+      dateInputRef.current.value = formatDate(date)
+    }
   }, [date])
 
   /**
@@ -42,16 +45,26 @@ const DateInput = () => {
     }
   }
 
+  function handleBlur() {
+    editFromInput.current = false
+  }
+
+  function handleFocus() {
+    editFromInput.current = true
+  }
+
   return (
     <div className={styles.container}>
       <input
         type="date"
         name="date"
         id="date"
-        onChange={handleChange}
         ref={dateInputRef}
+        onChange={handleChange}
         onClick={(e) => e.preventDefault()}
         onKeyDown={preventEnterKey}
+        onBlur={handleBlur}
+        onFocus={handleFocus}
       />
       <CalendarIcon className={styles.icon} openCalendar={openCalendar} />
     </div>

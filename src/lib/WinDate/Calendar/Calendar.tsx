@@ -16,8 +16,8 @@ const Calendar = () => {
       >
       </div>
       <div className={styles.calendar}>
-        {/* <Month /> */}
-        <Year />
+        <Month />
+        {/* <Year /> */}
       </div>
     </div>
   )

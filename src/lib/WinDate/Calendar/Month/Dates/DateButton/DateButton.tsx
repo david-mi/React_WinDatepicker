@@ -34,6 +34,7 @@ const DateButton = ({ date }: Props) => {
       data-chosen-date={isChosenDate}
       className={styles.date}
       onClick={handleDateClick}
+      autoFocus={isChosenDate}
     >
       {getDate}
     </button>
