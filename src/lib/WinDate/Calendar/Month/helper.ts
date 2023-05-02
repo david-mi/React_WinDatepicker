@@ -45,6 +45,7 @@ export function getDates(chosenDate: Date): MonthDateFormat[] {
       getFormatedDate: formatDate(date),
       isFromChosenMonth: date.getMonth() === chosenMonth,
       isToday: areDatesIdentical(new Date(), date),
+      isChosenDate: areDatesIdentical(chosenDate, date),
     })
     date.setDate(dayDate + 1)
   }

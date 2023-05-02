@@ -7,4 +7,6 @@ export interface MonthDateFormat {
   isFromChosenMonth: boolean
   /** set to true if the date correspond to today */
   isToday: boolean
+  /** set to true if the date correspond to the selected date */
+  isChosenDate: boolean
 }

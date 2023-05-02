@@ -8,7 +8,13 @@ interface Props {
 }
 
 const DateButton = ({ date }: Props) => {
-  const { getDate, getFormatedDate, isFromChosenMonth, isToday } = date
+  const {
+    getDate,
+    getFormatedDate,
+    isFromChosenMonth,
+    isToday,
+    isChosenDate
+  } = date
 
   const { setDate, closeCalendar } = useContext(GlobalContext)
 
@@ -25,6 +31,7 @@ const DateButton = ({ date }: Props) => {
       data-testid="date"
       data-today={isToday}
       data-chosen-month={isFromChosenMonth}
+      data-chosen-date={isChosenDate}
       className={styles.date}
       onClick={handleDateClick}
     >

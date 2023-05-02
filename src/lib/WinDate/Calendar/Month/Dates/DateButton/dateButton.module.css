@@ -18,3 +18,7 @@
 .date[data-today="true"] {
   background-color: orange;
 }
+
+.date[data-chosen-date="true"] {
+  border: solid 2px red;
+}
