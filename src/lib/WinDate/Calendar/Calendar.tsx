@@ -7,8 +7,13 @@ const Calendar = () => {
   const { closeCalendar } = useContext(GlobalContext)
 
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.closeBg} onClick={closeCalendar}></div>
+    <div data-testid="calendar-wrapper" className={styles.wrapper}>
+      <div
+        onClick={closeCalendar}
+        data-testid="calendar-close-bg"
+        className={styles.closeBg}
+      >
+      </div>
       <div className={styles.calendar}>
         <Month />
       </div>
