@@ -1,11 +1,11 @@
 import { expect } from "vitest";
 import { getDates, areDatesIdentical } from "../../lib/WinDate/Calendar/Month/helper";
 import { formatDate } from "../../lib/WinDate/utils";
-import type { MonthDateFormat } from "../../lib/WinDate/Calendar/Month/type";
+import type { DatesFormat } from "../../lib/WinDate/Calendar/Month/type";
 
 describe("getDate helper", () => {
   describe("Tests for April 2023", () => {
-    let expectedResultFromApril2023: MonthDateFormat[]
+    let expectedResultFromApril2023: DatesFormat[]
 
     beforeAll(() => {
       expectedResultFromApril2023 = [
@@ -313,7 +313,7 @@ describe("getDate helper", () => {
   })
 
   describe("Tests for Sept 2022", () => {
-    let expectedResultFromSept2022: MonthDateFormat[]
+    let expectedResultFromSept2022: DatesFormat[]
 
     beforeAll(() => {
       expectedResultFromSept2022 = [

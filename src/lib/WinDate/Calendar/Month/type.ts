@@ -1,4 +1,4 @@
-export interface MonthDateFormat {
+export interface DatesFormat {
   /** day date */
   getDate: number;
   /** date in YYYY-MM-DD format */

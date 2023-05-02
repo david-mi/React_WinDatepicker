@@ -1,10 +1,10 @@
 import { useContext } from "react"
 import { GlobalContext } from "../../../../../Context/Global"
-import type { MonthDateFormat } from "../../type"
+import type { DatesFormat } from "../../type"
 import styles from "./dateButton.module.css"
 
 interface Props {
-  date: MonthDateFormat
+  date: DatesFormat
 }
 
 const DateButton = ({ date }: Props) => {

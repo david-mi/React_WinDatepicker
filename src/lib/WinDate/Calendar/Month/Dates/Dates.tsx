@@ -1,9 +1,9 @@
 import DateButton from "./DateButton/DateButton"
-import type { MonthDateFormat } from "../type"
+import type { DatesFormat } from "../type"
 import styles from "./dates.module.css"
 
 interface Props {
-  dates: MonthDateFormat[]
+  dates: DatesFormat[]
 }
 
 const Dates = ({ dates }: Props) => {

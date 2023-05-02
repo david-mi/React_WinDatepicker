@@ -1,12 +1,12 @@
 import { expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import DateButton from "../../lib/WinDate/Calendar/Month/Dates/DateButton/DateButton";
-import type { MonthDateFormat } from "../../lib/WinDate/Calendar/Month/type";
+import type { DatesFormat } from "../../lib/WinDate/Calendar/Month/type";
 import { formatDate } from "../../lib/WinDate/utils";
 
 describe("<Date>", () => {
   let date: Date
-  let dateProps: MonthDateFormat
+  let dateProps: DatesFormat
   let dateElement: HTMLButtonElement
 
   beforeAll(() => {

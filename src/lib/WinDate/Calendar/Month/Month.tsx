@@ -5,12 +5,12 @@ import Weekdays from "./Weekdays/Weekdays"
 import Dates from "./Dates/Dates"
 import { getDates } from "./helper"
 import { monthsAbbrev, MonthIndex } from "./data"
-import type { MonthDateFormat } from "./type"
+import type { DatesFormat } from "./type"
 
 const Month = () => {
   const { date, setDate } = useContext(GlobalContext)
 
-  const dates: MonthDateFormat[] = useMemo(() => {
+  const dates: DatesFormat[] = useMemo(() => {
     return getDates(date)
   }, [date])
 

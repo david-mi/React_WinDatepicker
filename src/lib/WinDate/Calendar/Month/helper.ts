@@ -1,4 +1,4 @@
-import type { MonthDateFormat } from "./type"
+import type { DatesFormat } from "./type"
 import { formatDate } from "../../utils"
 
 const getDayIndex = {
@@ -22,7 +22,7 @@ type DaysIndexKeys = keyof typeof getDayIndex
  * - If the length of {@link monthDates} is below 42, add the first dates from the next month to compensate
  */
 
-export function getDates(chosenDate: Date): MonthDateFormat[] {
+export function getDates(chosenDate: Date): DatesFormat[] {
   /** make a copy of {@link chosenDate} to not mutate it */
   const date = new Date(chosenDate)
 
