@@ -17,14 +17,14 @@ const Month = () => {
   const chosenMonth = date.getMonth()
   const chosenYear = date.getFullYear()
 
-  const infos = `${monthsNamesIndexes[chosenMonth as MonthIndex]} ${chosenYear}`
-
   function setNextMonth() {
     const nextMonth = new Date(date)
     nextMonth.setMonth(chosenMonth + 1)
 
     setDate(nextMonth)
   }
+
+  const infos = `${monthsNamesIndexes[chosenMonth as MonthIndex]} ${chosenYear}`;
 
   function setPreviousMonth() {
     const previousMonth = new Date(date)
@@ -41,7 +41,11 @@ const Month = () => {
         infos={infos}
       />
       <Weekdays />
-      <Dates dates={dates} />
+      <Dates
+        dates={dates}
+        setNextMonth={setNextMonth}
+        setPreviousMonth={setPreviousMonth}
+      />
     </div>
   )
 }

@@ -8,6 +8,7 @@
   aspect-ratio: 1/1;
   color: rgb(165, 165, 165);
   border: none;
+  scroll-snap-align: end;
 }
 
 .date[data-chosen-month="true"] {
