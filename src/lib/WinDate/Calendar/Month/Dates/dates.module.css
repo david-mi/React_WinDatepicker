@@ -34,6 +34,6 @@
   animation: show 200ms forwards linear;
 }
 
-:global(.switch) .dates {
+.switchTimeline {
   animation: hide 200ms forwards linear;
 }

@@ -17,17 +17,17 @@ const MonthButton = ({ month }: Props) => {
     isChosenMonth
   } = month
 
-  const { setDate, setTimeline } = useContext(GlobalContext)
+  const { setDate, setTimeline, setIsSwitchingTimeline } = useContext(GlobalContext)
 
   function preTimeoutCallback() {
-    document.body.classList.add("switch")
+    setIsSwitchingTimeline(true)
   }
 
   function timeoutCallback() {
     const newDate = new Date(getFormatedDate)
     setDate(newDate)
     setTimeline("MONTH")
-    document.body.classList.remove("switch")
+    setIsSwitchingTimeline(false)
   }
 
   return (

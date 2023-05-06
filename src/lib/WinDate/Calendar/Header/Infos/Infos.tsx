@@ -8,10 +8,10 @@ interface Props {
 }
 
 const Infos = ({ infos }: Props) => {
-  const { setTimeline, timeline } = useContext(GlobalContext)
+  const { setTimeline, timeline, setIsSwitchingTimeline } = useContext(GlobalContext)
 
   function preTimeoutCallback() {
-    document.body.classList.add("switch")
+    setIsSwitchingTimeline(true)
   }
 
   function timeoutCallback() {
@@ -19,7 +19,7 @@ const Infos = ({ infos }: Props) => {
       ? "MONTH"
       : "YEAR"
     setTimeline(nextTimeline)
-    document.body.classList.remove("switch")
+    setIsSwitchingTimeline(false)
   }
 
   return (
