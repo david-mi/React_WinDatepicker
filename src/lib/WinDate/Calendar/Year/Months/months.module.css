@@ -24,4 +24,8 @@
   transform: scale(1.3);
   animation: show 400ms forwards;
 }
+
+:global(.switch) .month {
+  animation: hide 200ms forwards linear;
+  background-color: red !important;
 }
