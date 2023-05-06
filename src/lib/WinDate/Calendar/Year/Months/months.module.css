@@ -13,6 +13,18 @@
   }
 }
 
+@keyframes hide {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  to {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+}
+
 
 .months {
   display: flex;
@@ -25,7 +37,6 @@
   animation: show 400ms forwards;
 }
 
-:global(.switch) .month {
+:global(.switch) .months {
   animation: hide 200ms forwards linear;
-  background-color: red !important;
 }

@@ -1,33 +1,32 @@
-import { useContext, useRef } from "react"
+import { useContext } from "react"
 import { GlobalContext } from "../../../../Context/Global"
 import styles from "./infos.module.css"
+import { handleTimeout } from "../../../utils"
 
 interface Props {
   infos: string
 }
 
 const Infos = ({ infos }: Props) => {
-  const { setTimeline } = useContext(GlobalContext)
-  let timeoutId = useRef<NodeJS.Timeout | null>(null)
+  const { setTimeline, timeline } = useContext(GlobalContext)
 
-  function delayAction(callback: () => void) {
-    if (timeoutId.current !== null) return
-
+  function preTimeoutCallback() {
     document.body.classList.add("switch")
-
-    timeoutId.current = setTimeout(() => {
-      callback()
-      timeoutId.current = null
-      document.body.classList.remove("switch")
-    }, 200)
   }
 
-  function handleClick() {
-    setTimeline("YEAR")
+  function timeoutCallback() {
+    const nextTimeline = timeline === "YEAR"
+      ? "MONTH"
+      : "YEAR"
+    setTimeline(nextTimeline)
+    document.body.classList.remove("switch")
   }
 
   return (
-    <button onClick={() => delayAction(handleClick)} className={styles.infos}>
+    <button
+      onClick={handleTimeout({ timeoutCallback, preTimeoutCallback, delay: 200 })}
+      className={styles.infos}
+    >
       {infos}
     </button>
   )
