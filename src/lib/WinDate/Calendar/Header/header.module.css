@@ -1,7 +1,38 @@
 .header {
   display: flex;
+  padding-inline: 12px 18px;
+  padding-block: 15px 15px;
+}
+
+.header button {
+  padding: 0;
+  background-color: transparent;
+  border: none;
 }
 
 .header button:first-child {
   margin-right: auto;
+  color: #cdcdcd;
+  font-size: 0.9rem;
+}
+
+.header button:nth-child(2) {
+  margin-right: 20px;
+}
+
+.header button:hover {
+  color: white;
+}
+
+.header svg path {
+  fill: #cdcdcd;
+}
+
+.header svg {
+  width: 15px;
+  height: 15px;
+}
+
+.header button:hover path {
+  fill: white;
 }

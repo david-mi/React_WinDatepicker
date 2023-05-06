@@ -1,7 +1,9 @@
 .dates {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: repeat(6, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
   text-align: center;
-  row-gap: 10px;
+  justify-content: center;
+  animation: show 200ms forwards linear;
+}
 }

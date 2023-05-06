@@ -1,24 +1,47 @@
 .date {
+  position: relative;
   justify-self: center;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: white;
   width: 2rem;
   aspect-ratio: 1/1;
   color: rgb(165, 165, 165);
   border: none;
+  color: #797979;
+  background-color: transparent;
+  font-weight: 400;
+  font-size: 0.92rem;
+  --clr-hover: #8c8c8c;
+  width: 46px;
+  height: 40px;
+}
+
+.date:hover {
+  border: solid 2px var(--clr-hover);
 }
 
 .date[data-chosen-month="true"] {
-  color: black;
-  font-weight: bold;
+  color: white;
 }
 
 .date[data-today="true"] {
-  background-color: orange;
+  background-color: #3f3f3f;
+  font-weight: 500;
+}
+
+.date[data-today="true"]::before {
+  content: "";
+  position: absolute;
+  inset: 0px;
+  border: solid 2px black;
+}
+
+.date[data-today="true"]:hover {
+  --clr-today: #8c8c8c;
+  border-color: var(--clr-today);
 }
 
 .date[data-chosen-date="true"] {
-  border: solid 2px red;
+  border: solid 2px #8c8c8c;
 }

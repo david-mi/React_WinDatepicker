@@ -1,24 +1,45 @@
 .month {
+  position: relative;
   justify-self: center;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: white;
+  background-color: transparent;
   width: 2rem;
   aspect-ratio: 1/1;
-  color: rgb(165, 165, 165);
   border: none;
+  font-weight: 400;
+  color: #797979;
+  --clr-hover: #8c8c8c;
+  width: 82px;
+  height: 71px;
+}
+
+.month:hover {
+  border: solid 2px var(--clr-hover);
 }
 
 .month[data-chosen-year="true"] {
-  color: black;
-  font-weight: bold;
+  color: white;
 }
 
 .month[data-current-month="true"] {
-  background-color: orange;
+  background-color: #3f3f3f;
+  font-weight: 500;
+}
+
+.date[data-current-month="true"]::before {
+  content: "";
+  position: absolute;
+  inset: 0px;
+  border: solid 2px black;
+}
+
+.date[data-current-month="true"]:hover {
+  --clr-today: #8c8c8c;
+  border-color: var(--clr-today);
 }
 
 .month[data-chosen-month="true"] {
-  border: solid 2px red;
+  border: solid 2px #8c8c8c;
 }
