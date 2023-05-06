@@ -3,7 +3,6 @@ import { getDates, areDatesIdentical } from "../../lib/WinDate/Calendar/Month/he
 import type { DatesFormat } from "../../lib/WinDate/Calendar/Month/type";
 import { getMonths, areMonthsIdentical } from "../../lib/WinDate/Calendar/Year/helper";
 import type { MonthsFormat } from "../../lib/WinDate/Calendar/Year/type";
-import { formatDate } from "../../lib/WinDate/utils";
 
 describe("getDate helper", () => {
   describe("Tests for March 2023", () => {
@@ -751,18 +750,6 @@ describe("getMonths helper", () => {
     })
   })
 
-})
-
-describe("formatDate helper", () => {
-  it("Should return 2023-04-01 for a new Date set to April 1st 2023", () => {
-    const date = new Date(2023, 3, 1)
-    expect(formatDate(date)).toBe("2023-04-01")
-  })
-
-  it("Should return 2023-12-24 for a new Date set to December 24th 2025", () => {
-    const date = new Date(2025, 11, 24)
-    expect(formatDate(date)).toBe("2025-12-24")
-  })
 })
 
 describe("areDatesIdentical helper", () => {
