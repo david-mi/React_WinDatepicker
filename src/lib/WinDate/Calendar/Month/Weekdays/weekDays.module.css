@@ -1,5 +1,13 @@
 .weekDays {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  display: flex;
   text-align: center;
+  color: white;
+  font-size: 0.7rem;
+  padding-block: 5px;
+  margin-bottom: 5px;
+  gap: 3px;
+}
+
+.weekDays span {
+  width: 46px;
 }

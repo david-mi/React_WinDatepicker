@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { vi } from "vitest";
 import Calendar from "../../lib/WinDate/Calendar/Calendar";
-import { GlobalContext } from "../../lib/Context/Global"
+import { GlobalContext, Timeline } from "../../lib/Context/Global"
 
 describe("<Calendar />", () => {
   describe("When clicking on close-bg element", () => {
@@ -11,7 +11,11 @@ describe("<Calendar />", () => {
         setDate: () => { },
         isCalendarOpen: true,
         openCalendar: vi.fn(),
-        closeCalendar: vi.fn()
+        closeCalendar: vi.fn(),
+        setTimeline: () => { },
+        timeline: "MONTH" as Timeline,
+        isSwitchingTimeline: false,
+        setIsSwitchingTimeline: () => { }
       }
 
       render(

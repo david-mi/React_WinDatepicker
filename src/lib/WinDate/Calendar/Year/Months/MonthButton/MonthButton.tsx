@@ -1,6 +1,7 @@
 import { useContext } from "react"
 import { GlobalContext } from "../../../../../Context/Global"
 import type { MonthsFormat } from "../../type"
+import { handleTimeout } from "../../../../utils"
 import styles from "./monthButton.module.css"
 
 interface Props {
@@ -16,14 +17,17 @@ const MonthButton = ({ month }: Props) => {
     isChosenMonth
   } = month
 
-  const { setDate, closeCalendar } = useContext(GlobalContext)
+  const { setDate, setTimeline, setIsSwitchingTimeline } = useContext(GlobalContext)
 
-  /** Update date state with clicked month from calendar */
+  function preTimeoutCallback() {
+    setIsSwitchingTimeline(true)
+  }
 
-  function handleMonthClick() {
+  function timeoutCallback() {
     const newDate = new Date(getFormatedDate)
     setDate(newDate)
-    closeCalendar()
+    setTimeline("MONTH")
+    setIsSwitchingTimeline(false)
   }
 
   return (
@@ -33,7 +37,7 @@ const MonthButton = ({ month }: Props) => {
       data-chosen-year={isFromChosenYear}
       data-chosen-month={isChosenMonth}
       className={styles.month}
-      onClick={handleMonthClick}
+      onClick={handleTimeout({ timeoutCallback, preTimeoutCallback, delay: 200 })}
     >
       {getMonthAbbrev}
     </button>

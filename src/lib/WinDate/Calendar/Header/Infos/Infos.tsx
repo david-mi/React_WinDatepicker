@@ -1,20 +1,32 @@
 import { useContext } from "react"
 import { GlobalContext } from "../../../../Context/Global"
 import styles from "./infos.module.css"
+import { handleTimeout } from "../../../utils"
 
 interface Props {
   infos: string
 }
 
 const Infos = ({ infos }: Props) => {
-  const { setTimeline } = useContext(GlobalContext)
+  const { setTimeline, timeline, setIsSwitchingTimeline } = useContext(GlobalContext)
 
-  function handleClick() {
-    setTimeline("YEAR")
+  function preTimeoutCallback() {
+    setIsSwitchingTimeline(true)
+  }
+
+  function timeoutCallback() {
+    const nextTimeline = timeline === "YEAR"
+      ? "MONTH"
+      : "YEAR"
+    setTimeline(nextTimeline)
+    setIsSwitchingTimeline(false)
   }
 
   return (
-    <button onClick={handleClick} className={styles.infos}>
+    <button
+      onClick={handleTimeout({ timeoutCallback, preTimeoutCallback, delay: 200 })}
+      className={styles.infos}
+    >
       {infos}
     </button>
   )

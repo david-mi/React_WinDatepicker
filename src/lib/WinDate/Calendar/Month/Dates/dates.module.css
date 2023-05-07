@@ -1,11 +1,29 @@
+@import "../../../../styles/global.css";
+
 .dates {
   position: relative;
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: repeat(6, 1fr);
   text-align: center;
   row-gap: 10px;
   height: 240px;
   overflow-y: scroll;
   /* scroll-snap-type: y mandatory; */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  text-align: center;
+  justify-content: center;
+  animation: displayTimeline 200ms forwards linear;
+}
+
+.dates::-webkit-scrollbar {
+  display: none;
+}
+
+.dates {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.switchTimeline {
+  animation: removeTimeline 200ms forwards linear;
 }

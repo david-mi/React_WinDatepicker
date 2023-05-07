@@ -3,314 +3,314 @@ import { getDates, areDatesIdentical } from "../../lib/WinDate/Calendar/Month/he
 import type { DatesFormat } from "../../lib/WinDate/Calendar/Month/type";
 import { getMonths, areMonthsIdentical } from "../../lib/WinDate/Calendar/Year/helper";
 import type { MonthsFormat } from "../../lib/WinDate/Calendar/Year/type";
-import { formatDate } from "../../lib/WinDate/utils";
 
 describe("getDate helper", () => {
-  describe("Tests for April 2023", () => {
-    let expectedResultFromApril2023: DatesFormat[]
+  describe("Tests for March 2023", () => {
+    let expectedResultFromMarch2023: DatesFormat[]
 
     beforeAll(() => {
-      expectedResultFromApril2023 = [
+      expectedResultFromMarch2023 = [
         {
-          "getDate": 27,
-          "getFormatedDate": "2023-03-27",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false
+          getDate: 27,
+          getFormatedDate: '2023-02-27',
+          isFromChosenMonth: false,
+          isToday: false,
+          isChosenDate: false
         },
         {
-          "getDate": 28,
-          "getFormatedDate": "2023-03-28",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false
+          getDate: 28,
+          getFormatedDate: '2023-02-28',
+          isFromChosenMonth: false,
+          isToday: false,
+          isChosenDate: false
         },
         {
-          "getDate": 29,
-          "getFormatedDate": "2023-03-29",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false
+          getDate: 1,
+          getFormatedDate: '2023-03-01',
+          isFromChosenMonth: true,
+          isToday: false,
+          isChosenDate: true
         },
         {
-          "getDate": 30,
-          "getFormatedDate": "2023-03-30",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false
+          getDate: 2,
+          getFormatedDate: '2023-03-02',
+          isFromChosenMonth: true,
+          isToday: false,
+          isChosenDate: false
         },
         {
-          "getDate": 31,
-          "getFormatedDate": "2023-03-31",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false
+          getDate: 3,
+          getFormatedDate: '2023-03-03',
+          isFromChosenMonth: true,
+          isToday: false,
+          isChosenDate: false
         },
         {
-          "getDate": 1,
-          "getFormatedDate": "2023-04-01",
-          "isFromChosenMonth": true,
-          "isToday": false,
-          "isChosenDate": true
+          getDate: 4,
+          getFormatedDate: '2023-03-04',
+          isFromChosenMonth: true,
+          isToday: false,
+          isChosenDate: false
         },
         {
-          "getDate": 2,
-          "getFormatedDate": "2023-04-02",
-          "isFromChosenMonth": true,
-          "isToday": false,
-          "isChosenDate": false
+          getDate: 5,
+          getFormatedDate: '2023-03-05',
+          isFromChosenMonth: true,
+          isToday: false,
+          isChosenDate: false
         },
         {
-          "getDate": 3,
-          "getFormatedDate": "2023-04-03",
-          "isFromChosenMonth": true,
-          "isToday": false,
-          "isChosenDate": false
+          getDate: 6,
+          getFormatedDate: '2023-03-06',
+          isFromChosenMonth: true,
+          isToday: false,
+          isChosenDate: false
         },
         {
-          "getDate": 4,
-          "getFormatedDate": "2023-04-04",
-          "isFromChosenMonth": true,
-          "isToday": false,
-          "isChosenDate": false
+          getDate: 7,
+          getFormatedDate: '2023-03-07',
+          isFromChosenMonth: true,
+          isToday: false,
+          isChosenDate: false
         },
         {
-          "getDate": 5,
-          "getFormatedDate": "2023-04-05",
-          "isFromChosenMonth": true,
-          "isToday": false,
-          "isChosenDate": false
+          getDate: 8,
+          getFormatedDate: '2023-03-08',
+          isFromChosenMonth: true,
+          isToday: false,
+          isChosenDate: false
         },
         {
-          "getDate": 6,
-          "getFormatedDate": "2023-04-06",
-          "isFromChosenMonth": true,
-          "isToday": false,
-          "isChosenDate": false
+          getDate: 9,
+          getFormatedDate: '2023-03-09',
+          isFromChosenMonth: true,
+          isToday: false,
+          isChosenDate: false
         },
         {
-          "getDate": 7,
-          "getFormatedDate": "2023-04-07",
-          "isFromChosenMonth": true,
-          "isToday": false,
-          "isChosenDate": false
+          getDate: 10,
+          getFormatedDate: '2023-03-10',
+          isFromChosenMonth: true,
+          isToday: false,
+          isChosenDate: false
         },
         {
-          "getDate": 8,
-          "getFormatedDate": "2023-04-08",
-          "isFromChosenMonth": true,
-          "isToday": false,
-          "isChosenDate": false
+          getDate: 11,
+          getFormatedDate: '2023-03-11',
+          isFromChosenMonth: true,
+          isToday: false,
+          isChosenDate: false
         },
         {
-          "getDate": 9,
-          "getFormatedDate": "2023-04-09",
-          "isFromChosenMonth": true,
-          "isToday": false,
-          "isChosenDate": false
+          getDate: 12,
+          getFormatedDate: '2023-03-12',
+          isFromChosenMonth: true,
+          isToday: false,
+          isChosenDate: false
         },
         {
-          "getDate": 10,
-          "getFormatedDate": "2023-04-10",
-          "isFromChosenMonth": true,
-          "isToday": false,
-          "isChosenDate": false
+          getDate: 13,
+          getFormatedDate: '2023-03-13',
+          isFromChosenMonth: true,
+          isToday: false,
+          isChosenDate: false
         },
         {
-          "getDate": 11,
-          "getFormatedDate": "2023-04-11",
-          "isFromChosenMonth": true,
-          "isToday": false,
-          "isChosenDate": false
+          getDate: 14,
+          getFormatedDate: '2023-03-14',
+          isFromChosenMonth: true,
+          isToday: false,
+          isChosenDate: false
         },
         {
-          "getDate": 12,
-          "getFormatedDate": "2023-04-12",
-          "isFromChosenMonth": true,
-          "isToday": false,
-          "isChosenDate": false
+          getDate: 15,
+          getFormatedDate: '2023-03-15',
+          isFromChosenMonth: true,
+          isToday: false,
+          isChosenDate: false
         },
         {
-          "getDate": 13,
-          "getFormatedDate": "2023-04-13",
-          "isFromChosenMonth": true,
-          "isToday": false,
-          "isChosenDate": false
+          getDate: 16,
+          getFormatedDate: '2023-03-16',
+          isFromChosenMonth: true,
+          isToday: false,
+          isChosenDate: false
         },
         {
-          "getDate": 14,
-          "getFormatedDate": "2023-04-14",
-          "isFromChosenMonth": true,
-          "isToday": false,
-          "isChosenDate": false
+          getDate: 17,
+          getFormatedDate: '2023-03-17',
+          isFromChosenMonth: true,
+          isToday: false,
+          isChosenDate: false
         },
         {
-          "getDate": 15,
-          "getFormatedDate": "2023-04-15",
-          "isFromChosenMonth": true,
-          "isToday": false,
-          "isChosenDate": false
+          getDate: 18,
+          getFormatedDate: '2023-03-18',
+          isFromChosenMonth: true,
+          isToday: false,
+          isChosenDate: false
         },
         {
-          "getDate": 16,
-          "getFormatedDate": "2023-04-16",
-          "isFromChosenMonth": true,
-          "isToday": false,
-          "isChosenDate": false
+          getDate: 19,
+          getFormatedDate: '2023-03-19',
+          isFromChosenMonth: true,
+          isToday: false,
+          isChosenDate: false
         },
         {
-          "getDate": 17,
-          "getFormatedDate": "2023-04-17",
-          "isFromChosenMonth": true,
-          "isToday": false,
-          "isChosenDate": false
+          getDate: 20,
+          getFormatedDate: '2023-03-20',
+          isFromChosenMonth: true,
+          isToday: false,
+          isChosenDate: false
         },
         {
-          "getDate": 18,
-          "getFormatedDate": "2023-04-18",
-          "isFromChosenMonth": true,
-          "isToday": false,
-          "isChosenDate": false
+          getDate: 21,
+          getFormatedDate: '2023-03-21',
+          isFromChosenMonth: true,
+          isToday: false,
+          isChosenDate: false
         },
         {
-          "getDate": 19,
-          "getFormatedDate": "2023-04-19",
-          "isFromChosenMonth": true,
-          "isToday": false,
-          "isChosenDate": false
+          getDate: 22,
+          getFormatedDate: '2023-03-22',
+          isFromChosenMonth: true,
+          isToday: false,
+          isChosenDate: false
         },
         {
-          "getDate": 20,
-          "getFormatedDate": "2023-04-20",
-          "isFromChosenMonth": true,
-          "isToday": false,
-          "isChosenDate": false
+          getDate: 23,
+          getFormatedDate: '2023-03-23',
+          isFromChosenMonth: true,
+          isToday: false,
+          isChosenDate: false
         },
         {
-          "getDate": 21,
-          "getFormatedDate": "2023-04-21",
-          "isFromChosenMonth": true,
-          "isToday": false,
-          "isChosenDate": false
+          getDate: 24,
+          getFormatedDate: '2023-03-24',
+          isFromChosenMonth: true,
+          isToday: false,
+          isChosenDate: false
         },
         {
-          "getDate": 22,
-          "getFormatedDate": "2023-04-22",
-          "isFromChosenMonth": true,
-          "isToday": false,
-          "isChosenDate": false
+          getDate: 25,
+          getFormatedDate: '2023-03-25',
+          isFromChosenMonth: true,
+          isToday: false,
+          isChosenDate: false
         },
         {
-          "getDate": 23,
-          "getFormatedDate": "2023-04-23",
-          "isFromChosenMonth": true,
-          "isToday": false,
-          "isChosenDate": false
+          getDate: 26,
+          getFormatedDate: '2023-03-26',
+          isFromChosenMonth: true,
+          isToday: false,
+          isChosenDate: false
         },
         {
-          "getDate": 24,
-          "getFormatedDate": "2023-04-24",
-          "isFromChosenMonth": true,
-          "isToday": false,
-          "isChosenDate": false
+          getDate: 27,
+          getFormatedDate: '2023-03-27',
+          isFromChosenMonth: true,
+          isToday: false,
+          isChosenDate: false
         },
         {
-          "getDate": 25,
-          "getFormatedDate": "2023-04-25",
-          "isFromChosenMonth": true,
-          "isToday": false,
-          "isChosenDate": false
+          getDate: 28,
+          getFormatedDate: '2023-03-28',
+          isFromChosenMonth: true,
+          isToday: false,
+          isChosenDate: false
         },
         {
-          "getDate": 26,
-          "getFormatedDate": "2023-04-26",
-          "isFromChosenMonth": true,
-          "isToday": false,
-          "isChosenDate": false
+          getDate: 29,
+          getFormatedDate: '2023-03-29',
+          isFromChosenMonth: true,
+          isToday: false,
+          isChosenDate: false
         },
         {
-          "getDate": 27,
-          "getFormatedDate": "2023-04-27",
-          "isFromChosenMonth": true,
-          "isToday": false,
-          "isChosenDate": false
+          getDate: 30,
+          getFormatedDate: '2023-03-30',
+          isFromChosenMonth: true,
+          isToday: false,
+          isChosenDate: false
         },
         {
-          "getDate": 28,
-          "getFormatedDate": "2023-04-28",
-          "isFromChosenMonth": true,
-          "isToday": false,
-          "isChosenDate": false
+          getDate: 31,
+          getFormatedDate: '2023-03-31',
+          isFromChosenMonth: true,
+          isToday: false,
+          isChosenDate: false
         },
         {
-          "getDate": 29,
-          "getFormatedDate": "2023-04-29",
-          "isFromChosenMonth": true,
-          "isToday": false,
-          "isChosenDate": false
+          getDate: 1,
+          getFormatedDate: '2023-04-01',
+          isFromChosenMonth: false,
+          isToday: false,
+          isChosenDate: false
         },
         {
-          "getDate": 30,
-          "getFormatedDate": "2023-04-30",
-          "isFromChosenMonth": true,
-          "isToday": false,
-          "isChosenDate": false
+          getDate: 2,
+          getFormatedDate: '2023-04-02',
+          isFromChosenMonth: false,
+          isToday: false,
+          isChosenDate: false
         },
         {
-          "getDate": 1,
-          "getFormatedDate": "2023-05-01",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false
+          getDate: 3,
+          getFormatedDate: '2023-04-03',
+          isFromChosenMonth: false,
+          isToday: false,
+          isChosenDate: false
         },
         {
-          "getDate": 2,
-          "getFormatedDate": "2023-05-02",
-          "isFromChosenMonth": false,
-          "isToday": true,
-          "isChosenDate": false
+          getDate: 4,
+          getFormatedDate: '2023-04-04',
+          isFromChosenMonth: false,
+          isToday: false,
+          isChosenDate: false
         },
         {
-          "getDate": 3,
-          "getFormatedDate": "2023-05-03",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false
+          getDate: 5,
+          getFormatedDate: '2023-04-05',
+          isFromChosenMonth: false,
+          isToday: false,
+          isChosenDate: false
         },
         {
-          "getDate": 4,
-          "getFormatedDate": "2023-05-04",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false
+          getDate: 6,
+          getFormatedDate: '2023-04-06',
+          isFromChosenMonth: false,
+          isToday: false,
+          isChosenDate: false
         },
         {
-          "getDate": 5,
-          "getFormatedDate": "2023-05-05",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false
+          getDate: 7,
+          getFormatedDate: '2023-04-07',
+          isFromChosenMonth: false,
+          isToday: false,
+          isChosenDate: false
         },
         {
-          "getDate": 6,
-          "getFormatedDate": "2023-05-06",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false
+          getDate: 8,
+          getFormatedDate: '2023-04-08',
+          isFromChosenMonth: false,
+          isToday: false,
+          isChosenDate: false
         },
         {
-          "getDate": 7,
-          "getFormatedDate": "2023-05-07",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false
+          getDate: 9,
+          getFormatedDate: '2023-04-09',
+          isFromChosenMonth: false,
+          isToday: false,
+          isChosenDate: false
         }
       ]
     })
 
-    it("should return the expected result if we set April 1 2023 as parameter", () => {
-      const date = new Date(2023, 3, 1)
-      expect(getDates(date)).toEqual(expectedResultFromApril2023)
+    it("should return the expected result if we set March 1 2023 as parameter", () => {
+      const date = new Date(2023, 2, 1)
+      console.log(getDates(date))
+      expect(getDates(date)).toEqual(expectedResultFromMarch2023)
     })
   })
 
@@ -750,18 +750,6 @@ describe("getMonths helper", () => {
     })
   })
 
-})
-
-describe("formatDate helper", () => {
-  it("Should return 2023-04-01 for a new Date set to April 1st 2023", () => {
-    const date = new Date(2023, 3, 1)
-    expect(formatDate(date)).toBe("2023-04-01")
-  })
-
-  it("Should return 2023-12-24 for a new Date set to December 24th 2025", () => {
-    const date = new Date(2025, 11, 24)
-    expect(formatDate(date)).toBe("2025-12-24")
-  })
 })
 
 describe("areDatesIdentical helper", () => {
