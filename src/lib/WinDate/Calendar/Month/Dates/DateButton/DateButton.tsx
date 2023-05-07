@@ -34,37 +34,23 @@ const DateButton = forwardRef(({ date, setNextMonth, setPreviousMonth }: Props, 
   }
 
   useEffect(() => {
-    if (getDate !== 1 || isFromPreviousMonth === false) return
+    if (getDate !== 1 || isFromPreviousMonth === false && isFromNextMonth === false) return
 
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting === false) return
-
-        if (entry.rootBounds!.top < entry.boundingClientRect.top) {
+      entries.forEach(({ isIntersecting, rootBounds, boundingClientRect }) => {
+        if (
+          isFromPreviousMonth &&
+          isIntersecting &&
+          rootBounds!.top <= boundingClientRect.top
+        ) {
           setPreviousMonth()
         }
-      })
-    }, { threshold: 1 })
 
-    if (buttonRef.current) {
-      observer.observe(buttonRef.current)
-    }
-
-    return () => {
-      if (buttonRef.current) {
-        observer.unobserve(buttonRef.current)
-      }
-    }
-  }, [date])
-
-  useEffect(() => {
-    if (getDate !== 1 || isFromNextMonth === false) return
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting === true) return
-        console.log(entry)
-        if (entry.rootBounds!.top > entry.boundingClientRect.top) {
+        if (
+          isFromNextMonth &&
+          isIntersecting === false &&
+          rootBounds!.top > boundingClientRect.top
+        ) {
           setNextMonth()
         }
       })
@@ -80,7 +66,6 @@ const DateButton = forwardRef(({ date, setNextMonth, setPreviousMonth }: Props, 
       }
     }
   }, [date])
-
 
   return (
     <button
