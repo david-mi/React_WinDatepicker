@@ -41,11 +41,7 @@ const Month = () => {
         infos={infos}
       />
       <Weekdays />
-      <Dates
-        dates={dates}
-        setNextMonth={setNextMonth}
-        setPreviousMonth={setPreviousMonth}
-      />
+      <Dates dates={dates} />
     </div>
   )
 }

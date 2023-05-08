@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react"
+import { useRef, useEffect } from "react"
 import { useContext } from "react"
 import { GlobalContext } from "../../../../Context/Global"
 import DateButton from "./DateButton/DateButton"
@@ -7,13 +7,13 @@ import styles from "./dates.module.css"
 
 interface Props {
   dates: DatesFormat[]
-  setNextMonth: () => void
-  setPreviousMonth: () => void
 }
 
-const Dates = ({ dates, setNextMonth, setPreviousMonth }: Props) => {
+const Dates = ({ dates }: Props) => {
   const { isSwitchingTimeline } = useContext(GlobalContext)
   const datesContainerRef = useRef<HTMLDivElement>(null!)
+
+  const className = `${styles.dates} ${isSwitchingTimeline ? styles.switchTimeline : ""}`
 
   useEffect(() => {
     const elementToScroll = datesContainerRef.current.querySelector<HTMLButtonElement>("[data-chosen-month='true']")!
@@ -21,21 +21,10 @@ const Dates = ({ dates, setNextMonth, setPreviousMonth }: Props) => {
     datesContainerRef.current.scrollTo({ top: elementToScroll.offsetTop, behavior: "smooth" })
   }, [dates])
 
-
-  const className = `${styles.dates} ${isSwitchingTimeline ? styles.switchTimeline : ""}`
-
   return (
     <div className={className} ref={datesContainerRef} id="dates">
       {dates.map((date, index) => {
-        return (
-          <DateButton
-            key={index}
-            date={date}
-            ref={datesContainerRef}
-            setNextMonth={setNextMonth}
-            setPreviousMonth={setPreviousMonth}
-          />
-        )
+        return <DateButton key={index} date={date} />
       })}
     </div>
   )

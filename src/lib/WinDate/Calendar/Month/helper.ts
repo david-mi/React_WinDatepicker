@@ -63,14 +63,12 @@ export function getDates(chosenDate: Date): DatesFormat[] {
       getDate: dayDate,
       getFormatedDate: formatDate(date),
       isFromChosenMonth: date.getMonth() === chosenMonth,
-      isFromNextMonth: date.getMonth() === nextMonth.getMonth(),
-      isFromPreviousMonth: date.getMonth() === previousMonth.getMonth(),
       isToday: areDatesIdentical(new Date(), date),
       isChosenDate: areDatesIdentical(chosenDate, date),
     })
     date.setDate(dayDate + 1)
   }
-
+  console.log(monthDates.length)
   return monthDates
 }
 

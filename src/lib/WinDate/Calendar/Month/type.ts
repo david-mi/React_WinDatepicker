@@ -9,6 +9,4 @@ export interface DatesFormat {
   isToday: boolean
   /** set to true if the date correspond to the selected date */
   isChosenDate: boolean
-  isFromPreviousMonth: boolean
-  isFromNextMonth: boolean
 }
