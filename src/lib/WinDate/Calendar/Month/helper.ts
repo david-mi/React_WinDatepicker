@@ -31,6 +31,14 @@ export function getDates(chosenDate: Date): DatesFormat[] {
   const firstDateOfTheMonth = 1
   const chosenMonth = date.getMonth()
 
+  const previousMonthDate = new Date(chosenMonth)
+  previousMonthDate.setMonth(chosenMonth - 1)
+  const previousMonth = previousMonthDate.getMonth()
+
+  const nextMonthDate = new Date(chosenMonth)
+  nextMonthDate.setMonth(chosenMonth + 1)
+  const nextMonth = nextMonthDate.getMonth()
+
   date.setMonth(date.getMonth() - 1)
   date.setDate(firstDateOfTheMonth)
   const firstDayOfTheMonth = date.getDay()
@@ -52,6 +60,8 @@ export function getDates(chosenDate: Date): DatesFormat[] {
       isFromChosenMonth: date.getMonth() === chosenMonth,
       isToday: areDatesIdentical(new Date(), date),
       isChosenDate: areDatesIdentical(chosenDate, date),
+      isFirstDayOfNextMonth: date.getMonth() === nextMonth && dayDate === 1,
+      isFirstDayOfPreviousMonth: date.getMonth() === previousMonth && dayDate === 1
     })
 
     date.setDate(dayDate + 1)

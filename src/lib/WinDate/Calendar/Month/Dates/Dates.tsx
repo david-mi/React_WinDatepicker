@@ -17,8 +17,7 @@ const Dates = ({ dates }: Props) => {
 
   useEffect(() => {
     const elementToScroll = datesContainerRef.current.querySelector<HTMLButtonElement>("[data-chosen-month='true']")!
-    datesContainerRef.current.scrollTop = elementToScroll.offsetTop
-    datesContainerRef.current.scrollTo({ top: elementToScroll.offsetTop, behavior: "smooth" })
+    datesContainerRef.current.scrollTo({ top: elementToScroll.offsetTop })
   }, [dates])
 
   return (

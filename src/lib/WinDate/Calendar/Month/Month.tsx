@@ -6,6 +6,7 @@ import Dates from "./Dates/Dates"
 import { getDates } from "./helper"
 import { monthsNamesIndexes, MonthIndex } from "./data"
 import type { DatesFormat } from "./type"
+import { handleTimeout } from "../../utils"
 
 const Month = () => {
   const { date, setDate } = useContext(GlobalContext)
@@ -14,8 +15,28 @@ const Month = () => {
     return getDates(date)
   }, [date])
 
+
   const chosenMonth = date.getMonth()
   const chosenYear = date.getFullYear()
+
+
+  const handleNextMonth = handleTimeout({
+    preTimeoutCallback: () => {
+      const elementToScroll = document.querySelector<HTMLButtonElement>("[data-next-month-first-day='true']")!
+      elementToScroll.scrollIntoView({ behavior: "smooth" })
+    },
+    timeoutCallback: setNextMonth,
+    delay: 200
+  })
+
+  const handlePreviousMonth = handleTimeout({
+    preTimeoutCallback: () => {
+      const elementToScroll = document.getElementById("dates")!
+      elementToScroll.scrollTo({ top: 0, behavior: "smooth" })
+    },
+    timeoutCallback: setPreviousMonth,
+    delay: 200
+  })
 
   function setNextMonth() {
     const nextMonth = new Date(date)
@@ -24,8 +45,6 @@ const Month = () => {
     setDate(nextMonth)
   }
 
-  const infos = `${monthsNamesIndexes[chosenMonth as MonthIndex]} ${chosenYear}`;
-
   function setPreviousMonth() {
     const previousMonth = new Date(date)
     previousMonth.setMonth(chosenMonth - 1)
@@ -33,11 +52,13 @@ const Month = () => {
     setDate(previousMonth)
   }
 
+  const infos = `${monthsNamesIndexes[chosenMonth as MonthIndex]} ${chosenYear}`;
+
   return (
     <div>
       <Header
-        handlePrevious={setPreviousMonth}
-        handleNext={setNextMonth}
+        handlePrevious={handlePreviousMonth}
+        handleNext={handleNextMonth}
         infos={infos}
       />
       <Weekdays />

@@ -14,7 +14,9 @@ const DateButton = ({ date }: Props) => {
     getFormatedDate,
     isFromChosenMonth,
     isToday,
-    isChosenDate
+    isChosenDate,
+    isFirstDayOfPreviousMonth,
+    isFirstDayOfNextMonth
   } = date
 
   const buttonRef = useRef<HTMLButtonElement>(null!)
@@ -36,6 +38,8 @@ const DateButton = ({ date }: Props) => {
       data-today={isToday}
       data-chosen-month={isFromChosenMonth}
       data-chosen-date={isChosenDate}
+      data-next-month-first-day={isFirstDayOfNextMonth}
+      data-previous-month-first-day={isFirstDayOfPreviousMonth}
       className={styles.date}
       onClick={handleDateClick}
       autoFocus={isChosenDate}
