@@ -1,3 +1,18 @@
+:root {
+  --clr-close-bg: rgba(66, 66, 66, 0.774);
+  --calendar-bg: #1f1f1f;
+  --calendar-header-buttons: #cdcdcd;
+  --calendar-header-buttons-hover: white;
+  --calendar-weekdays: white;
+  --calendar-chosen: white;
+  --calendar-actual: #3f3f3f;
+  --calendar-not-actual: #797979;
+  --calendar-actual-border: #3f3f3f;
+  --calendar-actual-border-inner: black;
+  --calendar-border-hover: #8c8c8c;
+  --calendar-chosen-border: #8c8c8c;
+}
+
 @keyframes displayTimeline {
   0% {
     opacity: 0;

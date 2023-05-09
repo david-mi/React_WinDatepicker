@@ -6,43 +6,41 @@
   justify-content: center;
   width: 2rem;
   aspect-ratio: 1/1;
-  color: rgb(165, 165, 165);
   border: none;
   scroll-snap-align: end;
-  color: #797979;
+  color: var(--calendar-not-actual);
   background-color: transparent;
   font-weight: 400;
   font-size: 0.92rem;
-  --clr-hover: #8c8c8c;
   width: 46px;
   height: 40px;
 }
 
 .date:hover {
-  border: solid 2px var(--clr-hover);
+  border: solid 2px var(--calendar-border-hover);
 }
 
 .date[data-chosen-month="true"] {
-  color: white;
+  color: var(--calendar-chosen);
 }
 
 .date[data-today="true"] {
-  background-color: #3f3f3f;
+  background-color: var(--calendar-actual);
   font-weight: 500;
+  border: solid 2px var(--calendar-actual-border);
 }
 
 .date[data-today="true"]::before {
   content: "";
   position: absolute;
   inset: 0px;
-  border: solid 2px black;
+  border: solid 2px var(--calendar-actual-border-inner);
 }
 
 .date[data-today="true"]:hover {
-  --clr-today: #8c8c8c;
-  border-color: var(--clr-today);
+  border-color: var(--calendar-border-hover);
 }
 
 .date[data-chosen-date="true"] {
-  border: solid 2px #8c8c8c;
+  border: solid 2px var(--calendar-chosen-border);
 }

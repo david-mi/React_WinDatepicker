@@ -3,23 +3,22 @@
   place-items: center;
   position: fixed;
   inset: 0;
-  z-index: 1000;
+  z-index: 999999990;
 }
 
 .closeBg {
-  background-color: rgba(66, 66, 66, 0.774);
+  background-color: var(--clr-close-bg);
   position: fixed;
   inset: 0;
-  z-index: 1001;
+  z-index: 999999991;
 }
 
 .calendar {
   position: relative;
-  z-index: 1002;
-  background-color: rgb(209, 209, 209);
+  z-index: 999999992;
   height: 345px;
   width: 352px;
-  background-color: #1f1f1f;
+  background-color: var(--calendar-bg);
   padding-inline: 6px;
   padding-block: 4px 12px;
   overflow: hidden;

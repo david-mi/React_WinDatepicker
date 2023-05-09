@@ -12,7 +12,7 @@
 
 .header button:first-child {
   margin-right: auto;
-  color: #cdcdcd;
+  color: var(--calendar-header-buttons);
   font-size: 0.9rem;
 }
 
@@ -21,11 +21,11 @@
 }
 
 .header button:hover {
-  color: white;
+  color: var(--calendar-header-buttons-hover);
 }
 
 .header svg path {
-  fill: #cdcdcd;
+  fill: var(--calendar-header-buttons);
 }
 
 .header svg {
@@ -34,5 +34,5 @@
 }
 
 .header button:hover path {
-  fill: white;
+  fill: var(--calendar-header-buttons-hover);
 }

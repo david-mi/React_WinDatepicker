@@ -9,37 +9,34 @@
   aspect-ratio: 1/1;
   border: none;
   font-weight: 400;
-  color: #797979;
-  --clr-hover: #8c8c8c;
+  color: var(--calendar-not-actual);
   width: 82px;
   height: 71px;
 }
 
 .month:hover {
-  border: solid 2px var(--clr-hover);
+  border: solid 2px var(--calendar-border-hover);
 }
 
 .month[data-chosen-year="true"] {
-  color: white;
+  color: var(--calendar-chosen);
 }
 
 .month[data-current-month="true"] {
-  background-color: #3f3f3f;
+  background-color: var(--calendar-actual);
   font-weight: 500;
+  border: solid 2px var(--calendar-actual-border);
 }
 
-.date[data-current-month="true"]::before {
-  content: "";
-  position: absolute;
-  inset: 0px;
-  border: solid 2px black;
+.month[data-current-month="true"]::before {
+  border: solid 2px var(--calendar-actual-border-inner);
 }
 
-.date[data-current-month="true"]:hover {
-  --clr-today: #8c8c8c;
-  border-color: var(--clr-today);
+
+.month[data-current-month="true"]:hover {
+  border: solid 2px var(--calendar-chosen-border);
 }
 
 .month[data-chosen-month="true"] {
-  border: solid 2px #8c8c8c;
+  border: solid 2px var(--calendar-chosen-border);
 }
