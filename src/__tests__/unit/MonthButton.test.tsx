@@ -18,7 +18,8 @@ describe("<Date>", () => {
       getFormatedDate: formatDate(date),
       isFromChosenYear: true,
       isCurrentMonth: true,
-      isChosenMonth: true
+      isChosenMonth: true,
+      isFirstMonthOfCurrentYear: false
     }
   })
 

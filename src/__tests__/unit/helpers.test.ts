@@ -1666,115 +1666,387 @@ describe("getMonths helper", () => {
       expectedResultsFor2020 = [
         {
           "getMonthAbbrev": "janv.",
+          "getFormatedDate": "2019-01-01",
+          "isFromChosenYear": false,
+          "isCurrentMonth": false,
+          "isChosenMonth": false,
+          "isFirstMonthOfCurrentYear": false
+        },
+        {
+          "getMonthAbbrev": "févr.",
+          "getFormatedDate": "2019-02-01",
+          "isFromChosenYear": false,
+          "isCurrentMonth": false,
+          "isChosenMonth": false,
+          "isFirstMonthOfCurrentYear": false
+        },
+        {
+          "getMonthAbbrev": "mars",
+          "getFormatedDate": "2019-03-01",
+          "isFromChosenYear": false,
+          "isCurrentMonth": false,
+          "isChosenMonth": false,
+          "isFirstMonthOfCurrentYear": false
+        },
+        {
+          "getMonthAbbrev": "avr.",
+          "getFormatedDate": "2019-04-01",
+          "isFromChosenYear": false,
+          "isCurrentMonth": false,
+          "isChosenMonth": false,
+          "isFirstMonthOfCurrentYear": false
+        },
+        {
+          "getMonthAbbrev": "mai",
+          "getFormatedDate": "2019-05-01",
+          "isFromChosenYear": false,
+          "isCurrentMonth": false,
+          "isChosenMonth": false,
+          "isFirstMonthOfCurrentYear": false
+        },
+        {
+          "getMonthAbbrev": "juin",
+          "getFormatedDate": "2019-06-01",
+          "isFromChosenYear": false,
+          "isCurrentMonth": false,
+          "isChosenMonth": false,
+          "isFirstMonthOfCurrentYear": false
+        },
+        {
+          "getMonthAbbrev": "juil.",
+          "getFormatedDate": "2019-07-01",
+          "isFromChosenYear": false,
+          "isCurrentMonth": false,
+          "isChosenMonth": false,
+          "isFirstMonthOfCurrentYear": false
+        },
+        {
+          "getMonthAbbrev": "août",
+          "getFormatedDate": "2019-08-01",
+          "isFromChosenYear": false,
+          "isCurrentMonth": false,
+          "isChosenMonth": false,
+          "isFirstMonthOfCurrentYear": false
+        },
+        {
+          "getMonthAbbrev": "sept.",
+          "getFormatedDate": "2019-09-01",
+          "isFromChosenYear": false,
+          "isCurrentMonth": false,
+          "isChosenMonth": false,
+          "isFirstMonthOfCurrentYear": false
+        },
+        {
+          "getMonthAbbrev": "oct.",
+          "getFormatedDate": "2019-10-01",
+          "isFromChosenYear": false,
+          "isCurrentMonth": false,
+          "isChosenMonth": false,
+          "isFirstMonthOfCurrentYear": false
+        },
+        {
+          "getMonthAbbrev": "nov.",
+          "getFormatedDate": "2019-11-01",
+          "isFromChosenYear": false,
+          "isCurrentMonth": false,
+          "isChosenMonth": false,
+          "isFirstMonthOfCurrentYear": false
+        },
+        {
+          "getMonthAbbrev": "déc.",
+          "getFormatedDate": "2019-12-01",
+          "isFromChosenYear": false,
+          "isCurrentMonth": false,
+          "isChosenMonth": false,
+          "isFirstMonthOfCurrentYear": false
+        },
+        {
+          "getMonthAbbrev": "janv.",
           "getFormatedDate": "2020-01-01",
           "isFromChosenYear": true,
           "isCurrentMonth": false,
-          "isChosenMonth": true
+          "isChosenMonth": true,
+          "isFirstMonthOfCurrentYear": true
         },
         {
           "getMonthAbbrev": "févr.",
           "getFormatedDate": "2020-02-01",
           "isFromChosenYear": true,
           "isCurrentMonth": false,
-          "isChosenMonth": false
+          "isChosenMonth": false,
+          "isFirstMonthOfCurrentYear": false
         },
         {
           "getMonthAbbrev": "mars",
           "getFormatedDate": "2020-03-01",
           "isFromChosenYear": true,
           "isCurrentMonth": false,
-          "isChosenMonth": false
+          "isChosenMonth": false,
+          "isFirstMonthOfCurrentYear": false
         },
         {
           "getMonthAbbrev": "avr.",
           "getFormatedDate": "2020-04-01",
           "isFromChosenYear": true,
           "isCurrentMonth": false,
-          "isChosenMonth": false
+          "isChosenMonth": false,
+          "isFirstMonthOfCurrentYear": false
         },
         {
           "getMonthAbbrev": "mai",
           "getFormatedDate": "2020-05-01",
           "isFromChosenYear": true,
           "isCurrentMonth": false,
-          "isChosenMonth": false
+          "isChosenMonth": false,
+          "isFirstMonthOfCurrentYear": false
         },
         {
           "getMonthAbbrev": "juin",
           "getFormatedDate": "2020-06-01",
           "isFromChosenYear": true,
           "isCurrentMonth": false,
-          "isChosenMonth": false
+          "isChosenMonth": false,
+          "isFirstMonthOfCurrentYear": false
         },
         {
           "getMonthAbbrev": "juil.",
           "getFormatedDate": "2020-07-01",
           "isFromChosenYear": true,
           "isCurrentMonth": false,
-          "isChosenMonth": false
+          "isChosenMonth": false,
+          "isFirstMonthOfCurrentYear": false
         },
         {
           "getMonthAbbrev": "août",
           "getFormatedDate": "2020-08-01",
           "isFromChosenYear": true,
           "isCurrentMonth": false,
-          "isChosenMonth": false
+          "isChosenMonth": false,
+          "isFirstMonthOfCurrentYear": false
         },
         {
           "getMonthAbbrev": "sept.",
           "getFormatedDate": "2020-09-01",
           "isFromChosenYear": true,
           "isCurrentMonth": false,
-          "isChosenMonth": false
+          "isChosenMonth": false,
+          "isFirstMonthOfCurrentYear": false
         },
         {
           "getMonthAbbrev": "oct.",
           "getFormatedDate": "2020-10-01",
           "isFromChosenYear": true,
           "isCurrentMonth": false,
-          "isChosenMonth": false
+          "isChosenMonth": false,
+          "isFirstMonthOfCurrentYear": false
         },
         {
           "getMonthAbbrev": "nov.",
           "getFormatedDate": "2020-11-01",
           "isFromChosenYear": true,
           "isCurrentMonth": false,
-          "isChosenMonth": false
+          "isChosenMonth": false,
+          "isFirstMonthOfCurrentYear": false
         },
         {
           "getMonthAbbrev": "déc.",
           "getFormatedDate": "2020-12-01",
           "isFromChosenYear": true,
           "isCurrentMonth": false,
-          "isChosenMonth": false
+          "isChosenMonth": false,
+          "isFirstMonthOfCurrentYear": false
         },
         {
           "getMonthAbbrev": "janv.",
           "getFormatedDate": "2021-01-01",
           "isFromChosenYear": false,
           "isCurrentMonth": false,
-          "isChosenMonth": false
+          "isChosenMonth": false,
+          "isFirstMonthOfCurrentYear": false
         },
         {
           "getMonthAbbrev": "févr.",
           "getFormatedDate": "2021-02-01",
           "isFromChosenYear": false,
           "isCurrentMonth": false,
-          "isChosenMonth": false
+          "isChosenMonth": false,
+          "isFirstMonthOfCurrentYear": false
         },
         {
           "getMonthAbbrev": "mars",
           "getFormatedDate": "2021-03-01",
           "isFromChosenYear": false,
           "isCurrentMonth": false,
-          "isChosenMonth": false
+          "isChosenMonth": false,
+          "isFirstMonthOfCurrentYear": false
         },
         {
           "getMonthAbbrev": "avr.",
           "getFormatedDate": "2021-04-01",
           "isFromChosenYear": false,
           "isCurrentMonth": false,
-          "isChosenMonth": false
+          "isChosenMonth": false,
+          "isFirstMonthOfCurrentYear": false
+        },
+        {
+          "getMonthAbbrev": "mai",
+          "getFormatedDate": "2021-05-01",
+          "isFromChosenYear": false,
+          "isCurrentMonth": false,
+          "isChosenMonth": false,
+          "isFirstMonthOfCurrentYear": false
+        },
+        {
+          "getMonthAbbrev": "juin",
+          "getFormatedDate": "2021-06-01",
+          "isFromChosenYear": false,
+          "isCurrentMonth": false,
+          "isChosenMonth": false,
+          "isFirstMonthOfCurrentYear": false
+        },
+        {
+          "getMonthAbbrev": "juil.",
+          "getFormatedDate": "2021-07-01",
+          "isFromChosenYear": false,
+          "isCurrentMonth": false,
+          "isChosenMonth": false,
+          "isFirstMonthOfCurrentYear": false
+        },
+        {
+          "getMonthAbbrev": "août",
+          "getFormatedDate": "2021-08-01",
+          "isFromChosenYear": false,
+          "isCurrentMonth": false,
+          "isChosenMonth": false,
+          "isFirstMonthOfCurrentYear": false
+        },
+        {
+          "getMonthAbbrev": "sept.",
+          "getFormatedDate": "2021-09-01",
+          "isFromChosenYear": false,
+          "isCurrentMonth": false,
+          "isChosenMonth": false,
+          "isFirstMonthOfCurrentYear": false
+        },
+        {
+          "getMonthAbbrev": "oct.",
+          "getFormatedDate": "2021-10-01",
+          "isFromChosenYear": false,
+          "isCurrentMonth": false,
+          "isChosenMonth": false,
+          "isFirstMonthOfCurrentYear": false
+        },
+        {
+          "getMonthAbbrev": "nov.",
+          "getFormatedDate": "2021-11-01",
+          "isFromChosenYear": false,
+          "isCurrentMonth": false,
+          "isChosenMonth": false,
+          "isFirstMonthOfCurrentYear": false
+        },
+        {
+          "getMonthAbbrev": "déc.",
+          "getFormatedDate": "2021-12-01",
+          "isFromChosenYear": false,
+          "isCurrentMonth": false,
+          "isChosenMonth": false,
+          "isFirstMonthOfCurrentYear": false
+        },
+        {
+          "getMonthAbbrev": "janv.",
+          "getFormatedDate": "2022-01-01",
+          "isFromChosenYear": false,
+          "isCurrentMonth": false,
+          "isChosenMonth": false,
+          "isFirstMonthOfCurrentYear": false
+        },
+        {
+          "getMonthAbbrev": "févr.",
+          "getFormatedDate": "2022-02-01",
+          "isFromChosenYear": false,
+          "isCurrentMonth": false,
+          "isChosenMonth": false,
+          "isFirstMonthOfCurrentYear": false
+        },
+        {
+          "getMonthAbbrev": "mars",
+          "getFormatedDate": "2022-03-01",
+          "isFromChosenYear": false,
+          "isCurrentMonth": false,
+          "isChosenMonth": false,
+          "isFirstMonthOfCurrentYear": false
+        },
+        {
+          "getMonthAbbrev": "avr.",
+          "getFormatedDate": "2022-04-01",
+          "isFromChosenYear": false,
+          "isCurrentMonth": false,
+          "isChosenMonth": false,
+          "isFirstMonthOfCurrentYear": false
+        },
+        {
+          "getMonthAbbrev": "mai",
+          "getFormatedDate": "2022-05-01",
+          "isFromChosenYear": false,
+          "isCurrentMonth": false,
+          "isChosenMonth": false,
+          "isFirstMonthOfCurrentYear": false
+        },
+        {
+          "getMonthAbbrev": "juin",
+          "getFormatedDate": "2022-06-01",
+          "isFromChosenYear": false,
+          "isCurrentMonth": false,
+          "isChosenMonth": false,
+          "isFirstMonthOfCurrentYear": false
+        },
+        {
+          "getMonthAbbrev": "juil.",
+          "getFormatedDate": "2022-07-01",
+          "isFromChosenYear": false,
+          "isCurrentMonth": false,
+          "isChosenMonth": false,
+          "isFirstMonthOfCurrentYear": false
+        },
+        {
+          "getMonthAbbrev": "août",
+          "getFormatedDate": "2022-08-01",
+          "isFromChosenYear": false,
+          "isCurrentMonth": false,
+          "isChosenMonth": false,
+          "isFirstMonthOfCurrentYear": false
+        },
+        {
+          "getMonthAbbrev": "sept.",
+          "getFormatedDate": "2022-09-01",
+          "isFromChosenYear": false,
+          "isCurrentMonth": false,
+          "isChosenMonth": false,
+          "isFirstMonthOfCurrentYear": false
+        },
+        {
+          "getMonthAbbrev": "oct.",
+          "getFormatedDate": "2022-10-01",
+          "isFromChosenYear": false,
+          "isCurrentMonth": false,
+          "isChosenMonth": false,
+          "isFirstMonthOfCurrentYear": false
+        },
+        {
+          "getMonthAbbrev": "nov.",
+          "getFormatedDate": "2022-11-01",
+          "isFromChosenYear": false,
+          "isCurrentMonth": false,
+          "isChosenMonth": false,
+          "isFirstMonthOfCurrentYear": false
+        },
+        {
+          "getMonthAbbrev": "déc.",
+          "getFormatedDate": "2022-12-01",
+          "isFromChosenYear": false,
+          "isCurrentMonth": false,
+          "isChosenMonth": false,
+          "isFirstMonthOfCurrentYear": false
         }
       ]
     })

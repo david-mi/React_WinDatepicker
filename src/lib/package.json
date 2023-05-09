@@ -1,10 +1,11 @@
 {
-  "name": "david-mi-react-windate",
+  "name": "react-windate",
   "private": false,
-  "version": "0.0.0",
+  "version": "1.3.0",
   "description": "React date input package with windows skin",
   "type": "module",
-  "main": "index.js",
+  "main": "index.umd.cjs",
+  "module": "index.js",
   "peerDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

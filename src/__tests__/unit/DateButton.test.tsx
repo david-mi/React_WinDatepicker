@@ -17,7 +17,8 @@ describe("<Date>", () => {
       getFormatedDate: formatDate(date),
       isFromChosenMonth: true,
       isToday: true,
-      isChosenDate: true
+      isChosenDate: true,
+      isFirstDayOfCurrentMonth: false
     }
   })
 

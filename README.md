@@ -1,4 +1,4 @@
-# React WinDate v0.0.0
+# React WinDate v1.1
 
 ## Description
 

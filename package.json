@@ -1,12 +1,12 @@
 {
-  "name": "david-mi-react-windate",
+  "name": "react-windate",
   "private": false,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "test": "vitest --reporter verbose",
-    "build": "tsc && vite build && cp ./README.md ./dist/assets && cp ./src/lib/package.json ./dist/assets",
+    "build": "tsc && vite build && cp ./README.md ./dist && cp ./src/lib/package.json ./dist",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
@@ -16,6 +16,7 @@
     "jsdom": "^21.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "vite-plugin-lib-inject-css": "^1.2.0",
     "vitest": "^0.30.1"
   },
   "devDependencies": {
