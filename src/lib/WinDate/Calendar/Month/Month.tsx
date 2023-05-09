@@ -6,7 +6,6 @@ import Dates from "./Dates/Dates"
 import { getDates } from "./helper"
 import { monthsNamesIndexes, MonthIndex } from "./data"
 import type { DatesFormat } from "./type"
-import { handleTimeout } from "../../utils"
 
 const Month = () => {
   const { date, setDate } = useContext(GlobalContext)
@@ -16,25 +15,16 @@ const Month = () => {
   const chosenMonth = date.getMonth()
   const chosenYear = date.getFullYear()
 
-  const handleNextMonth = handleTimeout({
-    preTimeoutCallback: () => {
-      dateContainerRef.current.scrollTo({
-        top: dateContainerRef.current.scrollHeight,
-        behavior: "smooth"
-      })
-    },
-    timeoutCallback: setNextMonth,
-    delay: 300
-  })
+  function scrollToTopOfDates() {
+    dateContainerRef.current.scrollTo({ top: 0, behavior: "smooth" })
+  }
 
-  const handlePreviousMonth = handleTimeout({
-    preTimeoutCallback: () => {
-      const elementToScroll = dateContainerRef.current
-      elementToScroll.scrollTo({ top: 0, behavior: "smooth" })
-    },
-    timeoutCallback: setPreviousMonth,
-    delay: 300
-  })
+  function scrollToBottomOfDates() {
+    dateContainerRef.current.scrollTo({
+      top: dateContainerRef.current.scrollHeight,
+      behavior: "smooth"
+    })
+  }
 
   function setNextMonth() {
     const nextMonth = new Date(date)
@@ -55,12 +45,17 @@ const Month = () => {
   return (
     <div>
       <Header
-        handlePrevious={handlePreviousMonth}
-        handleNext={handleNextMonth}
+        handlePrevious={scrollToTopOfDates}
+        handleNext={scrollToBottomOfDates}
         infos={infos}
       />
       <Weekdays />
-      <Dates dates={dates} ref={dateContainerRef} />
+      <Dates
+        dates={dates}
+        ref={dateContainerRef}
+        setPreviousMonth={setPreviousMonth}
+        setNextMonth={setNextMonth}
+      />
     </div>
   )
 }

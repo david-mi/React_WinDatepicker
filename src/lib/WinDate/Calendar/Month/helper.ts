@@ -1,7 +1,7 @@
 import type { DatesFormat } from "./type"
 import { formatDate } from "../../utils"
 
-const getDayIndex = {
+const daysToRetrieveBeforePreviousMonth = {
   0: 6,
   1: 0,
   2: 1,
@@ -11,7 +11,7 @@ const getDayIndex = {
   6: 5
 }
 
-type DaysIndexKeys = keyof typeof getDayIndex
+type DaysIndexKeys = keyof typeof daysToRetrieveBeforePreviousMonth
 
 /**
  * Retrieve all 105 dates to display on a calendar page
@@ -29,25 +29,38 @@ export function getDates(chosenDate: Date): DatesFormat[] {
 
   const dates = []
   const firstDateOfTheMonth = 1
+  const gridViewSize = 42
   const chosenMonth = date.getMonth()
 
-  const nextMonthDate = new Date(chosenMonth)
-  nextMonthDate.setMonth(chosenMonth + 1)
-  const nextMonth = nextMonthDate.getMonth()
+  const previousMonthLastDate = new Date(date)
+  previousMonthLastDate.setDate(0)
+  const amountOfDaysFromPreviousMonth = previousMonthLastDate.getDate()
+
+  const currentMonthLastDate = new Date(date)
+  currentMonthLastDate.setMonth(currentMonthLastDate.getMonth() + 1)
+  currentMonthLastDate.setDate(0)
+  const amountOfDaysFromCurrentMonth = currentMonthLastDate.getDate()
+  const currentMonthLastDay = currentMonthLastDate.getDay()
 
   date.setMonth(date.getMonth() - 1)
   date.setDate(firstDateOfTheMonth)
   const firstDayOfTheMonth = date.getDay()
 
-  const amountOfDatesToGetBeforePreviousMonth = getDayIndex[firstDayOfTheMonth as DaysIndexKeys]
+  const amountOfDatesToGetBeforePreviousMonth = daysToRetrieveBeforePreviousMonth[firstDayOfTheMonth as DaysIndexKeys]
   date.setDate(firstDateOfTheMonth - amountOfDatesToGetBeforePreviousMonth)
 
   // needed grid size to display 3 months, with the first day of the month at the top
-  const numberOfDatesToAdd = 105
+  const amountOfDatesToAdd = (
+    amountOfDatesToGetBeforePreviousMonth +
+    amountOfDaysFromPreviousMonth +
+    amountOfDaysFromCurrentMonth +
+    gridViewSize - currentMonthLastDay
+  )
+
   let addedDatesCount = 0
   let dayDate: number
 
-  while (addedDatesCount < numberOfDatesToAdd) {
+  while (addedDatesCount < amountOfDatesToAdd) {
     dayDate = date.getDate()
 
     dates.push({
@@ -56,7 +69,6 @@ export function getDates(chosenDate: Date): DatesFormat[] {
       isFromChosenMonth: date.getMonth() === chosenMonth,
       isToday: areDatesIdentical(new Date(), date),
       isChosenDate: areDatesIdentical(chosenDate, date),
-      isFirstDayOfNextMonth: date.getMonth() === nextMonth && dayDate === 1,
       isFirstDayOfCurrentMonth: date.getMonth() === chosenMonth && dayDate === 1
     })
 

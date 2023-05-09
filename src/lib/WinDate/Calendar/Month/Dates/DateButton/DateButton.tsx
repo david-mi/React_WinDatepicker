@@ -15,8 +15,7 @@ const DateButton = forwardRef(({ date }: Props, ref: ForwardedRef<HTMLButtonElem
     getFormatedDate,
     isFromChosenMonth,
     isToday,
-    isChosenDate,
-    isFirstDayOfNextMonth
+    isChosenDate
   } = date
 
   const { setDate, closeCalendar } = useContext(GlobalContext)
@@ -36,7 +35,6 @@ const DateButton = forwardRef(({ date }: Props, ref: ForwardedRef<HTMLButtonElem
       data-today={isToday}
       data-chosen-month={isFromChosenMonth}
       data-chosen-date={isChosenDate}
-      data-next-month-first-day={isFirstDayOfNextMonth}
       className={styles.date}
       onClick={handleDateClick}
       autoFocus={isChosenDate}
