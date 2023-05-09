@@ -1,4 +1,4 @@
-import { useMemo, useContext } from "react"
+import { useMemo, useContext, useRef } from "react"
 import { GlobalContext } from "../../../Context/Global"
 import Header from "../Header/Header"
 import Weekdays from "./Weekdays/Weekdays"
@@ -10,32 +10,30 @@ import { handleTimeout } from "../../utils"
 
 const Month = () => {
   const { date, setDate } = useContext(GlobalContext)
-
-  const dates: DatesFormat[] = useMemo(() => {
-    return getDates(date)
-  }, [date])
-
+  const dates: DatesFormat[] = useMemo(() => getDates(date), [date])
+  const dateContainerRef = useRef<HTMLDivElement>(null!)
 
   const chosenMonth = date.getMonth()
   const chosenYear = date.getFullYear()
 
-
   const handleNextMonth = handleTimeout({
     preTimeoutCallback: () => {
-      const elementToScroll = document.querySelector<HTMLButtonElement>("[data-next-month-first-day='true']")!
-      elementToScroll.scrollIntoView({ behavior: "smooth" })
+      dateContainerRef.current.scrollTo({
+        top: dateContainerRef.current.scrollHeight,
+        behavior: "smooth"
+      })
     },
     timeoutCallback: setNextMonth,
-    delay: 200
+    delay: 300
   })
 
   const handlePreviousMonth = handleTimeout({
     preTimeoutCallback: () => {
-      const elementToScroll = document.getElementById("dates")!
+      const elementToScroll = dateContainerRef.current
       elementToScroll.scrollTo({ top: 0, behavior: "smooth" })
     },
     timeoutCallback: setPreviousMonth,
-    delay: 200
+    delay: 300
   })
 
   function setNextMonth() {
@@ -62,7 +60,7 @@ const Month = () => {
         infos={infos}
       />
       <Weekdays />
-      <Dates dates={dates} />
+      <Dates dates={dates} ref={dateContainerRef} />
     </div>
   )
 }

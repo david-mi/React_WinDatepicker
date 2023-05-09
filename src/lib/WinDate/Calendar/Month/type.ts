@@ -10,5 +10,5 @@ export interface DatesFormat {
   /** set to true if the date correspond to the selected date */
   isChosenDate: boolean
   isFirstDayOfNextMonth: boolean
-  isFirstDayOfPreviousMonth: boolean
+  isFirstDayOfCurrentMonth: boolean
 }

@@ -14,13 +14,13 @@ const getDayIndex = {
 type DaysIndexKeys = keyof typeof getDayIndex
 
 /**
- * Retrieve all 126 dates to display on a calendar page
+ * Retrieve all 105 dates to display on a calendar page
  * 
  * - Add previous / current / next
  * - If the first day of the month from the {@link chosenDate} does not
  *   start with monday, add the last dates from the previous month to compensate
  * - Add all dates from the {@link chosenDate} month
- * - If the length of {@link monthDates} is below 42, add the first dates from the next month to compensate
+ * - If the length of {@link monthDates} is below 105, add the first dates from the next month to compensate
  */
 
 export function getDates(chosenDate: Date): DatesFormat[] {
@@ -31,10 +31,6 @@ export function getDates(chosenDate: Date): DatesFormat[] {
   const firstDateOfTheMonth = 1
   const chosenMonth = date.getMonth()
 
-  const previousMonthDate = new Date(chosenMonth)
-  previousMonthDate.setMonth(chosenMonth - 1)
-  const previousMonth = previousMonthDate.getMonth()
-
   const nextMonthDate = new Date(chosenMonth)
   nextMonthDate.setMonth(chosenMonth + 1)
   const nextMonth = nextMonthDate.getMonth()
@@ -43,12 +39,12 @@ export function getDates(chosenDate: Date): DatesFormat[] {
   date.setDate(firstDateOfTheMonth)
   const firstDayOfTheMonth = date.getDay()
 
-  const amountOfDatesToGetFromPreviousMonth = getDayIndex[firstDayOfTheMonth as DaysIndexKeys]
-  date.setDate(firstDateOfTheMonth - amountOfDatesToGetFromPreviousMonth)
+  const amountOfDatesToGetBeforePreviousMonth = getDayIndex[firstDayOfTheMonth as DaysIndexKeys]
+  date.setDate(firstDateOfTheMonth - amountOfDatesToGetBeforePreviousMonth)
 
-  const numberOfDatesToAdd = 112
+  // needed grid size to display 3 months, with the first day of the month at the top
+  const numberOfDatesToAdd = 105
   let addedDatesCount = 0
-
   let dayDate: number
 
   while (addedDatesCount < numberOfDatesToAdd) {
@@ -61,7 +57,7 @@ export function getDates(chosenDate: Date): DatesFormat[] {
       isToday: areDatesIdentical(new Date(), date),
       isChosenDate: areDatesIdentical(chosenDate, date),
       isFirstDayOfNextMonth: date.getMonth() === nextMonth && dayDate === 1,
-      isFirstDayOfPreviousMonth: date.getMonth() === previousMonth && dayDate === 1
+      isFirstDayOfCurrentMonth: date.getMonth() === chosenMonth && dayDate === 1
     })
 
     date.setDate(dayDate + 1)

@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react"
+import { useRef, useEffect, forwardRef, ForwardedRef, MutableRefObject } from "react"
 import { useContext } from "react"
 import { GlobalContext } from "../../../../Context/Global"
 import DateButton from "./DateButton/DateButton"
@@ -9,24 +9,29 @@ interface Props {
   dates: DatesFormat[]
 }
 
-const Dates = ({ dates }: Props) => {
+const Dates = forwardRef(({ dates }: Props, dateContainerRef: ForwardedRef<HTMLDivElement>) => {
   const { isSwitchingTimeline } = useContext(GlobalContext)
-  const datesContainerRef = useRef<HTMLDivElement>(null!)
+  const firstDayOfChosenMonthButtonRef = useRef<HTMLButtonElement>(null!)
 
   const className = `${styles.dates} ${isSwitchingTimeline ? styles.switchTimeline : ""}`
 
   useEffect(() => {
-    const elementToScroll = datesContainerRef.current.querySelector<HTMLButtonElement>("[data-chosen-month='true']")!
-    datesContainerRef.current.scrollTo({ top: elementToScroll.offsetTop })
+    (dateContainerRef as MutableRefObject<HTMLDivElement>).current.scrollTop = firstDayOfChosenMonthButtonRef.current.offsetTop
   }, [dates])
 
   return (
-    <div className={className} ref={datesContainerRef} id="dates">
+    <div className={className} ref={dateContainerRef}>
       {dates.map((date, index) => {
-        return <DateButton key={index} date={date} />
+        return (
+          <DateButton
+            key={index}
+            date={date}
+            ref={date.isFirstDayOfCurrentMonth ? firstDayOfChosenMonthButtonRef : null}
+          />
+        )
       })}
     </div>
   )
-}
+})
 
 export default Dates

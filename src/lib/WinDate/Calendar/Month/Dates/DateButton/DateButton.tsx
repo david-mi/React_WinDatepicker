@@ -1,5 +1,6 @@
-import { useRef } from "react"
+import { forwardRef, ForwardedRef } from "react"
 import { useContext } from "react"
+
 import { GlobalContext } from "../../../../../Context/Global"
 import type { DatesFormat } from "../../type"
 import styles from "./dateButton.module.css"
@@ -8,18 +9,15 @@ interface Props {
   date: DatesFormat
 }
 
-const DateButton = ({ date }: Props) => {
+const DateButton = forwardRef(({ date }: Props, ref: ForwardedRef<HTMLButtonElement | null>) => {
   const {
     getDate,
     getFormatedDate,
     isFromChosenMonth,
     isToday,
     isChosenDate,
-    isFirstDayOfPreviousMonth,
     isFirstDayOfNextMonth
   } = date
-
-  const buttonRef = useRef<HTMLButtonElement>(null!)
 
   const { setDate, closeCalendar } = useContext(GlobalContext)
 
@@ -33,13 +31,12 @@ const DateButton = ({ date }: Props) => {
 
   return (
     <button
-      ref={buttonRef}
+      ref={ref}
       data-testid="date"
       data-today={isToday}
       data-chosen-month={isFromChosenMonth}
       data-chosen-date={isChosenDate}
       data-next-month-first-day={isFirstDayOfNextMonth}
-      data-previous-month-first-day={isFirstDayOfPreviousMonth}
       className={styles.date}
       onClick={handleDateClick}
       autoFocus={isChosenDate}
@@ -47,6 +44,6 @@ const DateButton = ({ date }: Props) => {
       {getDate}
     </button>
   )
-}
+})
 
 export default DateButton

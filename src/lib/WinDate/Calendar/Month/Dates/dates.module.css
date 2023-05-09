@@ -5,8 +5,7 @@
   text-align: center;
   row-gap: 10px;
   height: 250px;
-  overflow: hidden;
-  /* scroll-snap-type: y mandatory; */
+  overflow: auto;
   display: flex;
   flex-wrap: wrap;
   gap: 2px;
