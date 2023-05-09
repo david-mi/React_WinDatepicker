@@ -14,29 +14,31 @@ export function getMonths(chosenDate: Date): MonthsFormat[] {
   /** make a copy of {@link chosenDate} to not mutate it */
   const date = new Date(chosenDate)
 
-  const yearMonths = []
-  const amountOfYearsToReturn = 16
+  const months = []
+  const amountOfYearsToReturn = 3 * 16
   const firstMonthOfTheYear = 0
   const chosenYear = date.getFullYear()
 
+  date.setFullYear(chosenYear - 1)
   date.setMonth(firstMonthOfTheYear)
 
   let month: number
 
   for (let i = 0; i < amountOfYearsToReturn; i++) {
     month = date.getMonth()
-    yearMonths.push({
+    months.push({
       getMonthAbbrev: monthAbbrev[i % monthAbbrev.length],
       getFormatedDate: formatDate(date),
       isFromChosenYear: date.getFullYear() === chosenYear,
       isCurrentMonth: areMonthsIdentical(new Date(), date),
       isChosenMonth: areMonthsIdentical(chosenDate, date),
+      isFirstMonthOfCurrentYear: date.getFullYear() === chosenYear && date.getMonth() === 0
     })
 
     date.setMonth(month + 1)
   }
 
-  return yearMonths
+  return months
 }
 
 /**

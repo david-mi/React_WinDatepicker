@@ -1,4 +1,4 @@
-import { useContext } from "react"
+import { useContext, forwardRef, ForwardedRef } from "react"
 import { GlobalContext } from "../../../../../Context/Global"
 import type { MonthsFormat } from "../../type"
 import { handleTimeout } from "../../../../utils"
@@ -8,7 +8,7 @@ interface Props {
   month: MonthsFormat
 }
 
-const MonthButton = ({ month }: Props) => {
+const MonthButton = forwardRef(({ month }: Props, ref: ForwardedRef<HTMLButtonElement | null>) => {
   const {
     getMonthAbbrev,
     getFormatedDate,
@@ -32,6 +32,7 @@ const MonthButton = ({ month }: Props) => {
 
   return (
     <button
+      ref={ref}
       data-testid="month"
       data-current-month={isCurrentMonth}
       data-chosen-year={isFromChosenYear}
@@ -42,6 +43,6 @@ const MonthButton = ({ month }: Props) => {
       {getMonthAbbrev}
     </button>
   )
-}
+})
 
 export default MonthButton

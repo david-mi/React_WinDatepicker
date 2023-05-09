@@ -32,7 +32,6 @@ const Dates = forwardRef(({ dates, setPreviousMonth, setNextMonth }: Props, date
     }
 
     if (hasReachedBottom) {
-      console.log("bottom")
       setNextMonth()
     }
   }
