@@ -1,4 +1,4 @@
-import { expect } from "vitest";
+import { expect, vi } from "vitest";
 import { render, screen, getNodeText } from "@testing-library/react";
 import Dates from "../../lib/WinDate/Calendar/Month/Dates/Dates";
 import { getDates } from "../../lib/WinDate/Calendar/Month/helper";
@@ -11,7 +11,14 @@ describe("<Dates>", () => {
       return String(date.getDate)
     })
 
-    render(<Dates dates={dates} ref={{ current: null }} />)
+    const props = {
+      dates,
+      ref: { current: null },
+      setPreviousMonth: vi.fn(),
+      setNextMonth: vi.fn()
+    }
+
+    render(<Dates {...props} />)
     const datesElements = screen.getAllByTestId("date")
     const dateElementsText = datesElements.map(getNodeText)
 
