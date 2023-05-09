@@ -11,14 +11,14 @@ interface Props {
   setNextMonth: () => void
 }
 
-const Dates = forwardRef(({ dates, setPreviousMonth, setNextMonth }: Props, dateContainerRef: ForwardedRef<HTMLDivElement>) => {
+const Dates = forwardRef(({ dates, setPreviousMonth, setNextMonth }: Props, datesContainerRef: ForwardedRef<HTMLDivElement>) => {
   const { isSwitchingTimeline } = useContext(GlobalContext)
   const firstDayOfChosenMonthButtonRef = useRef<HTMLButtonElement>(null!)
 
   const className = `${styles.dates} ${isSwitchingTimeline ? styles.switchTimeline : ""}`
 
   useLayoutEffect(() => {
-    (dateContainerRef as MutableRefObject<HTMLDivElement>).current.scrollTop = firstDayOfChosenMonthButtonRef.current.offsetTop
+    (datesContainerRef as MutableRefObject<HTMLDivElement>).current.scrollTop = firstDayOfChosenMonthButtonRef.current.offsetTop
   }, [dates])
 
   function handleScroll(event: UIEvent<HTMLDivElement>) {
@@ -37,7 +37,7 @@ const Dates = forwardRef(({ dates, setPreviousMonth, setNextMonth }: Props, date
   }
 
   return (
-    <div className={className} ref={dateContainerRef} onScroll={handleScroll}>
+    <div className={className} ref={datesContainerRef} onScroll={handleScroll}>
       {dates.map((date, index) => {
         return (
           <DateButton

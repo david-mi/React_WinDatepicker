@@ -10,18 +10,18 @@ import type { DatesFormat } from "./type"
 const Month = () => {
   const { date, setDate } = useContext(GlobalContext)
   const dates: DatesFormat[] = useMemo(() => getDates(date), [date])
-  const dateContainerRef = useRef<HTMLDivElement>(null!)
+  const datesContainerRef = useRef<HTMLDivElement>(null!)
 
   const chosenMonth = date.getMonth()
   const chosenYear = date.getFullYear()
 
   function scrollToTopOfDates() {
-    dateContainerRef.current.scrollTo({ top: 0, behavior: "smooth" })
+    datesContainerRef.current.scrollTo({ top: 0, behavior: "smooth" })
   }
 
   function scrollToBottomOfDates() {
-    dateContainerRef.current.scrollTo({
-      top: dateContainerRef.current.scrollHeight,
+    datesContainerRef.current.scrollTo({
+      top: datesContainerRef.current.scrollHeight,
       behavior: "smooth"
     })
   }
@@ -52,7 +52,7 @@ const Month = () => {
       <Weekdays />
       <Dates
         dates={dates}
-        ref={dateContainerRef}
+        ref={datesContainerRef}
         setPreviousMonth={setPreviousMonth}
         setNextMonth={setNextMonth}
       />
