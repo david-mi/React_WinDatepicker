@@ -10,9 +10,9 @@ describe("<Dates>", () => {
     const getDatesValuesAsString: string[] = dates.map((date) => {
       return String(date.getDate)
     })
-    const expectedLength = 42
+    const expectedLength = 105
 
-    render(<Dates dates={dates} />)
+    render(<Dates dates={dates} ref={{ current: null }} />)
     const datesElements = screen.getAllByTestId("date")
     const dateElementsText = datesElements.map(getNodeText)
 
