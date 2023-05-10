@@ -1,4 +1,5 @@
 import { WinDateWrapper } from "../lib"
+import "./index.css"
 
 const App = () => {
   return (
