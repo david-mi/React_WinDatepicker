@@ -1,6 +1,6 @@
 .button {
   position: absolute;
-  right: 2px;
+  right: 5px;
   background-color: white;
   top: 50%;
   transform: translateY(-50%);
@@ -9,4 +9,6 @@
 
 .button path {
   fill: black;
+  width: 20px;
+  height: 20px;
 }
