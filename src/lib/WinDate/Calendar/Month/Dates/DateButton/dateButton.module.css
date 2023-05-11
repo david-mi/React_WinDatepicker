@@ -8,7 +8,7 @@
   aspect-ratio: 1/1;
   border: none;
   scroll-snap-align: end;
-  color: var(--calendar-not-actual);
+  color: var(--calendar-not-current-clr);
   background-color: transparent;
   font-weight: 400;
   font-size: 0.92rem;
@@ -21,20 +21,20 @@
 }
 
 .date[data-chosen-month="true"] {
-  color: var(--calendar-chosen);
+  color: var(--calendar-chosen-clr);
 }
 
 .date[data-today="true"] {
-  background-color: var(--calendar-actual);
+  background-color: var(--calendar-current-bg);
   font-weight: 500;
-  border: solid 2px var(--calendar-actual-border);
+  border: solid 2px var(--calendar-current-border);
 }
 
 .date[data-today="true"]::before {
   content: "";
   position: absolute;
   inset: 0px;
-  border: solid 2px var(--calendar-actual-border-inner);
+  border: solid 2px var(--calendar-current-border-inner);
 }
 
 .date[data-today="true"]:hover {

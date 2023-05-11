@@ -9,7 +9,7 @@
   aspect-ratio: 1/1;
   border: none;
   font-weight: 400;
-  color: var(--calendar-not-actual);
+  color: var(--calendar-not-current-clr);
   width: 82px;
   height: 71px;
 }
@@ -19,17 +19,17 @@
 }
 
 .month[data-chosen-year="true"] {
-  color: var(--calendar-chosen);
+  color: var(--calendar-chosen-clr);
 }
 
 .month[data-current-month="true"] {
-  background-color: var(--calendar-actual);
+  background-color: var(--calendar-current-bg);
   font-weight: 500;
-  border: solid 2px var(--calendar-actual-border);
+  border: solid 2px var(--calendar-current-border);
 }
 
 .month[data-current-month="true"]::before {
-  border: solid 2px var(--calendar-actual-border-inner);
+  border: solid 2px var(--calendar-current-border-inner);
 }
 
 

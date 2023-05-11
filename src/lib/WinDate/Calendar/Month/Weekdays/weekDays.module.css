@@ -1,7 +1,7 @@
 .weekDays {
   display: flex;
   text-align: center;
-  color: var(--calendar-weekdays);
+  color: var(--calendar-weekdays-clr);
   font-size: 0.7rem;
   padding-block: 5px;
   margin-bottom: 5px;
