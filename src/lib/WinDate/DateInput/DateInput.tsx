@@ -1,4 +1,4 @@
-import { useEffect, useRef, useContext, KeyboardEvent } from "react"
+import { useEffect, useRef, useContext, KeyboardEvent, useLayoutEffect } from "react"
 import { GlobalContext } from "../../Context/Global"
 import type { ChangeEvent } from "react"
 import { formatDate } from "../utils"
@@ -8,6 +8,7 @@ import Button from "./Button/Button"
 const DateInput = () => {
   const dateInputRef = useRef<HTMLInputElement>(null!)
   const editFromInput = useRef(false)
+  const buttonRef = useRef<HTMLButtonElement>(null!)
 
   const { date, setDate, openCalendar } = useContext(GlobalContext)
 
@@ -23,13 +24,6 @@ const DateInput = () => {
     const newDate = new Date(targetDate)
     setDate(newDate)
   }
-
-  useEffect(() => {
-    /** Change input value only if date edition is not coming from input */
-    if (editFromInput.current === false) {
-      dateInputRef.current.value = formatDate(date)
-    }
-  }, [date])
 
   /**
    * Open calendar component instead of opening the navigator default calendar 
@@ -53,6 +47,28 @@ const DateInput = () => {
     editFromInput.current = true
   }
 
+  /** Observe input size changes to adapt button right positioning */
+  useLayoutEffect(() => {
+    const resizeObserver = new ResizeObserver(([inputEntry]) => {
+      const inputComputedStyle = getComputedStyle(inputEntry.target)
+      const inputPaddingLeft = inputComputedStyle.getPropertyValue("padding-right")
+      buttonRef.current.style.right = inputPaddingLeft
+    })
+
+    resizeObserver.observe(dateInputRef.current)
+
+    return () => {
+      resizeObserver.disconnect()
+    }
+  }, [])
+
+  useEffect(() => {
+    /** Change input value only if date edition is not coming from input */
+    if (editFromInput.current === false) {
+      dateInputRef.current.value = formatDate(date)
+    }
+  }, [date])
+
   return (
     <div className={styles.container}>
       <input
@@ -66,7 +82,7 @@ const DateInput = () => {
         onBlur={handleBlur}
         onFocus={handleFocus}
       />
-      <Button />
+      <Button ref={buttonRef} />
     </div>
   )
 }

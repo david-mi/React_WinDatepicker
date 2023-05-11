@@ -3,9 +3,3 @@
   position: relative;
   display: flex;
 }
-
-.container input {
-  box-sizing: border-box;
-  padding-inline: 3px;
-  width: 100%;
-}
