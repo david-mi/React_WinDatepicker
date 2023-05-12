@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "test": "vitest --reporter verbose",
-    "build": "tsc && vite build && cp ./README.md ./dist && cp ./src/lib/package.json ./dist",
+    "build": "tsc && vite build && cp ./README.md ./dist && cp ./src/lib/package.json ./dist && cp ./src/lib/index.d.ts ./dist",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
