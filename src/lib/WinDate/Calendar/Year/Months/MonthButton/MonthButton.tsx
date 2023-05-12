@@ -17,7 +17,7 @@ const MonthButton = forwardRef(({ month }: Props, ref: ForwardedRef<HTMLButtonEl
     isChosenMonth
   } = month
 
-  const { setDate, setTimeline, setIsSwitchingTimeline } = useContext(GlobalContext)
+  const { setDate, setTimeline, setIsSwitchingTimeline, setUpdateInput } = useContext(GlobalContext)
 
   function preTimeoutCallback() {
     setIsSwitchingTimeline(true)
@@ -28,6 +28,7 @@ const MonthButton = forwardRef(({ month }: Props, ref: ForwardedRef<HTMLButtonEl
     setDate(newDate)
     setTimeline("MONTH")
     setIsSwitchingTimeline(false)
+    setUpdateInput(true)
   }
 
   return (

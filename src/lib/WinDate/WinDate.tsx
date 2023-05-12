@@ -6,8 +6,13 @@ import styles from "./winDate.module.css"
 import type { Props } from "../index"
 
 
-const Windate = ({ calendarColors = {} }: Props) => {
+const Windate = ({ calendarColors = {}, inputProps }: Props) => {
   const { isCalendarOpen } = useContext(GlobalContext)
+
+  if (inputProps.onDateChange === undefined) {
+    console.error("onDateChange callback is missing from props and is required")
+    return null
+  }
 
   const calendarColorsRoot = [
     ["--calendar-bg", calendarColors.background || "#1f1f1f"],
@@ -33,7 +38,7 @@ const Windate = ({ calendarColors = {} }: Props) => {
   return (
     <div className={styles.winDate}>
       {isCalendarOpen && <Calendar />}
-      <DateInput />
+      <DateInput inputProps={inputProps} />
     </div>
   )
 }

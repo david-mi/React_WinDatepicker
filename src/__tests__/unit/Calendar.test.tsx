@@ -15,7 +15,9 @@ describe("<Calendar />", () => {
         setTimeline: () => { },
         timeline: "MONTH" as Timeline,
         isSwitchingTimeline: false,
-        setIsSwitchingTimeline: () => { }
+        setIsSwitchingTimeline: () => { },
+        updateInput: false,
+        setUpdateInput: () => { }
       }
 
       render(

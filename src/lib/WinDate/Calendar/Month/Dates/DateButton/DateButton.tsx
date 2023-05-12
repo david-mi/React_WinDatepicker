@@ -18,13 +18,14 @@ const DateButton = forwardRef(({ date }: Props, ref: ForwardedRef<HTMLButtonElem
     isChosenDate
   } = date
 
-  const { setDate, closeCalendar } = useContext(GlobalContext)
+  const { setDate, closeCalendar, setUpdateInput } = useContext(GlobalContext)
 
   /** Update date state with clicked date from calendar */
 
   function handleDateClick() {
     const newDate = new Date(getFormatedDate)
     setDate(newDate)
+    setUpdateInput(true)
     closeCalendar()
   }
 

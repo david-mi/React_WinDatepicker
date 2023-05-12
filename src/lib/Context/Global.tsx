@@ -11,6 +11,8 @@ interface Context {
   timeline: Timeline
   isSwitchingTimeline: boolean
   setIsSwitchingTimeline: Dispatch<SetStateAction<boolean>>
+  updateInput: boolean
+  setUpdateInput: Dispatch<SetStateAction<boolean>>
 }
 
 export const GlobalContext = createContext<Context>({
@@ -23,6 +25,8 @@ export const GlobalContext = createContext<Context>({
   timeline: "MONTH",
   isSwitchingTimeline: false,
   setIsSwitchingTimeline: () => { },
+  updateInput: false,
+  setUpdateInput: () => { }
 })
 
 export type Timeline = "MONTH" | "YEAR"
@@ -36,6 +40,7 @@ const GlobalProvider = ({ children }: Props) => {
   const [isCalendarOpen, setIsCalendarOpen] = useState(false)
   const [timeline, setTimeline] = useState<Timeline>("MONTH")
   const [isSwitchingTimeline, setIsSwitchingTimeline] = useState(false)
+  const [updateInput, setUpdateInput] = useState(false)
 
   function openCalendar() {
     setIsCalendarOpen(true)
@@ -54,7 +59,9 @@ const GlobalProvider = ({ children }: Props) => {
     setTimeline,
     timeline,
     isSwitchingTimeline,
-    setIsSwitchingTimeline
+    setIsSwitchingTimeline,
+    updateInput,
+    setUpdateInput
   }
 
   return (
