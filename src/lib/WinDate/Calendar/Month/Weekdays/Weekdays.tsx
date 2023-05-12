@@ -1,11 +1,10 @@
 import styles from "./weekDays.module.css"
-
-const weekDaysArr = ["lu", "ma", "me", "je", "ve", "sa", "di"]
+import { weekDays } from "../../../../langs"
 
 const Weekdays = () => {
   return (
     <div className={styles.weekDays}>
-      {weekDaysArr.map((weekDay) => {
+      {weekDays.map((weekDay) => {
         return (
           <span data-testid="weekday" key={weekDay}>{weekDay}</span>
         )

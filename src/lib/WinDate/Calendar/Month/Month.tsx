@@ -4,7 +4,7 @@ import Header from "../Header/Header"
 import Weekdays from "./Weekdays/Weekdays"
 import Dates from "./Dates/Dates"
 import { getDates } from "./helper"
-import { monthsNamesIndexes, MonthIndex } from "./data"
+import { monthsNamesIndexes, MonthIndex } from "../../../langs"
 import type { DatesFormat } from "./type"
 
 const Month = () => {

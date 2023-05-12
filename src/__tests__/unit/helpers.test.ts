@@ -1665,7 +1665,7 @@ describe("getMonths helper", () => {
     beforeAll(() => {
       expectedResultsFor2020 = [
         {
-          "getMonthAbbrev": "janv.",
+          "getMonthAbbrev": "Jan",
           "getFormatedDate": "2019-01-01",
           "isFromChosenYear": false,
           "isCurrentMonth": false,
@@ -1673,7 +1673,7 @@ describe("getMonths helper", () => {
           "isFirstMonthOfCurrentYear": false
         },
         {
-          "getMonthAbbrev": "févr.",
+          "getMonthAbbrev": "Feb",
           "getFormatedDate": "2019-02-01",
           "isFromChosenYear": false,
           "isCurrentMonth": false,
@@ -1681,7 +1681,7 @@ describe("getMonths helper", () => {
           "isFirstMonthOfCurrentYear": false
         },
         {
-          "getMonthAbbrev": "mars",
+          "getMonthAbbrev": "Mar",
           "getFormatedDate": "2019-03-01",
           "isFromChosenYear": false,
           "isCurrentMonth": false,
@@ -1689,7 +1689,7 @@ describe("getMonths helper", () => {
           "isFirstMonthOfCurrentYear": false
         },
         {
-          "getMonthAbbrev": "avr.",
+          "getMonthAbbrev": "Apr",
           "getFormatedDate": "2019-04-01",
           "isFromChosenYear": false,
           "isCurrentMonth": false,
@@ -1697,7 +1697,7 @@ describe("getMonths helper", () => {
           "isFirstMonthOfCurrentYear": false
         },
         {
-          "getMonthAbbrev": "mai",
+          "getMonthAbbrev": "May",
           "getFormatedDate": "2019-05-01",
           "isFromChosenYear": false,
           "isCurrentMonth": false,
@@ -1705,7 +1705,7 @@ describe("getMonths helper", () => {
           "isFirstMonthOfCurrentYear": false
         },
         {
-          "getMonthAbbrev": "juin",
+          "getMonthAbbrev": "Jun",
           "getFormatedDate": "2019-06-01",
           "isFromChosenYear": false,
           "isCurrentMonth": false,
@@ -1713,7 +1713,7 @@ describe("getMonths helper", () => {
           "isFirstMonthOfCurrentYear": false
         },
         {
-          "getMonthAbbrev": "juil.",
+          "getMonthAbbrev": "Jul",
           "getFormatedDate": "2019-07-01",
           "isFromChosenYear": false,
           "isCurrentMonth": false,
@@ -1721,7 +1721,7 @@ describe("getMonths helper", () => {
           "isFirstMonthOfCurrentYear": false
         },
         {
-          "getMonthAbbrev": "août",
+          "getMonthAbbrev": "Aug",
           "getFormatedDate": "2019-08-01",
           "isFromChosenYear": false,
           "isCurrentMonth": false,
@@ -1729,7 +1729,7 @@ describe("getMonths helper", () => {
           "isFirstMonthOfCurrentYear": false
         },
         {
-          "getMonthAbbrev": "sept.",
+          "getMonthAbbrev": "Sep",
           "getFormatedDate": "2019-09-01",
           "isFromChosenYear": false,
           "isCurrentMonth": false,
@@ -1737,7 +1737,7 @@ describe("getMonths helper", () => {
           "isFirstMonthOfCurrentYear": false
         },
         {
-          "getMonthAbbrev": "oct.",
+          "getMonthAbbrev": "Oct",
           "getFormatedDate": "2019-10-01",
           "isFromChosenYear": false,
           "isCurrentMonth": false,
@@ -1745,7 +1745,7 @@ describe("getMonths helper", () => {
           "isFirstMonthOfCurrentYear": false
         },
         {
-          "getMonthAbbrev": "nov.",
+          "getMonthAbbrev": "Nov",
           "getFormatedDate": "2019-11-01",
           "isFromChosenYear": false,
           "isCurrentMonth": false,
@@ -1753,7 +1753,7 @@ describe("getMonths helper", () => {
           "isFirstMonthOfCurrentYear": false
         },
         {
-          "getMonthAbbrev": "déc.",
+          "getMonthAbbrev": "Dec",
           "getFormatedDate": "2019-12-01",
           "isFromChosenYear": false,
           "isCurrentMonth": false,
@@ -1761,7 +1761,7 @@ describe("getMonths helper", () => {
           "isFirstMonthOfCurrentYear": false
         },
         {
-          "getMonthAbbrev": "janv.",
+          "getMonthAbbrev": "Jan",
           "getFormatedDate": "2020-01-01",
           "isFromChosenYear": true,
           "isCurrentMonth": false,
@@ -1769,7 +1769,7 @@ describe("getMonths helper", () => {
           "isFirstMonthOfCurrentYear": true
         },
         {
-          "getMonthAbbrev": "févr.",
+          "getMonthAbbrev": "Feb",
           "getFormatedDate": "2020-02-01",
           "isFromChosenYear": true,
           "isCurrentMonth": false,
@@ -1777,7 +1777,7 @@ describe("getMonths helper", () => {
           "isFirstMonthOfCurrentYear": false
         },
         {
-          "getMonthAbbrev": "mars",
+          "getMonthAbbrev": "Mar",
           "getFormatedDate": "2020-03-01",
           "isFromChosenYear": true,
           "isCurrentMonth": false,
@@ -1785,7 +1785,7 @@ describe("getMonths helper", () => {
           "isFirstMonthOfCurrentYear": false
         },
         {
-          "getMonthAbbrev": "avr.",
+          "getMonthAbbrev": "Apr",
           "getFormatedDate": "2020-04-01",
           "isFromChosenYear": true,
           "isCurrentMonth": false,
@@ -1793,7 +1793,7 @@ describe("getMonths helper", () => {
           "isFirstMonthOfCurrentYear": false
         },
         {
-          "getMonthAbbrev": "mai",
+          "getMonthAbbrev": "May",
           "getFormatedDate": "2020-05-01",
           "isFromChosenYear": true,
           "isCurrentMonth": false,
@@ -1801,7 +1801,7 @@ describe("getMonths helper", () => {
           "isFirstMonthOfCurrentYear": false
         },
         {
-          "getMonthAbbrev": "juin",
+          "getMonthAbbrev": "Jun",
           "getFormatedDate": "2020-06-01",
           "isFromChosenYear": true,
           "isCurrentMonth": false,
@@ -1809,7 +1809,7 @@ describe("getMonths helper", () => {
           "isFirstMonthOfCurrentYear": false
         },
         {
-          "getMonthAbbrev": "juil.",
+          "getMonthAbbrev": "Jul",
           "getFormatedDate": "2020-07-01",
           "isFromChosenYear": true,
           "isCurrentMonth": false,
@@ -1817,7 +1817,7 @@ describe("getMonths helper", () => {
           "isFirstMonthOfCurrentYear": false
         },
         {
-          "getMonthAbbrev": "août",
+          "getMonthAbbrev": "Aug",
           "getFormatedDate": "2020-08-01",
           "isFromChosenYear": true,
           "isCurrentMonth": false,
@@ -1825,7 +1825,7 @@ describe("getMonths helper", () => {
           "isFirstMonthOfCurrentYear": false
         },
         {
-          "getMonthAbbrev": "sept.",
+          "getMonthAbbrev": "Sep",
           "getFormatedDate": "2020-09-01",
           "isFromChosenYear": true,
           "isCurrentMonth": false,
@@ -1833,7 +1833,7 @@ describe("getMonths helper", () => {
           "isFirstMonthOfCurrentYear": false
         },
         {
-          "getMonthAbbrev": "oct.",
+          "getMonthAbbrev": "Oct",
           "getFormatedDate": "2020-10-01",
           "isFromChosenYear": true,
           "isCurrentMonth": false,
@@ -1841,7 +1841,7 @@ describe("getMonths helper", () => {
           "isFirstMonthOfCurrentYear": false
         },
         {
-          "getMonthAbbrev": "nov.",
+          "getMonthAbbrev": "Nov",
           "getFormatedDate": "2020-11-01",
           "isFromChosenYear": true,
           "isCurrentMonth": false,
@@ -1849,7 +1849,7 @@ describe("getMonths helper", () => {
           "isFirstMonthOfCurrentYear": false
         },
         {
-          "getMonthAbbrev": "déc.",
+          "getMonthAbbrev": "Dec",
           "getFormatedDate": "2020-12-01",
           "isFromChosenYear": true,
           "isCurrentMonth": false,
@@ -1857,7 +1857,7 @@ describe("getMonths helper", () => {
           "isFirstMonthOfCurrentYear": false
         },
         {
-          "getMonthAbbrev": "janv.",
+          "getMonthAbbrev": "Jan",
           "getFormatedDate": "2021-01-01",
           "isFromChosenYear": false,
           "isCurrentMonth": false,
@@ -1865,7 +1865,7 @@ describe("getMonths helper", () => {
           "isFirstMonthOfCurrentYear": false
         },
         {
-          "getMonthAbbrev": "févr.",
+          "getMonthAbbrev": "Feb",
           "getFormatedDate": "2021-02-01",
           "isFromChosenYear": false,
           "isCurrentMonth": false,
@@ -1873,7 +1873,7 @@ describe("getMonths helper", () => {
           "isFirstMonthOfCurrentYear": false
         },
         {
-          "getMonthAbbrev": "mars",
+          "getMonthAbbrev": "Mar",
           "getFormatedDate": "2021-03-01",
           "isFromChosenYear": false,
           "isCurrentMonth": false,
@@ -1881,7 +1881,7 @@ describe("getMonths helper", () => {
           "isFirstMonthOfCurrentYear": false
         },
         {
-          "getMonthAbbrev": "avr.",
+          "getMonthAbbrev": "Apr",
           "getFormatedDate": "2021-04-01",
           "isFromChosenYear": false,
           "isCurrentMonth": false,
@@ -1889,7 +1889,7 @@ describe("getMonths helper", () => {
           "isFirstMonthOfCurrentYear": false
         },
         {
-          "getMonthAbbrev": "mai",
+          "getMonthAbbrev": "May",
           "getFormatedDate": "2021-05-01",
           "isFromChosenYear": false,
           "isCurrentMonth": false,
@@ -1897,7 +1897,7 @@ describe("getMonths helper", () => {
           "isFirstMonthOfCurrentYear": false
         },
         {
-          "getMonthAbbrev": "juin",
+          "getMonthAbbrev": "Jun",
           "getFormatedDate": "2021-06-01",
           "isFromChosenYear": false,
           "isCurrentMonth": false,
@@ -1905,7 +1905,7 @@ describe("getMonths helper", () => {
           "isFirstMonthOfCurrentYear": false
         },
         {
-          "getMonthAbbrev": "juil.",
+          "getMonthAbbrev": "Jul",
           "getFormatedDate": "2021-07-01",
           "isFromChosenYear": false,
           "isCurrentMonth": false,
@@ -1913,7 +1913,7 @@ describe("getMonths helper", () => {
           "isFirstMonthOfCurrentYear": false
         },
         {
-          "getMonthAbbrev": "août",
+          "getMonthAbbrev": "Aug",
           "getFormatedDate": "2021-08-01",
           "isFromChosenYear": false,
           "isCurrentMonth": false,
@@ -1921,7 +1921,7 @@ describe("getMonths helper", () => {
           "isFirstMonthOfCurrentYear": false
         },
         {
-          "getMonthAbbrev": "sept.",
+          "getMonthAbbrev": "Sep",
           "getFormatedDate": "2021-09-01",
           "isFromChosenYear": false,
           "isCurrentMonth": false,
@@ -1929,7 +1929,7 @@ describe("getMonths helper", () => {
           "isFirstMonthOfCurrentYear": false
         },
         {
-          "getMonthAbbrev": "oct.",
+          "getMonthAbbrev": "Oct",
           "getFormatedDate": "2021-10-01",
           "isFromChosenYear": false,
           "isCurrentMonth": false,
@@ -1937,7 +1937,7 @@ describe("getMonths helper", () => {
           "isFirstMonthOfCurrentYear": false
         },
         {
-          "getMonthAbbrev": "nov.",
+          "getMonthAbbrev": "Nov",
           "getFormatedDate": "2021-11-01",
           "isFromChosenYear": false,
           "isCurrentMonth": false,
@@ -1945,7 +1945,7 @@ describe("getMonths helper", () => {
           "isFirstMonthOfCurrentYear": false
         },
         {
-          "getMonthAbbrev": "déc.",
+          "getMonthAbbrev": "Dec",
           "getFormatedDate": "2021-12-01",
           "isFromChosenYear": false,
           "isCurrentMonth": false,
@@ -1953,7 +1953,7 @@ describe("getMonths helper", () => {
           "isFirstMonthOfCurrentYear": false
         },
         {
-          "getMonthAbbrev": "janv.",
+          "getMonthAbbrev": "Jan",
           "getFormatedDate": "2022-01-01",
           "isFromChosenYear": false,
           "isCurrentMonth": false,
@@ -1961,7 +1961,7 @@ describe("getMonths helper", () => {
           "isFirstMonthOfCurrentYear": false
         },
         {
-          "getMonthAbbrev": "févr.",
+          "getMonthAbbrev": "Feb",
           "getFormatedDate": "2022-02-01",
           "isFromChosenYear": false,
           "isCurrentMonth": false,
@@ -1969,7 +1969,7 @@ describe("getMonths helper", () => {
           "isFirstMonthOfCurrentYear": false
         },
         {
-          "getMonthAbbrev": "mars",
+          "getMonthAbbrev": "Mar",
           "getFormatedDate": "2022-03-01",
           "isFromChosenYear": false,
           "isCurrentMonth": false,
@@ -1977,7 +1977,7 @@ describe("getMonths helper", () => {
           "isFirstMonthOfCurrentYear": false
         },
         {
-          "getMonthAbbrev": "avr.",
+          "getMonthAbbrev": "Apr",
           "getFormatedDate": "2022-04-01",
           "isFromChosenYear": false,
           "isCurrentMonth": false,
@@ -1985,7 +1985,7 @@ describe("getMonths helper", () => {
           "isFirstMonthOfCurrentYear": false
         },
         {
-          "getMonthAbbrev": "mai",
+          "getMonthAbbrev": "May",
           "getFormatedDate": "2022-05-01",
           "isFromChosenYear": false,
           "isCurrentMonth": false,
@@ -1993,7 +1993,7 @@ describe("getMonths helper", () => {
           "isFirstMonthOfCurrentYear": false
         },
         {
-          "getMonthAbbrev": "juin",
+          "getMonthAbbrev": "Jun",
           "getFormatedDate": "2022-06-01",
           "isFromChosenYear": false,
           "isCurrentMonth": false,
@@ -2001,7 +2001,7 @@ describe("getMonths helper", () => {
           "isFirstMonthOfCurrentYear": false
         },
         {
-          "getMonthAbbrev": "juil.",
+          "getMonthAbbrev": "Jul",
           "getFormatedDate": "2022-07-01",
           "isFromChosenYear": false,
           "isCurrentMonth": false,
@@ -2009,7 +2009,7 @@ describe("getMonths helper", () => {
           "isFirstMonthOfCurrentYear": false
         },
         {
-          "getMonthAbbrev": "août",
+          "getMonthAbbrev": "Aug",
           "getFormatedDate": "2022-08-01",
           "isFromChosenYear": false,
           "isCurrentMonth": false,
@@ -2017,7 +2017,7 @@ describe("getMonths helper", () => {
           "isFirstMonthOfCurrentYear": false
         },
         {
-          "getMonthAbbrev": "sept.",
+          "getMonthAbbrev": "Sep",
           "getFormatedDate": "2022-09-01",
           "isFromChosenYear": false,
           "isCurrentMonth": false,
@@ -2025,7 +2025,7 @@ describe("getMonths helper", () => {
           "isFirstMonthOfCurrentYear": false
         },
         {
-          "getMonthAbbrev": "oct.",
+          "getMonthAbbrev": "Oct",
           "getFormatedDate": "2022-10-01",
           "isFromChosenYear": false,
           "isCurrentMonth": false,
@@ -2033,7 +2033,7 @@ describe("getMonths helper", () => {
           "isFirstMonthOfCurrentYear": false
         },
         {
-          "getMonthAbbrev": "nov.",
+          "getMonthAbbrev": "Nov",
           "getFormatedDate": "2022-11-01",
           "isFromChosenYear": false,
           "isCurrentMonth": false,
@@ -2041,7 +2041,7 @@ describe("getMonths helper", () => {
           "isFirstMonthOfCurrentYear": false
         },
         {
-          "getMonthAbbrev": "déc.",
+          "getMonthAbbrev": "Dec",
           "getFormatedDate": "2022-12-01",
           "isFromChosenYear": false,
           "isCurrentMonth": false,

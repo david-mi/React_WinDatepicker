@@ -3,7 +3,7 @@ import { render, screen } from "@testing-library/react";
 import MonthButton from "../../lib/WinDate/Calendar/Year/Months/MonthButton/MonthButton";
 import type { MonthsFormat } from "../../lib/WinDate/Calendar/Year/type";
 import { formatDate } from "../../lib/WinDate/utils";
-import { monthAbbrev } from "../../lib/WinDate/Calendar/Year/helper";
+import { monthAbbrev } from "../../lib/langs";
 
 describe("<Date>", () => {
   let date: Date

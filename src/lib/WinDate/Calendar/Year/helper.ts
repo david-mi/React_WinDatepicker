@@ -1,7 +1,6 @@
 import type { MonthsFormat } from "./type"
 import { formatDate } from "../../utils"
-
-export const monthAbbrev = ["janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc."]
+import { monthAbbrev } from "../../../langs"
 
 /**
  * Retrieve all 16 months to display on a calendar page
