@@ -3,12 +3,15 @@ import { GlobalContext } from "../../../Context/Global"
 import styles from "./button.module.css"
 
 const Button = forwardRef<HTMLInputElement>((_, dateInputRef) => {
-  const { setTimeline, openCalendar } = useContext(GlobalContext)
+  const { setTimeline, isCalendarOpen, openCalendar, closeCalendar } = useContext(GlobalContext)
   const buttonRef = useRef<HTMLButtonElement>(null!)
 
   function handleClick() {
     setTimeline("MONTH")
-    openCalendar()
+
+    isCalendarOpen
+      ? closeCalendar()
+      : openCalendar()
   }
 
   useLayoutEffect(() => {

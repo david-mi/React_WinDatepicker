@@ -1,9 +1,8 @@
 .wrapper {
-  display: grid;
-  place-items: center;
-  position: fixed;
-  inset: 0;
+  position: absolute;
   z-index: 999999990;
+  bottom: -0.5rem;
+  left: 0;
 }
 
 .closeBg {
@@ -14,7 +13,7 @@
 }
 
 .calendar {
-  position: relative;
+  position: absolute;
   z-index: 999999992;
   height: 345px;
   width: 352px;

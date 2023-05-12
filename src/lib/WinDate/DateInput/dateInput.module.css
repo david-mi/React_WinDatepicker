@@ -2,4 +2,5 @@
   width: fit-content;
   position: relative;
   display: flex;
+  z-index: 999999992;
 }

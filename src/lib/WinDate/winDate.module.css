@@ -1,3 +1,8 @@
+.winDate {
+  width: fit-content;
+  position: relative;
+}
+
 .winDate * {
   font-family: "Segoe UI";
   box-sizing: border-box;

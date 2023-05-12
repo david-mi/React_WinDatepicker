@@ -16,7 +16,8 @@ const Windate = ({ calendarColors = {}, inputProps }: Props) => {
 
   const calendarColorsRoot = [
     ["--calendar-bg", calendarColors.background || "#1f1f1f"],
-    ["--calendar-close-bg", calendarColors.closeBackground || "rgba(66, 66, 66, 0.774)"],
+    // ["--calendar-close-bg", calendarColors.closeBackground || "rgba(66, 66, 66, 0.774)"],
+    ["--calendar-close-bg", calendarColors.closeBackground || "transparent"],
     ["--calendar-header-buttons-clr", calendarColors.headerButtonsText || "#cdcdcd"],
     ["--calendar-header-buttons-clr-hover", calendarColors.headerButtonsTextHover || "white"],
     ["--calendar-weekdays-clr", calendarColors.weekDaysText || "white"],
