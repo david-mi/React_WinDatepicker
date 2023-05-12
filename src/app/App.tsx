@@ -1,7 +1,7 @@
 import React, { useState, ChangeEvent, useRef, useEffect } from "react";
 import type { OnDateChangeProps } from "../lib";
-// import { WinDateWrapper } from "../lib"
-import { WinDateWrapper } from "../../dist/index";
+import { WinDateWrapper } from "../lib"
+// import { WinDateWrapper } from "../../dist/index";
 import "./index.css"
 
 const App = () => {
@@ -43,18 +43,18 @@ const App = () => {
     <div>
       <WinDateWrapper
         calendarColors={{
-          background: "orange",
-          closeBackground: "",
-          headerButtonsText: "red",
-          headerButtonsTextHover: "green",
-          weekDaysText: "purple",
-          chosenButtonText: "aqua",
-          chosenBorder: "red",
-          currentButtonBackground: "blue",
-          currentButtonBorder: "green",
-          currentButtonSecondBorder: "orange",
-          notCurrentButtonText: "yellow",
-          buttonBorderHover: "blue"
+          // background: "orange",
+          // closeBackground: "",
+          // headerButtonsText: "red",
+          // headerButtonsTextHover: "green",
+          // weekDaysText: "purple",
+          // chosenButtonText: "aqua",
+          // chosenBorder: "red",
+          // currentButtonBackground: "blue",
+          // currentButtonBorder: "green",
+          // currentButtonSecondBorder: "orange",
+          // notCurrentButtonText: "yellow",
+          // buttonBorderHover: "blue"
         }}
         inputProps={{
           id: "super-id",
@@ -71,7 +71,7 @@ const App = () => {
           setTodayByDefault: true
         }}
       />
-      <h1>Nous sommes le {inputValue}</h1>
+      {/* <h1>Nous sommes le {inputValue}</h1> */}
     </div>
 
   )

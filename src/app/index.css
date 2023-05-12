@@ -4,7 +4,11 @@
   box-sizing: border-box;
 }
 
+body {
+  padding: 1rem;
+}
+
 .dateInput {
-  background-color: rgba(255, 0, 0, 0.205);
-  padding-inline: 5px;
+  /* background-color: rgba(255, 0, 0, 0.205); */
+  /* padding-inline: 5px; */
 }
