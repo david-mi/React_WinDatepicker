@@ -25,7 +25,7 @@ const Dates = forwardRef(({ dates, setPreviousMonth, setNextMonth }: Props, date
     const target = event.target as HTMLDivElement
     const { clientHeight, scrollTop, scrollHeight } = target
     const hasReachedTop = scrollTop === 0
-    const hasReachedBottom = clientHeight + scrollTop === scrollHeight
+    const hasReachedBottom = clientHeight + Math.ceil(scrollTop) === scrollHeight
 
     if (hasReachedTop) {
       setPreviousMonth()

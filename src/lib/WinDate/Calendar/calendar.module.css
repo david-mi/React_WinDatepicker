@@ -1,20 +1,7 @@
-.wrapper {
-  position: absolute;
-  z-index: 999999990;
-  bottom: -0.5rem;
-  left: 0;
-}
-
-.closeBg {
-  background-color: var(--calendar-close-bg);
-  position: fixed;
-  inset: 0;
-  z-index: 999999991;
-}
-
 .calendar {
   position: absolute;
   z-index: 999999992;
+  --calendar-height: 345px;
   height: 345px;
   width: 352px;
   background-color: var(--calendar-bg);
@@ -22,4 +9,12 @@
   padding-block: 4px 12px;
   overflow: hidden;
   border-radius: 7px;
+}
+
+.calendar[data-position="top"] {
+  top: calc((var(--calendar-height) + 0.5rem) * -1);
+}
+
+.calendar[data-position="bottom"] {
+  bottom: calc((var(--calendar-height) + 0.5rem) * -1);
 }

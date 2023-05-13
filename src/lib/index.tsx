@@ -42,7 +42,7 @@ export interface Props {
     /** Gets called whenever date gets updated from input or calendar */
     onDateChange: (date: OnDateChangeProps) => any
     /** sets input value to today by default, set to false by default */
-    setTodayByDefault: boolean
+    setTodayByDefault?: boolean
   }
 }
 

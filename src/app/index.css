@@ -6,9 +6,15 @@
 
 body {
   padding: 1rem;
+  height: 500vh;
 }
 
 .dateInput {
   /* background-color: rgba(255, 0, 0, 0.205); */
   /* padding-inline: 5px; */
+}
+
+.placeholder {
+  height: 500px;
+  background-color: black;
 }
