@@ -11,7 +11,7 @@
   font-weight: 400;
   color: var(--calendar-not-current-clr);
   width: 82px;
-  height: 71px;
+  height: 69px;
 }
 
 .month:hover {

@@ -1,5 +1,9 @@
 @import "../../../../styles/global.css";
 
+.wrapper {
+  overflow: hidden;
+}
+
 .dates {
   position: relative;
   text-align: center;

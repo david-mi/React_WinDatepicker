@@ -73,8 +73,12 @@ const App = () => {
       />
       {/* <h1>Nous sommes le {inputValue}</h1> */}
       <div className="placeholder"></div>
+      <WinDateWrapper inputProps={{ onDateChange: handleDateChange }} />
       <div className="placeholder"></div>
       <WinDateWrapper inputProps={{ onDateChange: handleDateChange }} />
+      <div className="placeholder"></div>
+      <WinDateWrapper inputProps={{ onDateChange: handleDateChange }} />
+      <div className="placeholder"></div>
     </div>
 
   )

@@ -36,16 +36,18 @@ const Months = forwardRef(({ months, setNextYear, setPreviousYear }: Props, mont
   }
 
   return (
-    <div className={className} ref={monthsContainerRef} onScroll={handleScroll}>
-      {months.map((month, index) => {
-        return (
-          <MonthButton
-            key={index}
-            month={month}
-            ref={month.isFirstMonthOfCurrentYear ? firstMonthOfChosenYearButtonRef : null}
-          />
-        )
-      })}
+    <div className={styles.wrapper}>
+      <div className={className} ref={monthsContainerRef} onScroll={handleScroll}>
+        {months.map((month, index) => {
+          return (
+            <MonthButton
+              key={index}
+              month={month}
+              ref={month.isFirstMonthOfCurrentYear ? firstMonthOfChosenYearButtonRef : null}
+            />
+          )
+        })}
+      </div>
     </div>
   )
 })

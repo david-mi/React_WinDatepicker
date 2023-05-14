@@ -37,17 +37,20 @@ const Dates = forwardRef(({ dates, setPreviousMonth, setNextMonth }: Props, date
   }
 
   return (
-    <div className={className} ref={datesContainerRef} onScroll={handleScroll}>
-      {dates.map((date, index) => {
-        return (
-          <DateButton
-            key={index}
-            date={date}
-            ref={date.isFirstDayOfCurrentMonth ? firstDayOfChosenMonthButtonRef : null}
-          />
-        )
-      })}
+    <div className={styles.wrapper}>
+      <div className={className} ref={datesContainerRef} onScroll={handleScroll}>
+        {dates.map((date, index) => {
+          return (
+            <DateButton
+              key={index}
+              date={date}
+              ref={date.isFirstDayOfCurrentMonth ? firstDayOfChosenMonthButtonRef : null}
+            />
+          )
+        })}
+      </div>
     </div>
+
   )
 })
 
