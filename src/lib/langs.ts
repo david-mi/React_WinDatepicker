@@ -12,7 +12,7 @@ const supportedLangs: SupportedLangs = {
 }
 
 const supportedLang = supportedLangs[navigator.language] || "en"
-console.log({ supportedLang })
+
 type LangData = {
   weekDays: readonly [
     string,

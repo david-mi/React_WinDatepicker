@@ -5,18 +5,20 @@ import {
   KeyboardEvent,
   FocusEvent,
   MouseEvent,
-  MutableRefObject
+  MutableRefObject,
+  ChangeEvent
 } from "react"
 import { GlobalContext } from "../../Context/Global"
-import type { ChangeEvent } from "react"
 import type { Props as WinDateProps } from "../../index"
 import { formatDate } from "../utils"
 import styles from "./dateInput.module.css"
 import Button from "./Button/Button"
 
-type Props = Pick<WinDateProps, "inputProps">
+type Props = Pick<WinDateProps, "inputProps"> & {
+  dateInputRef: MutableRefObject<HTMLInputElement>
+}
 
-const DateInput = ({ inputProps }: Props) => {
+const DateInput = ({ inputProps, dateInputRef }: Props) => {
   const {
     onDateChange,
     setTodayByDefault = false,
@@ -29,7 +31,7 @@ const DateInput = ({ inputProps }: Props) => {
   }
     = inputProps
   const { date, setDate, openCalendar, updateInput } = useContext(GlobalContext)
-  const dateInputRef = useRef<HTMLInputElement>(null!)
+  // const dateInputRef = useRef<HTMLInputElement>(null!)
   const editFromInput = useRef(false)
 
   /**

@@ -1,28 +1,11 @@
 import { useContext, useRef, forwardRef, useLayoutEffect, MutableRefObject } from "react"
 import { GlobalContext } from "../../../Context/Global"
 import styles from "./button.module.css"
+import { defineCalendarPosition } from "../../helper"
 
 const Button = forwardRef<HTMLInputElement>((_, dateInputRef) => {
   const { setTimeline, isCalendarOpen, openCalendar, closeCalendar, setCalendarPosition } = useContext(GlobalContext)
   const buttonRef = useRef<HTMLButtonElement>(null!)
-
-  function defineCalendarPosition(dateInputRef: MutableRefObject<HTMLInputElement>) {
-    const {
-      bottom: inputBottom,
-      top: inputTop
-    } = dateInputRef.current.getBoundingClientRect()
-    const visibleSpaceAboveInput = inputTop
-    const visibleSpaceUnderInput = window.innerHeight - inputBottom
-    const calendarHeight = 345
-
-    const canPutCalendarOnTop = visibleSpaceAboveInput > calendarHeight
-    const canPutCalendarOnBottom = visibleSpaceUnderInput >= calendarHeight
-    const calendarPosition = canPutCalendarOnBottom === false && canPutCalendarOnTop
-      ? "TOP"
-      : "BOTTOM"
-
-    return calendarPosition
-  }
 
   function handleClick() {
     setTimeline("MONTH")
@@ -37,6 +20,8 @@ const Button = forwardRef<HTMLInputElement>((_, dateInputRef) => {
   }
 
   useLayoutEffect(() => {
+    /** Set right position of open / close calendar invisible button based on input right padding */
+
     const inputComputedStyle = getComputedStyle((dateInputRef as MutableRefObject<HTMLInputElement>).current)
     const inputPaddingLeft = inputComputedStyle.getPropertyValue("padding-right")
 

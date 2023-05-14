@@ -4,8 +4,14 @@ import styles from "./calendar.module.css"
 import Month from "./Month/Month"
 import Year from "./Year/Year"
 import type { Timeline } from "../../Context/Global"
+import { defineCalendarPosition } from "../helper"
 
-const Calendar = forwardRef<HTMLDivElement>((_, winDateRef) => {
+interface Props {
+  dateInputRef: MutableRefObject<HTMLInputElement>
+  winDateRef: MutableRefObject<HTMLDivElement>
+}
+
+const Calendar = ({ dateInputRef, winDateRef }: Props) => {
   const { closeCalendar, timeline, calendarPosition } = useContext(GlobalContext)
   const calendarRef = useRef<HTMLDivElement>(null!)
 
@@ -16,25 +22,19 @@ const Calendar = forwardRef<HTMLDivElement>((_, winDateRef) => {
     "YEAR": <Year />
   }
 
-  function handleCalendarPosition() {
-    const { bottom: calendarBottom, top: calendarTop, height: calendarHeight } = calendarRef.current.getBoundingClientRect()
-    const visibleSpaceAboveCalendar = calendarTop
-    const visibleSpaceUnderCalendar = window.innerHeight - calendarBottom
-
-    const canPutCalendarOnTop = visibleSpaceAboveCalendar > calendarHeight
-    const cannotPutCalendarOnBottom = visibleSpaceUnderCalendar <= 0
-    const newCalendarPosition = cannotPutCalendarOnBottom && canPutCalendarOnTop
-      ? "TOP"
-      : "BOTTOM"
-
-    calendarRef.current.dataset.position = newCalendarPosition
-  }
-
   useLayoutEffect(() => {
+    /** 
+     * Observe intersections for calendar div 
+     * 
+     * Define calendar dataset position for each intersections to put it on top or
+     * bottom of input
+     */
+
     const observer = new IntersectionObserver(([{ isIntersecting }]) => {
       if (isIntersecting || calendarRef.current === null) return
 
-      handleCalendarPosition()
+      const calendarPosition = defineCalendarPosition(dateInputRef as MutableRefObject<HTMLInputElement>)
+      calendarRef.current.dataset.position = calendarPosition
     }, { threshold: 1 })
 
     observer.observe(calendarRef.current)
@@ -44,10 +44,18 @@ const Calendar = forwardRef<HTMLDivElement>((_, winDateRef) => {
     }
   }, [])
 
+  /**
+   * Close calendar only if we click outstide winDateRef div scope
+   * 
+   * - Clicking on calendar won't trigger closeCalendar
+   * - Clicking on input won't trigger closeCalendar
+   */
+
   function handleClick(event: MouseEvent) {
     const clickedElement = event.target as HTMLElement
     const elementToCompare = winDateRef as MutableRefObject<HTMLDivElement>
     const shouldCloseCalendar = elementToCompare.current.contains(clickedElement) === false;
+
     if (shouldCloseCalendar) {
       closeCalendar()
     }
@@ -70,6 +78,6 @@ const Calendar = forwardRef<HTMLDivElement>((_, winDateRef) => {
       {componentsTimeline[timeline]}
     </div>
   )
-})
+}
 
 export default Calendar

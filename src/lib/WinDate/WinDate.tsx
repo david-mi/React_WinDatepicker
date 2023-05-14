@@ -9,6 +9,7 @@ import type { Props } from "../index"
 const Windate = ({ calendarColors = {}, inputProps }: Props) => {
   const { isCalendarOpen } = useContext(GlobalContext)
   const winDateRef = useRef<HTMLDivElement>(null!)
+  const dateInputRef = useRef<HTMLInputElement>(null!)
 
   if (inputProps.onDateChange === undefined) {
     console.error("onDateChange callback is missing from props and is required")
@@ -32,6 +33,7 @@ const Windate = ({ calendarColors = {}, inputProps }: Props) => {
   ]
 
   useLayoutEffect(() => {
+    /** Applies css root colors values for calendar, based on calendarColors props */
     calendarColorsRoot.forEach(([rootProperty, color]) => {
       document.documentElement.style.setProperty(rootProperty, color)
     })
@@ -39,8 +41,8 @@ const Windate = ({ calendarColors = {}, inputProps }: Props) => {
 
   return (
     <div className={styles.winDate} ref={winDateRef}>
-      {isCalendarOpen && <Calendar ref={winDateRef} />}
-      <DateInput inputProps={inputProps} />
+      {isCalendarOpen && <Calendar winDateRef={winDateRef} dateInputRef={dateInputRef} />}
+      <DateInput inputProps={inputProps} dateInputRef={dateInputRef} />
     </div>
   )
 }
