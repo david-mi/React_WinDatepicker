@@ -5,7 +5,7 @@ type SupportedLangs = {
 }
 
 const supportedLangs: SupportedLangs = {
-  "fr-Fr": "fr",
+  "fr-FR": "fr",
   "fr": "fr",
   "en-US": "en",
   "en": "en"
