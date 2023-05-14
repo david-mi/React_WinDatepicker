@@ -13,6 +13,8 @@ interface Context {
   setIsSwitchingTimeline: Dispatch<SetStateAction<boolean>>
   updateInput: boolean
   setUpdateInput: Dispatch<SetStateAction<boolean>>
+  setCalendarPosition: Dispatch<SetStateAction<CalendarPosition>>
+  calendarPosition: CalendarPosition
 }
 
 export const GlobalContext = createContext<Context>({
@@ -26,10 +28,13 @@ export const GlobalContext = createContext<Context>({
   isSwitchingTimeline: false,
   setIsSwitchingTimeline: () => { },
   updateInput: false,
-  setUpdateInput: () => { }
+  setUpdateInput: () => { },
+  setCalendarPosition: () => { },
+  calendarPosition: "BOTTOM"
 })
 
 export type Timeline = "MONTH" | "YEAR"
+type CalendarPosition = "TOP" | "BOTTOM"
 
 interface Props {
   children: ReactNode
@@ -41,6 +46,7 @@ const GlobalProvider = ({ children }: Props) => {
   const [timeline, setTimeline] = useState<Timeline>("MONTH")
   const [isSwitchingTimeline, setIsSwitchingTimeline] = useState(false)
   const [updateInput, setUpdateInput] = useState(false)
+  const [calendarPosition, setCalendarPosition] = useState<CalendarPosition>("BOTTOM")
 
   function openCalendar() {
     setIsCalendarOpen(true)
@@ -61,7 +67,9 @@ const GlobalProvider = ({ children }: Props) => {
     isSwitchingTimeline,
     setIsSwitchingTimeline,
     updateInput,
-    setUpdateInput
+    setUpdateInput,
+    calendarPosition,
+    setCalendarPosition
   }
 
   return (

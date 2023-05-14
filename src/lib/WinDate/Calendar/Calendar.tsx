@@ -6,7 +6,7 @@ import Year from "./Year/Year"
 import type { Timeline } from "../../Context/Global"
 
 const Calendar = forwardRef<HTMLDivElement>((_, winDateRef) => {
-  const { closeCalendar, timeline } = useContext(GlobalContext)
+  const { closeCalendar, timeline, calendarPosition } = useContext(GlobalContext)
   const calendarRef = useRef<HTMLDivElement>(null!)
 
   const componentsTimeline: {
@@ -22,27 +22,26 @@ const Calendar = forwardRef<HTMLDivElement>((_, winDateRef) => {
     const visibleSpaceUnderCalendar = window.innerHeight - calendarBottom
 
     const canPutCalendarOnTop = visibleSpaceAboveCalendar > calendarHeight
-    const cannotPutCalendarOnBottom = visibleSpaceUnderCalendar < calendarHeight
+    const cannotPutCalendarOnBottom = visibleSpaceUnderCalendar <= 0
+    const newCalendarPosition = cannotPutCalendarOnBottom && canPutCalendarOnTop
+      ? "TOP"
+      : "BOTTOM"
 
-    calendarRef.current.dataset.position = cannotPutCalendarOnBottom && canPutCalendarOnTop
-      ? "top"
-      : "bottom"
-    console.log(calendarRef.current.dataset.position)
+    calendarRef.current.dataset.position = newCalendarPosition
   }
 
   useLayoutEffect(() => {
-    handleCalendarPosition()
-    // const observer = new IntersectionObserver(([{ isIntersecting }]) => {
-    //   if (isIntersecting || calendarRef.current === null) return
+    const observer = new IntersectionObserver(([{ isIntersecting }]) => {
+      if (isIntersecting || calendarRef.current === null) return
 
-    //   handleCalendarPosition()
-    // }, { threshold: 1 })
+      handleCalendarPosition()
+    }, { threshold: 1 })
 
-    // observer.observe(calendarRef.current)
+    observer.observe(calendarRef.current)
 
-    // return () => {
-    //   observer.unobserve(calendarRef.current)
-    // }
+    return () => {
+      observer.unobserve(calendarRef.current)
+    }
   }, [])
 
   function handleClick(event: MouseEvent) {
@@ -65,7 +64,7 @@ const Calendar = forwardRef<HTMLDivElement>((_, winDateRef) => {
   return (
     <div
       ref={calendarRef}
-      data-position="bottom"
+      data-position={calendarPosition}
       className={styles.calendar}
     >
       {componentsTimeline[timeline]}
