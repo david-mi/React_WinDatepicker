@@ -57,7 +57,9 @@ const Month = () => {
       <Weekdays />
       <Dates
         dates={dates}
-        ref={datesContainerRef}
+        datesContainerRef={datesContainerRef}
+        shouldDisablePreviousMonth={shouldDisablePreviousMonth}
+        shouldDisableNextMonth={shouldDisableNextMonth}
         setPreviousMonth={setPreviousMonth}
         setNextMonth={setNextMonth}
       />
