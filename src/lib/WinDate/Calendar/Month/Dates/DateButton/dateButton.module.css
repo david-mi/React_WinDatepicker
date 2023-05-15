@@ -47,6 +47,7 @@
 
 .date:disabled {
   pointer-events: none;
-  color: red;
-  background-color: blue;
+  color: var(--calendar-disabled-clr);
+  background-color: var(--calendar-disabled-bg);
+  border-color: transparent;
 }

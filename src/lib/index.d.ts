@@ -3,7 +3,6 @@ type Color = string;
 export interface CalendarColors {
     /** background color behind calendar */
     background?: Color;
-    closeBackground?: Color;
     headerButtonsText?: Color;
     headerButtonsTextHover?: Color;
     weekDaysText?: Color;
@@ -16,6 +15,8 @@ export interface CalendarColors {
     currentButtonSecondBorder?: Color;
     notCurrentButtonText?: Color;
     buttonBorderHover?: Color;
+    disabled?: Color
+    disabledBackground?: Color
 }
 export type OnDateChangeProps = {
     /** updated Date formatted to "YYYY-MM-DD" string */
@@ -39,4 +40,4 @@ export interface Props {
     };
 }
 export declare const WinDateWrapper: (props: Props) => JSX.Element;
-export {};
+export { };

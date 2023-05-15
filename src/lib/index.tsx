@@ -8,7 +8,6 @@ type Color = string
 export interface CalendarColors {
   /** background color behind calendar */
   background?: Color
-  closeBackground?: Color
   headerButtonsText?: Color
   headerButtonsTextHover?: Color
   weekDaysText?: Color
@@ -21,6 +20,8 @@ export interface CalendarColors {
   currentButtonSecondBorder?: Color
   notCurrentButtonText?: Color
   buttonBorderHover?: Color
+  disabled?: Color
+  disabledBackground?: Color
 }
 
 export type OnDateChangeProps = {

@@ -27,7 +27,7 @@
 
 .header button:nth-child(2):disabled path,
 .header button:nth-child(3):disabled path {
-  fill: red;
+  fill: var(--calendar-disabled-clr);
 }
 
 .header button:hover {

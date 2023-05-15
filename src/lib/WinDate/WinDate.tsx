@@ -18,8 +18,6 @@ const Windate = ({ calendarColors = {}, inputProps }: Props) => {
 
   const calendarColorsRoot = [
     ["--calendar-bg", calendarColors.background || "#1f1f1f"],
-    // ["--calendar-close-bg", calendarColors.closeBackground || "rgba(66, 66, 66, 0.774)"],
-    ["--calendar-close-bg", calendarColors.closeBackground || "transparent"],
     ["--calendar-header-buttons-clr", calendarColors.headerButtonsText || "#cdcdcd"],
     ["--calendar-header-buttons-clr-hover", calendarColors.headerButtonsTextHover || "white"],
     ["--calendar-weekdays-clr", calendarColors.weekDaysText || "white"],
@@ -30,6 +28,8 @@ const Windate = ({ calendarColors = {}, inputProps }: Props) => {
     ["--calendar-current-border-inner", calendarColors.currentButtonSecondBorder || "black"],
     ["--calendar-not-current-clr", calendarColors.notCurrentButtonText || "#797979"],
     ["--calendar-border-hover", calendarColors.buttonBorderHover || "#8c8c8c"],
+    ["--calendar-disabled-clr", calendarColors.disabled || "rgba(185, 185, 185, 0.089)"],
+    ["--calendar-disabled-bg", calendarColors.disabledBackground || "rgba(128, 128, 128, 0.068)"]
   ]
 
   useLayoutEffect(() => {
