@@ -1,6 +1,7 @@
 import { waitFor } from "@testing-library/react";
 import { formatDate, handleTimeout } from "../../lib/WinDate/utils"
 import type { HandleTimeout } from "../../lib/WinDate/utils";
+import { getDateOrNull } from "../../lib/WinDate/utils";
 import { vi } from "vitest";
 
 describe("formatDate util", () => {
@@ -98,6 +99,44 @@ describe("handleTimeout util", () => {
         expect(params.timeoutCallback).toHaveBeenCalledTimes(1)
         expect(params.preTimeoutCallback).toHaveBeenCalledTimes(1)
       })
+    })
+  })
+})
+
+describe("getDateOrNull util", () => {
+  describe("valid cases", () => {
+    it("Should return date for new Date()", () => {
+      const validDate = new Date()
+      expect(getDateOrNull(validDate)).toEqual(validDate)
+    })
+
+    it("Should return date for new Date('2020/11/10')", () => {
+      const validDate = new Date("2020/11/10")
+      expect(getDateOrNull(validDate)).toEqual(validDate)
+    })
+
+    it("Should return date for new Date('2020-11-10')", () => {
+      const validDate = new Date("2020-11-10")
+      expect(getDateOrNull(validDate)).toEqual(validDate)
+    })
+
+    it("Should return date for new Date(new Date().toISOString())", () => {
+      const validDate = new Date(new Date().toISOString())
+      expect(getDateOrNull(validDate)).toEqual(validDate)
+    })
+  })
+
+  describe("invalid cases", () => {
+    it("Should return null for new Date('')", () => {
+      expect(getDateOrNull(new Date(""))).toBeNull()
+    })
+
+    it("Should return null for new Date('wrong')", () => {
+      expect(getDateOrNull(new Date("wrong"))).toBeNull()
+    })
+
+    it("Should return null for new Date(NaN)", () => {
+      expect(getDateOrNull(new Date(NaN))).toBeNull()
     })
   })
 })

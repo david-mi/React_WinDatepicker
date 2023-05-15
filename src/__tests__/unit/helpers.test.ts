@@ -1,7 +1,7 @@
 import { expect } from "vitest";
-import { getDates, areDatesIdentical } from "../../lib/WinDate/Calendar/Month/helper";
+import { getDates, areDatesIdentical, isOutOfDateRange } from "../../lib/WinDate/Calendar/Month/helper";
 import type { DatesFormat } from "../../lib/WinDate/Calendar/Month/type";
-import { getMonths, areMonthsIdentical } from "../../lib/WinDate/Calendar/Year/helper";
+import { getMonths, areMonthsIdentical } from "../../lib/WinDate/Calendar/Year/helper"
 import type { MonthsFormat } from "../../lib/WinDate/Calendar/Year/type";
 
 describe("getDate helper", () => {
@@ -16,7 +16,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 31,
@@ -24,7 +25,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 1,
@@ -32,7 +34,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 2,
@@ -40,7 +43,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 3,
@@ -48,7 +52,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 4,
@@ -56,7 +61,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 5,
@@ -64,7 +70,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 6,
@@ -72,7 +79,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 7,
@@ -80,7 +88,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 8,
@@ -88,7 +97,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 9,
@@ -96,7 +106,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 10,
@@ -104,7 +115,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 11,
@@ -112,7 +124,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 12,
@@ -120,7 +133,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 13,
@@ -128,7 +142,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 14,
@@ -136,7 +151,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 15,
@@ -144,7 +160,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 16,
@@ -152,7 +169,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 17,
@@ -160,7 +178,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 18,
@@ -168,7 +187,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 19,
@@ -176,7 +196,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 20,
@@ -184,7 +205,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 21,
@@ -192,7 +214,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 22,
@@ -200,7 +223,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 23,
@@ -208,7 +232,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 24,
@@ -216,7 +241,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 25,
@@ -224,7 +250,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 26,
@@ -232,7 +259,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 27,
@@ -240,7 +268,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 28,
@@ -248,7 +277,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 1,
@@ -256,7 +286,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": true,
           "isToday": false,
           "isChosenDate": true,
-          "isFirstDayOfCurrentMonth": true
+          "isFirstDayOfCurrentMonth": true,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 2,
@@ -264,7 +295,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": true,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 3,
@@ -272,7 +304,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": true,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 4,
@@ -280,7 +313,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": true,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 5,
@@ -288,7 +322,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": true,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 6,
@@ -296,7 +331,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": true,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 7,
@@ -304,7 +340,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": true,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 8,
@@ -312,7 +349,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": true,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 9,
@@ -320,7 +358,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": true,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 10,
@@ -328,7 +367,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": true,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 11,
@@ -336,7 +376,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": true,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 12,
@@ -344,7 +385,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": true,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 13,
@@ -352,7 +394,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": true,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 14,
@@ -360,7 +403,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": true,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 15,
@@ -368,7 +412,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": true,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 16,
@@ -376,7 +421,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": true,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 17,
@@ -384,7 +430,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": true,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 18,
@@ -392,7 +439,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": true,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 19,
@@ -400,7 +448,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": true,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 20,
@@ -408,7 +457,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": true,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 21,
@@ -416,7 +466,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": true,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 22,
@@ -424,7 +475,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": true,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 23,
@@ -432,7 +484,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": true,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 24,
@@ -440,7 +493,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": true,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 25,
@@ -448,7 +502,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": true,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 26,
@@ -456,7 +511,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": true,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 27,
@@ -464,7 +520,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": true,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 28,
@@ -472,7 +529,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": true,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 29,
@@ -480,7 +538,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": true,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 30,
@@ -488,7 +547,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": true,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 31,
@@ -496,7 +556,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": true,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 1,
@@ -504,7 +565,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 2,
@@ -512,7 +574,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 3,
@@ -520,7 +583,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 4,
@@ -528,7 +592,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 5,
@@ -536,7 +601,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 6,
@@ -544,7 +610,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 7,
@@ -552,7 +619,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 8,
@@ -560,7 +628,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 9,
@@ -568,7 +637,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 10,
@@ -576,7 +646,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 11,
@@ -584,7 +655,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 12,
@@ -592,7 +664,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 13,
@@ -600,7 +673,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 14,
@@ -608,7 +682,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 15,
@@ -616,7 +691,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 16,
@@ -624,7 +700,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 17,
@@ -632,7 +709,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 18,
@@ -640,7 +718,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 19,
@@ -648,7 +727,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 20,
@@ -656,7 +736,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 21,
@@ -664,7 +745,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 22,
@@ -672,7 +754,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 23,
@@ -680,7 +763,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 24,
@@ -688,7 +772,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 25,
@@ -696,7 +781,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 26,
@@ -704,7 +790,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 27,
@@ -712,7 +799,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 28,
@@ -720,7 +808,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 29,
@@ -728,7 +817,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 30,
@@ -736,7 +826,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 1,
@@ -744,7 +835,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 2,
@@ -752,7 +844,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 3,
@@ -760,7 +853,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 4,
@@ -768,7 +862,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 5,
@@ -776,7 +871,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 6,
@@ -784,7 +880,8 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         },
         {
           "getDate": 7,
@@ -792,868 +889,17 @@ describe("getDate helper", () => {
           "isFromChosenMonth": false,
           "isToday": false,
           "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
+          "isFirstDayOfCurrentMonth": false,
+          "isOutOfMinOrMaxRange": false
         }
       ]
     })
 
     it("should return the expected result if we set March 1 2023 as parameter", () => {
       const date = new Date(2023, 2, 1)
-      expect(getDates(date)).toEqual(expectedResultFromMarch2023)
-    })
-  })
-
-  describe("Tests for Oct 2022", () => {
-    let expectedResultFromOct2022: DatesFormat[]
-
-    beforeAll(() => {
-      expectedResultFromOct2022 = [
-        {
-          "getDate": 29,
-          "getFormatedDate": "2022-08-29",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 30,
-          "getFormatedDate": "2022-08-30",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 31,
-          "getFormatedDate": "2022-08-31",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 1,
-          "getFormatedDate": "2022-09-01",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 2,
-          "getFormatedDate": "2022-09-02",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 3,
-          "getFormatedDate": "2022-09-03",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 4,
-          "getFormatedDate": "2022-09-04",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 5,
-          "getFormatedDate": "2022-09-05",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 6,
-          "getFormatedDate": "2022-09-06",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 7,
-          "getFormatedDate": "2022-09-07",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 8,
-          "getFormatedDate": "2022-09-08",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 9,
-          "getFormatedDate": "2022-09-09",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 10,
-          "getFormatedDate": "2022-09-10",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 11,
-          "getFormatedDate": "2022-09-11",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 12,
-          "getFormatedDate": "2022-09-12",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 13,
-          "getFormatedDate": "2022-09-13",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 14,
-          "getFormatedDate": "2022-09-14",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 15,
-          "getFormatedDate": "2022-09-15",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 16,
-          "getFormatedDate": "2022-09-16",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 17,
-          "getFormatedDate": "2022-09-17",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 18,
-          "getFormatedDate": "2022-09-18",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 19,
-          "getFormatedDate": "2022-09-19",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 20,
-          "getFormatedDate": "2022-09-20",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 21,
-          "getFormatedDate": "2022-09-21",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 22,
-          "getFormatedDate": "2022-09-22",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 23,
-          "getFormatedDate": "2022-09-23",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 24,
-          "getFormatedDate": "2022-09-24",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 25,
-          "getFormatedDate": "2022-09-25",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 26,
-          "getFormatedDate": "2022-09-26",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 27,
-          "getFormatedDate": "2022-09-27",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 28,
-          "getFormatedDate": "2022-09-28",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 29,
-          "getFormatedDate": "2022-09-29",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 30,
-          "getFormatedDate": "2022-09-30",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 1,
-          "getFormatedDate": "2022-10-01",
-          "isFromChosenMonth": true,
-          "isToday": false,
-          "isChosenDate": true,
-          "isFirstDayOfCurrentMonth": true
-        },
-        {
-          "getDate": 2,
-          "getFormatedDate": "2022-10-02",
-          "isFromChosenMonth": true,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 3,
-          "getFormatedDate": "2022-10-03",
-          "isFromChosenMonth": true,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 4,
-          "getFormatedDate": "2022-10-04",
-          "isFromChosenMonth": true,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 5,
-          "getFormatedDate": "2022-10-05",
-          "isFromChosenMonth": true,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 6,
-          "getFormatedDate": "2022-10-06",
-          "isFromChosenMonth": true,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 7,
-          "getFormatedDate": "2022-10-07",
-          "isFromChosenMonth": true,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 8,
-          "getFormatedDate": "2022-10-08",
-          "isFromChosenMonth": true,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 9,
-          "getFormatedDate": "2022-10-09",
-          "isFromChosenMonth": true,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 10,
-          "getFormatedDate": "2022-10-10",
-          "isFromChosenMonth": true,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 11,
-          "getFormatedDate": "2022-10-11",
-          "isFromChosenMonth": true,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 12,
-          "getFormatedDate": "2022-10-12",
-          "isFromChosenMonth": true,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 13,
-          "getFormatedDate": "2022-10-13",
-          "isFromChosenMonth": true,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 14,
-          "getFormatedDate": "2022-10-14",
-          "isFromChosenMonth": true,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 15,
-          "getFormatedDate": "2022-10-15",
-          "isFromChosenMonth": true,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 16,
-          "getFormatedDate": "2022-10-16",
-          "isFromChosenMonth": true,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 17,
-          "getFormatedDate": "2022-10-17",
-          "isFromChosenMonth": true,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 18,
-          "getFormatedDate": "2022-10-18",
-          "isFromChosenMonth": true,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 19,
-          "getFormatedDate": "2022-10-19",
-          "isFromChosenMonth": true,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 20,
-          "getFormatedDate": "2022-10-20",
-          "isFromChosenMonth": true,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 21,
-          "getFormatedDate": "2022-10-21",
-          "isFromChosenMonth": true,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 22,
-          "getFormatedDate": "2022-10-22",
-          "isFromChosenMonth": true,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 23,
-          "getFormatedDate": "2022-10-23",
-          "isFromChosenMonth": true,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 24,
-          "getFormatedDate": "2022-10-24",
-          "isFromChosenMonth": true,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 25,
-          "getFormatedDate": "2022-10-25",
-          "isFromChosenMonth": true,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 26,
-          "getFormatedDate": "2022-10-26",
-          "isFromChosenMonth": true,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 27,
-          "getFormatedDate": "2022-10-27",
-          "isFromChosenMonth": true,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 28,
-          "getFormatedDate": "2022-10-28",
-          "isFromChosenMonth": true,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 29,
-          "getFormatedDate": "2022-10-29",
-          "isFromChosenMonth": true,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 30,
-          "getFormatedDate": "2022-10-30",
-          "isFromChosenMonth": true,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 31,
-          "getFormatedDate": "2022-10-31",
-          "isFromChosenMonth": true,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 1,
-          "getFormatedDate": "2022-11-01",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 2,
-          "getFormatedDate": "2022-11-02",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 3,
-          "getFormatedDate": "2022-11-03",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 4,
-          "getFormatedDate": "2022-11-04",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 5,
-          "getFormatedDate": "2022-11-05",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 6,
-          "getFormatedDate": "2022-11-06",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 7,
-          "getFormatedDate": "2022-11-07",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 8,
-          "getFormatedDate": "2022-11-08",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 9,
-          "getFormatedDate": "2022-11-09",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 10,
-          "getFormatedDate": "2022-11-10",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 11,
-          "getFormatedDate": "2022-11-11",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 12,
-          "getFormatedDate": "2022-11-12",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 13,
-          "getFormatedDate": "2022-11-13",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 14,
-          "getFormatedDate": "2022-11-14",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 15,
-          "getFormatedDate": "2022-11-15",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 16,
-          "getFormatedDate": "2022-11-16",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 17,
-          "getFormatedDate": "2022-11-17",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 18,
-          "getFormatedDate": "2022-11-18",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 19,
-          "getFormatedDate": "2022-11-19",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 20,
-          "getFormatedDate": "2022-11-20",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 21,
-          "getFormatedDate": "2022-11-21",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 22,
-          "getFormatedDate": "2022-11-22",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 23,
-          "getFormatedDate": "2022-11-23",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 24,
-          "getFormatedDate": "2022-11-24",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 25,
-          "getFormatedDate": "2022-11-25",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 26,
-          "getFormatedDate": "2022-11-26",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 27,
-          "getFormatedDate": "2022-11-27",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 28,
-          "getFormatedDate": "2022-11-28",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 29,
-          "getFormatedDate": "2022-11-29",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 30,
-          "getFormatedDate": "2022-11-30",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 1,
-          "getFormatedDate": "2022-12-01",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 2,
-          "getFormatedDate": "2022-12-02",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 3,
-          "getFormatedDate": "2022-12-03",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 4,
-          "getFormatedDate": "2022-12-04",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 5,
-          "getFormatedDate": "2022-12-05",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 6,
-          "getFormatedDate": "2022-12-06",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 7,
-          "getFormatedDate": "2022-12-07",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 8,
-          "getFormatedDate": "2022-12-08",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 9,
-          "getFormatedDate": "2022-12-09",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 10,
-          "getFormatedDate": "2022-12-10",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        },
-        {
-          "getDate": 11,
-          "getFormatedDate": "2022-12-11",
-          "isFromChosenMonth": false,
-          "isToday": false,
-          "isChosenDate": false,
-          "isFirstDayOfCurrentMonth": false
-        }
-      ]
-    })
-
-    it("should return the expected result if we set Oct 1 2022 as parameter", () => {
-      const date = new Date(2022, 9, 1)
-      expect(getDates(date)).toEqual(expectedResultFromOct2022)
+      const minDate = new Date(2020, 0, 1)
+      const maxDate = null
+      expect(getDates(date, minDate, maxDate)).toEqual(expectedResultFromMarch2023)
     })
   })
 })
@@ -2084,5 +1330,61 @@ describe("areMonthsIdentical helper", () => {
     const firstDate = new Date(2050, 1, 11)
     const secondDate = new Date(2006, 1, 5)
     expect(areMonthsIdentical(firstDate, secondDate)).toBe(false)
+  })
+
+  it("Should return false if second argument is null", () => {
+    const firstDate = new Date(2050, 1, 11)
+    const secondDate = null
+    expect(areMonthsIdentical(firstDate, secondDate)).toBe(false)
+  })
+})
+
+describe("isOutOfDateRange helper", () => {
+  it("Should return false if date is between startDate and endDate", () => {
+    const date = new Date("2020-10-10")
+    const startDate = new Date("2015-01-01")
+    const endDate = new Date("2050-02-02")
+
+    expect(isOutOfDateRange(date, startDate, endDate)).toBe(false)
+  })
+
+  it("Should return true if date is before startDate", () => {
+    const date = new Date("2020-10-10")
+    const startDate = new Date("2025-01-01")
+    const endDate = new Date("2050-02-02")
+
+    expect(isOutOfDateRange(date, startDate, endDate)).toBe(true)
+  })
+
+  it("Should return true if date is after endDate", () => {
+    const date = new Date("2100-10-10")
+    const startDate = new Date("2025-01-01")
+    const endDate = new Date("2050-02-02")
+
+    expect(isOutOfDateRange(date, startDate, endDate)).toBe(true)
+  })
+
+  it("Should return false if date is equal to startDate and below endDate", () => {
+    const date = new Date("2020-10-10")
+    const startDate = new Date("2020-10-10")
+    const endDate = new Date("2050-02-02")
+
+    expect(isOutOfDateRange(date, startDate, endDate)).toBe(false)
+  })
+
+  it("Should return false if date is after startDate and equal to endDate", () => {
+    const date = new Date("2020-10-10")
+    const startDate = new Date("2020-10-10")
+    const endDate = new Date("2050-02-02")
+
+    expect(isOutOfDateRange(date, startDate, endDate)).toBe(false)
+  })
+
+  it("Should return false if date is equal to startDate and endDate", () => {
+    const date = new Date("2020-10-10")
+    const startDate = new Date("2020-10-10")
+    const endDate = new Date("2020-10-10")
+
+    expect(isOutOfDateRange(date, startDate, endDate)).toBe(false)
   })
 })
