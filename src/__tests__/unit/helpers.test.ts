@@ -1387,4 +1387,20 @@ describe("isOutOfDateRange helper", () => {
 
     expect(isOutOfDateRange(date, startDate, endDate)).toBe(false)
   })
+
+  it("Should return false if date is equal to startDate but have less hour", () => {
+    const date = new Date(2020, 10, 10, 1)
+    const startDate = new Date(2020, 10, 10, 5)
+    const endDate = new Date(2020, 10, 10)
+
+    expect(isOutOfDateRange(date, startDate, endDate)).toBe(false)
+  })
+
+  it("Should return false if date is equal to endDate but have less hours", () => {
+    const date = new Date(2020, 10, 10, 11)
+    const startDate = new Date(2018, 10, 10, 5)
+    const endDate = new Date(2020, 10, 10, 2)
+
+    expect(isOutOfDateRange(date, startDate, endDate)).toBe(false)
+  })
 })

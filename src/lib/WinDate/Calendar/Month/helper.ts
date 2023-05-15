@@ -81,14 +81,27 @@ export function getDates(chosenDate: Date, minDate: Date, maxDate: Date | null):
 }
 
 /**
- * Check if the passed date it outside of startDate or endDate range
+ * Check if the passed date it outside of startDate or endDate range, comparing dates
  */
 
 export function isOutOfDateRange(date: Date, startDate: Date, endDate: Date | null) {
-  const isDateOutOfMinRange = date < startDate
-  const isDateOutOfMaxRange = endDate === null
+  const dateWithHoursReset = new Date(date)
+  dateWithHoursReset.setHours(0, 0, 0, 0)
+
+  const startDateWithHoursReset = new Date(startDate)
+  startDateWithHoursReset.setHours(0, 0, 0, 0)
+
+  let endDateWithHoursReset = null
+
+  if (endDate !== null) {
+    endDateWithHoursReset = new Date(endDate)
+    endDateWithHoursReset.setHours(0, 0, 0, 0)
+  }
+
+  const isDateOutOfMinRange = dateWithHoursReset < startDateWithHoursReset
+  const isDateOutOfMaxRange = endDateWithHoursReset === null
     ? false
-    : date > endDate
+    : dateWithHoursReset > endDateWithHoursReset
 
   return isDateOutOfMinRange || isDateOutOfMaxRange
 }
