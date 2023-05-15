@@ -17,10 +17,10 @@ type DaysIndexKeys = keyof typeof daysToRetrieveBeforePreviousMonth
  * Retrieve all 105 dates to display on a calendar page
  * 
  * - Add previous / current / next
- * - If the first day of the month from the {@link chosenDate} does not
+ * - If the first day of the month from the chosenDate does not
  *   start with monday, add the last dates from the previous month to compensate
- * - Add all dates from the {@link chosenDate} month
- * - If the length of {@link monthDates} is below 105, add the first dates from the next month to compensate
+ * - Add all dates from the chosenDate month
+ * - If the length of dates is below 105, add the first dates from the next month to compensate
  */
 
 export function getDates(chosenDate: Date, minDate: Date, maxDate: Date | null): DatesFormat[] {
@@ -84,7 +84,7 @@ export function getDates(chosenDate: Date, minDate: Date, maxDate: Date | null):
  * Check if the passed date it outside of startDate or endDate range
  */
 
-function isOutOfDateRange(date: Date, startDate: Date, endDate: Date | null) {
+export function isOutOfDateRange(date: Date, startDate: Date, endDate: Date | null) {
   const isDateOutOfMinRange = date < startDate
   const isDateOutOfMaxRange = endDate === null
     ? false

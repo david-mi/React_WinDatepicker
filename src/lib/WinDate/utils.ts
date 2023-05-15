@@ -41,3 +41,15 @@ export function handleTimeout({ timeoutCallback, preTimeoutCallback, delay = 0 }
     }, delay);
   };
 }
+
+/**
+ * Return the instance of date if valid or null
+ */
+
+export function getDateOrNull(date: Date) {
+  const dateAsNumber = date.valueOf()
+  const isValueOfDateNaN = isNaN(dateAsNumber)
+  const isValidDate = !isValueOfDateNaN
+
+  return isValidDate ? date : null
+}

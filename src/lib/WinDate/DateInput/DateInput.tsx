@@ -10,7 +10,7 @@ import {
 } from "react"
 import { GlobalContext } from "../../Context/Global"
 import type { Props as WinDateProps } from "../../index"
-import { formatDate } from "../utils"
+import { formatDate, getDateOrNull } from "../utils"
 import styles from "./dateInput.module.css"
 import Button from "./Button/Button"
 
@@ -139,14 +139,17 @@ const DateInput = ({ inputProps, dateInputRef }: Props) => {
   }
 
   useEffect(() => {
-    const minDate = getDateOrNull(new Date(dateInputRef.current.min))
+    const minDate = getDateOrNull(new Date(dateInputRef.current.min)) || new Date("0001-01-01")
     const maxDate = getDateOrNull(new Date(dateInputRef.current.max))
+    const today = new Date()
 
     if (setTodayByDefault) {
       dateInputRef.current.value = formatDate(new Date())
     } else if (dateInputRef.current.value !== "") {
       setDate(new Date(dateInputRef.current.value))
-    } else if (minDate !== null) {
+    } else if (maxDate !== null && maxDate < today) {
+      setDate(maxDate)
+    } else if (minDate > today) {
       setDate(minDate)
     }
 
@@ -156,20 +159,6 @@ const DateInput = ({ inputProps, dateInputRef }: Props) => {
 
     setMaxDate(maxDate)
   }, [])
-
-  function getDateOrNull(date: Date) {
-    return date instanceof Date && !isNaN(date)
-      ? date
-      : null
-  }
-
-
-  useEffect(() => {
-    const minDate = getDateOrNull(new Date(dateInputRef.current.min))
-    const maxDate = getDateOrNull(new Date(dateInputRef.current.max))
-    console.log({ minDate, maxDate })
-  }, [])
-
 
   useEffect(() => {
     /** Change input value only if date edition is not coming from input */
