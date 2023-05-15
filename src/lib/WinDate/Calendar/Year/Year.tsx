@@ -11,7 +11,7 @@ const Year = () => {
   const monthsContainerRef = useRef<HTMLDivElement>(null!)
 
   const chosenYear = date.getFullYear()
-  const infos = String(chosenYear)
+  const infos = String(chosenYear).padStart(4, "0")
 
   function scrollToTopOfMonths() {
     monthsContainerRef.current.scrollTo({ top: 0, behavior: "smooth" })
