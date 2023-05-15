@@ -15,7 +15,8 @@ const DateButton = forwardRef(({ date }: Props, ref: ForwardedRef<HTMLButtonElem
     getFormatedDate,
     isFromChosenMonth,
     isToday,
-    isChosenDate
+    isChosenDate,
+    isOutOfMinOrMaxRange
   } = date
 
   const { setDate, closeCalendar, setUpdateInput } = useContext(GlobalContext)
@@ -39,6 +40,7 @@ const DateButton = forwardRef(({ date }: Props, ref: ForwardedRef<HTMLButtonElem
       className={styles.date}
       onClick={handleDateClick}
       autoFocus={isChosenDate}
+      disabled={isOutOfMinOrMaxRange}
     >
       {getDate}
     </button>

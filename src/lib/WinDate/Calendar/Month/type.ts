@@ -10,4 +10,6 @@ export interface DatesFormat {
   /** set to true if the date correspond to the selected date */
   isChosenDate: boolean
   isFirstDayOfCurrentMonth: boolean
+  /** disable if the date is out of range */
+  isOutOfMinOrMaxRange: boolean
 }

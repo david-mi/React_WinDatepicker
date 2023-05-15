@@ -44,3 +44,9 @@
 .date[data-chosen-date="true"] {
   border: solid 2px var(--calendar-chosen-border);
 }
+
+.date:disabled {
+  pointer-events: none;
+  color: red;
+  background-color: blue;
+}

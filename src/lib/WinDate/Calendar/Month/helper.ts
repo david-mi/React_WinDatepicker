@@ -23,7 +23,7 @@ type DaysIndexKeys = keyof typeof daysToRetrieveBeforePreviousMonth
  * - If the length of {@link monthDates} is below 105, add the first dates from the next month to compensate
  */
 
-export function getDates(chosenDate: Date): DatesFormat[] {
+export function getDates(chosenDate: Date, minDate: Date, maxDate: Date | null): DatesFormat[] {
   /** make a copy of {@link chosenDate} to not mutate it */
   const date = new Date(chosenDate)
 
@@ -69,7 +69,8 @@ export function getDates(chosenDate: Date): DatesFormat[] {
       isFromChosenMonth: date.getMonth() === chosenMonth,
       isToday: areDatesIdentical(new Date(), date),
       isChosenDate: areDatesIdentical(chosenDate, date),
-      isFirstDayOfCurrentMonth: date.getMonth() === chosenMonth && dayDate === 1
+      isFirstDayOfCurrentMonth: date.getMonth() === chosenMonth && dayDate === 1,
+      isOutOfMinOrMaxRange: isOutOfDateRange(date, minDate, maxDate)
     })
 
     date.setDate(dayDate + 1)
@@ -77,6 +78,19 @@ export function getDates(chosenDate: Date): DatesFormat[] {
   }
 
   return dates
+}
+
+/**
+ * Check if the passed date it outside of startDate or endDate range
+ */
+
+function isOutOfDateRange(date: Date, startDate: Date, endDate: Date | null) {
+  const isDateOutOfMinRange = date < startDate
+  const isDateOutOfMaxRange = endDate === null
+    ? false
+    : date > endDate
+
+  return isDateOutOfMinRange || isDateOutOfMaxRange
 }
 
 /**
