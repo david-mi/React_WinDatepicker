@@ -44,7 +44,9 @@ export function getMonths(chosenDate: Date): MonthsFormat[] {
  * Checks if the passed date correspond to today
  */
 
-export function areMonthsIdentical(firstDate: Date, secondDate: Date) {
+export function areMonthsIdentical(firstDate: Date, secondDate: Date | null) {
+  if (secondDate === null) return false
+
   const firstDateMonth = firstDate.getMonth()
   const firstDateYear = firstDate.getFullYear()
 
