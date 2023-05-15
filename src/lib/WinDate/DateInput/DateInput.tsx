@@ -30,7 +30,7 @@ const DateInput = ({ inputProps, dateInputRef }: Props) => {
     ...propsToApply
   }
     = inputProps
-  const { date, setDate, openCalendar, updateInput } = useContext(GlobalContext)
+  const { date, setDate, openCalendar, updateInput, setMinDate, setMaxDate } = useContext(GlobalContext)
   // const dateInputRef = useRef<HTMLInputElement>(null!)
   const editFromInput = useRef(false)
 
@@ -56,6 +56,7 @@ const DateInput = ({ inputProps, dateInputRef }: Props) => {
     const newDate = targetDate
       ? new Date(targetDate)
       : new Date()
+
     setDate(newDate)
   }
 
@@ -138,12 +139,37 @@ const DateInput = ({ inputProps, dateInputRef }: Props) => {
   }
 
   useEffect(() => {
+    const minDate = getDateOrNull(new Date(dateInputRef.current.min))
+    const maxDate = getDateOrNull(new Date(dateInputRef.current.max))
+
     if (setTodayByDefault) {
       dateInputRef.current.value = formatDate(new Date())
     } else if (dateInputRef.current.value !== "") {
       setDate(new Date(dateInputRef.current.value))
+    } else if (minDate !== null) {
+      setDate(minDate)
     }
+
+    if (minDate !== null) {
+      setMinDate(minDate)
+    }
+
+    setMaxDate(maxDate)
   }, [])
+
+  function getDateOrNull(date: Date) {
+    return date instanceof Date && !isNaN(date)
+      ? date
+      : null
+  }
+
+
+  useEffect(() => {
+    const minDate = getDateOrNull(new Date(dateInputRef.current.min))
+    const maxDate = getDateOrNull(new Date(dateInputRef.current.max))
+    console.log({ minDate, maxDate })
+  }, [])
+
 
   useEffect(() => {
     /** Change input value only if date edition is not coming from input */

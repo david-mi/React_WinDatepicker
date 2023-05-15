@@ -15,6 +15,10 @@ interface Context {
   setUpdateInput: Dispatch<SetStateAction<boolean>>
   setCalendarPosition: Dispatch<SetStateAction<CalendarPosition>>
   calendarPosition: CalendarPosition
+  minDate: Date
+  setMinDate: Dispatch<SetStateAction<Date>>
+  maxDate: Date | null
+  setMaxDate: Dispatch<SetStateAction<Date | null>>
 }
 
 export const GlobalContext = createContext<Context>({
@@ -30,7 +34,11 @@ export const GlobalContext = createContext<Context>({
   updateInput: false,
   setUpdateInput: () => { },
   setCalendarPosition: () => { },
-  calendarPosition: "BOTTOM"
+  calendarPosition: "BOTTOM",
+  minDate: new Date("0001-01-01"),
+  setMinDate: () => { },
+  maxDate: null,
+  setMaxDate: () => { },
 })
 
 export type Timeline = "MONTH" | "YEAR"
@@ -47,6 +55,8 @@ const GlobalProvider = ({ children }: Props) => {
   const [isSwitchingTimeline, setIsSwitchingTimeline] = useState(false)
   const [updateInput, setUpdateInput] = useState(false)
   const [calendarPosition, setCalendarPosition] = useState<CalendarPosition>("BOTTOM")
+  const [minDate, setMinDate] = useState<Date>(new Date("0001-01-01"))
+  const [maxDate, setMaxDate] = useState<Date | null>(null)
 
   function openCalendar() {
     setIsCalendarOpen(true)
@@ -69,7 +79,11 @@ const GlobalProvider = ({ children }: Props) => {
     updateInput,
     setUpdateInput,
     calendarPosition,
-    setCalendarPosition
+    setCalendarPosition,
+    minDate,
+    setMinDate,
+    maxDate,
+    setMaxDate
   }
 
   return (
