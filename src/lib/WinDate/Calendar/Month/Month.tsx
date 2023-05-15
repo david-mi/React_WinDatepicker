@@ -4,12 +4,13 @@ import Header from "../Header/Header"
 import Weekdays from "./Weekdays/Weekdays"
 import Dates from "./Dates/Dates"
 import { getDates } from "./helper"
+import { areMonthsIdentical } from "../Year/helper"
 import { monthsNamesIndexes, MonthIndex } from "../../../langs"
 import type { DatesFormat } from "./type"
 
 const Month = () => {
-  const { date, setDate } = useContext(GlobalContext)
-  const dates: DatesFormat[] = useMemo(() => getDates(date), [date])
+  const { date, setDate, minDate, maxDate } = useContext(GlobalContext)
+  const dates: DatesFormat[] = useMemo(() => getDates(date, minDate, maxDate), [date])
   const datesContainerRef = useRef<HTMLDivElement>(null!)
 
   const chosenMonth = date.getMonth()
@@ -40,12 +41,16 @@ const Month = () => {
     setDate(previousMonth)
   }
 
-  const infos = `${monthsNamesIndexes[chosenMonth as MonthIndex]} ${chosenYear}`;
+  const infos = `${monthsNamesIndexes[chosenMonth as MonthIndex]} ${String(chosenYear).padStart(4, "0")}`;
+  const shouldDisablePreviousMonth = areMonthsIdentical(date, minDate)
+  const shouldDisableNextMonth = areMonthsIdentical(date, maxDate)
 
   return (
     <div>
       <Header
         handlePrevious={scrollToTopOfDates}
+        shouldDisablePrevious={shouldDisablePreviousMonth}
+        shouldDisableNext={shouldDisableNextMonth}
         handleNext={scrollToBottomOfDates}
         infos={infos}
       />

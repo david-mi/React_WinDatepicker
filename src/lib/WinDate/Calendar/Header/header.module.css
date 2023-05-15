@@ -20,6 +20,16 @@
   margin-right: 20px;
 }
 
+.header button:nth-child(2):disabled,
+.header button:nth-child(3):disabled {
+  pointer-events: none;
+}
+
+.header button:nth-child(2):disabled path,
+.header button:nth-child(3):disabled path {
+  fill: red;
+}
+
 .header button:hover {
   color: var(--calendar-header-buttons-clr-hover);
 }
