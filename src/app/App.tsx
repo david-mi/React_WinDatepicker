@@ -44,7 +44,6 @@ const App = () => {
       <WinDateWrapper
         calendarColors={{
           // background: "orange",
-          // closeBackground: "",
           // headerButtonsText: "red",
           // headerButtonsTextHover: "green",
           // weekDaysText: "purple",
@@ -54,7 +53,9 @@ const App = () => {
           // currentButtonBorder: "green",
           // currentButtonSecondBorder: "orange",
           // notCurrentButtonText: "yellow",
-          // buttonBorderHover: "blue"
+          // buttonBorderHover: "blue",
+          // disabled: "red",
+          // disabledBackground: "rgb(235, 235, 235)"
         }}
         inputProps={{
           id: "super-id",
@@ -66,19 +67,14 @@ const App = () => {
           onBlur: handleBlur,
           onFocus: handleFocus,
           ref: myInputRef,
-          defaultValue: "2002-05-05",
+          // defaultValue: "2002-05-05",
           onDateChange: handleDateChange,
-          setTodayByDefault: true
+          // setTodayByDefault: true,
+          min: "2023-03-22",
+          max: "2023-09-22"
         }}
       />
-      {/* <h1>Nous sommes le {inputValue}</h1> */}
-      <div className="placeholder"></div>
-      <WinDateWrapper inputProps={{ onDateChange: handleDateChange }} />
-      <div className="placeholder"></div>
-      <WinDateWrapper inputProps={{ onDateChange: handleDateChange }} />
-      <div className="placeholder"></div>
-      <WinDateWrapper inputProps={{ onDateChange: handleDateChange }} />
-      <div className="placeholder"></div>
+      <h1>Date: {inputValue}</h1>
     </div>
 
   )
