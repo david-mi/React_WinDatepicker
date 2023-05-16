@@ -5,7 +5,8 @@
   font-size: 0.7rem;
   padding-block: 5px;
   margin-bottom: 5px;
-  gap: 3px;
+  gap: 2px;
+  justify-content: center;
 }
 
 .weekDays span {
