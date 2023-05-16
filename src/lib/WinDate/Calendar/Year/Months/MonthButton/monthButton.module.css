@@ -40,3 +40,10 @@
 .month[data-chosen-month="true"] {
   border: solid 2px var(--calendar-chosen-border);
 }
+
+.month:disabled {
+  pointer-events: none;
+  color: var(--calendar-disabled-clr);
+  background-color: var(--calendar-disabled-bg);
+  border-color: transparent;
+}

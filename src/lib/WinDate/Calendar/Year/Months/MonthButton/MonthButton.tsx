@@ -14,7 +14,8 @@ const MonthButton = forwardRef(({ month }: Props, ref: ForwardedRef<HTMLButtonEl
     getFormatedDate,
     isFromChosenYear,
     isCurrentMonth,
-    isChosenMonth
+    isChosenMonth,
+    isOutsideMonthRange
   } = month
 
   const { setDate, setTimeline, setIsSwitchingTimeline, setUpdateInput } = useContext(GlobalContext)
@@ -40,6 +41,7 @@ const MonthButton = forwardRef(({ month }: Props, ref: ForwardedRef<HTMLButtonEl
       data-chosen-month={isChosenMonth}
       className={styles.month}
       onClick={handleTimeout({ timeoutCallback, preTimeoutCallback, delay: 200 })}
+      disabled={isOutsideMonthRange}
     >
       {getMonthAbbrev}
     </button>

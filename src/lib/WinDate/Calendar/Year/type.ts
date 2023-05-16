@@ -10,4 +10,5 @@ export interface MonthsFormat {
   /** set to true if the date correspond to the selected date */
   isChosenMonth: boolean
   isFirstMonthOfCurrentYear: boolean
+  isOutsideMonthRange: boolean
 }

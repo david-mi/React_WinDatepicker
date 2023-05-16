@@ -1,7 +1,7 @@
 import { expect } from "vitest";
 import { getDates, areDatesIdentical, isOutOfDateRange } from "../../lib/WinDate/Calendar/Month/helper";
 import type { DatesFormat } from "../../lib/WinDate/Calendar/Month/type";
-import { getMonths, areMonthsIdentical } from "../../lib/WinDate/Calendar/Year/helper"
+import { getMonths, areMonthsIdentical, checkIfOutsideMonthRange, areYearsIdentical } from "../../lib/WinDate/Calendar/Year/helper"
 import type { MonthsFormat } from "../../lib/WinDate/Calendar/Year/type";
 
 describe("getDate helper", () => {
@@ -916,7 +916,8 @@ describe("getMonths helper", () => {
           "isFromChosenYear": false,
           "isCurrentMonth": false,
           "isChosenMonth": false,
-          "isFirstMonthOfCurrentYear": false
+          "isFirstMonthOfCurrentYear": false,
+          "isOutsideMonthRange": true
         },
         {
           "getMonthAbbrev": "Feb",
@@ -924,7 +925,8 @@ describe("getMonths helper", () => {
           "isFromChosenYear": false,
           "isCurrentMonth": false,
           "isChosenMonth": false,
-          "isFirstMonthOfCurrentYear": false
+          "isFirstMonthOfCurrentYear": false,
+          "isOutsideMonthRange": true
         },
         {
           "getMonthAbbrev": "Mar",
@@ -932,7 +934,8 @@ describe("getMonths helper", () => {
           "isFromChosenYear": false,
           "isCurrentMonth": false,
           "isChosenMonth": false,
-          "isFirstMonthOfCurrentYear": false
+          "isFirstMonthOfCurrentYear": false,
+          "isOutsideMonthRange": true
         },
         {
           "getMonthAbbrev": "Apr",
@@ -940,7 +943,8 @@ describe("getMonths helper", () => {
           "isFromChosenYear": false,
           "isCurrentMonth": false,
           "isChosenMonth": false,
-          "isFirstMonthOfCurrentYear": false
+          "isFirstMonthOfCurrentYear": false,
+          "isOutsideMonthRange": true
         },
         {
           "getMonthAbbrev": "May",
@@ -948,7 +952,8 @@ describe("getMonths helper", () => {
           "isFromChosenYear": false,
           "isCurrentMonth": false,
           "isChosenMonth": false,
-          "isFirstMonthOfCurrentYear": false
+          "isFirstMonthOfCurrentYear": false,
+          "isOutsideMonthRange": true
         },
         {
           "getMonthAbbrev": "Jun",
@@ -956,7 +961,8 @@ describe("getMonths helper", () => {
           "isFromChosenYear": false,
           "isCurrentMonth": false,
           "isChosenMonth": false,
-          "isFirstMonthOfCurrentYear": false
+          "isFirstMonthOfCurrentYear": false,
+          "isOutsideMonthRange": true
         },
         {
           "getMonthAbbrev": "Jul",
@@ -964,7 +970,8 @@ describe("getMonths helper", () => {
           "isFromChosenYear": false,
           "isCurrentMonth": false,
           "isChosenMonth": false,
-          "isFirstMonthOfCurrentYear": false
+          "isFirstMonthOfCurrentYear": false,
+          "isOutsideMonthRange": true
         },
         {
           "getMonthAbbrev": "Aug",
@@ -972,7 +979,8 @@ describe("getMonths helper", () => {
           "isFromChosenYear": false,
           "isCurrentMonth": false,
           "isChosenMonth": false,
-          "isFirstMonthOfCurrentYear": false
+          "isFirstMonthOfCurrentYear": false,
+          "isOutsideMonthRange": true
         },
         {
           "getMonthAbbrev": "Sep",
@@ -980,7 +988,8 @@ describe("getMonths helper", () => {
           "isFromChosenYear": false,
           "isCurrentMonth": false,
           "isChosenMonth": false,
-          "isFirstMonthOfCurrentYear": false
+          "isFirstMonthOfCurrentYear": false,
+          "isOutsideMonthRange": true
         },
         {
           "getMonthAbbrev": "Oct",
@@ -988,7 +997,8 @@ describe("getMonths helper", () => {
           "isFromChosenYear": false,
           "isCurrentMonth": false,
           "isChosenMonth": false,
-          "isFirstMonthOfCurrentYear": false
+          "isFirstMonthOfCurrentYear": false,
+          "isOutsideMonthRange": true
         },
         {
           "getMonthAbbrev": "Nov",
@@ -996,7 +1006,8 @@ describe("getMonths helper", () => {
           "isFromChosenYear": false,
           "isCurrentMonth": false,
           "isChosenMonth": false,
-          "isFirstMonthOfCurrentYear": false
+          "isFirstMonthOfCurrentYear": false,
+          "isOutsideMonthRange": false
         },
         {
           "getMonthAbbrev": "Dec",
@@ -1004,7 +1015,8 @@ describe("getMonths helper", () => {
           "isFromChosenYear": false,
           "isCurrentMonth": false,
           "isChosenMonth": false,
-          "isFirstMonthOfCurrentYear": false
+          "isFirstMonthOfCurrentYear": false,
+          "isOutsideMonthRange": false
         },
         {
           "getMonthAbbrev": "Jan",
@@ -1012,7 +1024,8 @@ describe("getMonths helper", () => {
           "isFromChosenYear": true,
           "isCurrentMonth": false,
           "isChosenMonth": true,
-          "isFirstMonthOfCurrentYear": true
+          "isFirstMonthOfCurrentYear": true,
+          "isOutsideMonthRange": false
         },
         {
           "getMonthAbbrev": "Feb",
@@ -1020,7 +1033,8 @@ describe("getMonths helper", () => {
           "isFromChosenYear": true,
           "isCurrentMonth": false,
           "isChosenMonth": false,
-          "isFirstMonthOfCurrentYear": false
+          "isFirstMonthOfCurrentYear": false,
+          "isOutsideMonthRange": false
         },
         {
           "getMonthAbbrev": "Mar",
@@ -1028,7 +1042,8 @@ describe("getMonths helper", () => {
           "isFromChosenYear": true,
           "isCurrentMonth": false,
           "isChosenMonth": false,
-          "isFirstMonthOfCurrentYear": false
+          "isFirstMonthOfCurrentYear": false,
+          "isOutsideMonthRange": false
         },
         {
           "getMonthAbbrev": "Apr",
@@ -1036,7 +1051,8 @@ describe("getMonths helper", () => {
           "isFromChosenYear": true,
           "isCurrentMonth": false,
           "isChosenMonth": false,
-          "isFirstMonthOfCurrentYear": false
+          "isFirstMonthOfCurrentYear": false,
+          "isOutsideMonthRange": true
         },
         {
           "getMonthAbbrev": "May",
@@ -1044,7 +1060,8 @@ describe("getMonths helper", () => {
           "isFromChosenYear": true,
           "isCurrentMonth": false,
           "isChosenMonth": false,
-          "isFirstMonthOfCurrentYear": false
+          "isFirstMonthOfCurrentYear": false,
+          "isOutsideMonthRange": true
         },
         {
           "getMonthAbbrev": "Jun",
@@ -1052,7 +1069,8 @@ describe("getMonths helper", () => {
           "isFromChosenYear": true,
           "isCurrentMonth": false,
           "isChosenMonth": false,
-          "isFirstMonthOfCurrentYear": false
+          "isFirstMonthOfCurrentYear": false,
+          "isOutsideMonthRange": true
         },
         {
           "getMonthAbbrev": "Jul",
@@ -1060,7 +1078,8 @@ describe("getMonths helper", () => {
           "isFromChosenYear": true,
           "isCurrentMonth": false,
           "isChosenMonth": false,
-          "isFirstMonthOfCurrentYear": false
+          "isFirstMonthOfCurrentYear": false,
+          "isOutsideMonthRange": true
         },
         {
           "getMonthAbbrev": "Aug",
@@ -1068,7 +1087,8 @@ describe("getMonths helper", () => {
           "isFromChosenYear": true,
           "isCurrentMonth": false,
           "isChosenMonth": false,
-          "isFirstMonthOfCurrentYear": false
+          "isFirstMonthOfCurrentYear": false,
+          "isOutsideMonthRange": true
         },
         {
           "getMonthAbbrev": "Sep",
@@ -1076,7 +1096,8 @@ describe("getMonths helper", () => {
           "isFromChosenYear": true,
           "isCurrentMonth": false,
           "isChosenMonth": false,
-          "isFirstMonthOfCurrentYear": false
+          "isFirstMonthOfCurrentYear": false,
+          "isOutsideMonthRange": true
         },
         {
           "getMonthAbbrev": "Oct",
@@ -1084,7 +1105,8 @@ describe("getMonths helper", () => {
           "isFromChosenYear": true,
           "isCurrentMonth": false,
           "isChosenMonth": false,
-          "isFirstMonthOfCurrentYear": false
+          "isFirstMonthOfCurrentYear": false,
+          "isOutsideMonthRange": true
         },
         {
           "getMonthAbbrev": "Nov",
@@ -1092,7 +1114,8 @@ describe("getMonths helper", () => {
           "isFromChosenYear": true,
           "isCurrentMonth": false,
           "isChosenMonth": false,
-          "isFirstMonthOfCurrentYear": false
+          "isFirstMonthOfCurrentYear": false,
+          "isOutsideMonthRange": true
         },
         {
           "getMonthAbbrev": "Dec",
@@ -1100,7 +1123,8 @@ describe("getMonths helper", () => {
           "isFromChosenYear": true,
           "isCurrentMonth": false,
           "isChosenMonth": false,
-          "isFirstMonthOfCurrentYear": false
+          "isFirstMonthOfCurrentYear": false,
+          "isOutsideMonthRange": true
         },
         {
           "getMonthAbbrev": "Jan",
@@ -1108,7 +1132,8 @@ describe("getMonths helper", () => {
           "isFromChosenYear": false,
           "isCurrentMonth": false,
           "isChosenMonth": false,
-          "isFirstMonthOfCurrentYear": false
+          "isFirstMonthOfCurrentYear": false,
+          "isOutsideMonthRange": true
         },
         {
           "getMonthAbbrev": "Feb",
@@ -1116,7 +1141,8 @@ describe("getMonths helper", () => {
           "isFromChosenYear": false,
           "isCurrentMonth": false,
           "isChosenMonth": false,
-          "isFirstMonthOfCurrentYear": false
+          "isFirstMonthOfCurrentYear": false,
+          "isOutsideMonthRange": true
         },
         {
           "getMonthAbbrev": "Mar",
@@ -1124,7 +1150,8 @@ describe("getMonths helper", () => {
           "isFromChosenYear": false,
           "isCurrentMonth": false,
           "isChosenMonth": false,
-          "isFirstMonthOfCurrentYear": false
+          "isFirstMonthOfCurrentYear": false,
+          "isOutsideMonthRange": true
         },
         {
           "getMonthAbbrev": "Apr",
@@ -1132,7 +1159,8 @@ describe("getMonths helper", () => {
           "isFromChosenYear": false,
           "isCurrentMonth": false,
           "isChosenMonth": false,
-          "isFirstMonthOfCurrentYear": false
+          "isFirstMonthOfCurrentYear": false,
+          "isOutsideMonthRange": true
         },
         {
           "getMonthAbbrev": "May",
@@ -1140,7 +1168,8 @@ describe("getMonths helper", () => {
           "isFromChosenYear": false,
           "isCurrentMonth": false,
           "isChosenMonth": false,
-          "isFirstMonthOfCurrentYear": false
+          "isFirstMonthOfCurrentYear": false,
+          "isOutsideMonthRange": true
         },
         {
           "getMonthAbbrev": "Jun",
@@ -1148,7 +1177,8 @@ describe("getMonths helper", () => {
           "isFromChosenYear": false,
           "isCurrentMonth": false,
           "isChosenMonth": false,
-          "isFirstMonthOfCurrentYear": false
+          "isFirstMonthOfCurrentYear": false,
+          "isOutsideMonthRange": true
         },
         {
           "getMonthAbbrev": "Jul",
@@ -1156,7 +1186,8 @@ describe("getMonths helper", () => {
           "isFromChosenYear": false,
           "isCurrentMonth": false,
           "isChosenMonth": false,
-          "isFirstMonthOfCurrentYear": false
+          "isFirstMonthOfCurrentYear": false,
+          "isOutsideMonthRange": true
         },
         {
           "getMonthAbbrev": "Aug",
@@ -1164,7 +1195,8 @@ describe("getMonths helper", () => {
           "isFromChosenYear": false,
           "isCurrentMonth": false,
           "isChosenMonth": false,
-          "isFirstMonthOfCurrentYear": false
+          "isFirstMonthOfCurrentYear": false,
+          "isOutsideMonthRange": true
         },
         {
           "getMonthAbbrev": "Sep",
@@ -1172,7 +1204,8 @@ describe("getMonths helper", () => {
           "isFromChosenYear": false,
           "isCurrentMonth": false,
           "isChosenMonth": false,
-          "isFirstMonthOfCurrentYear": false
+          "isFirstMonthOfCurrentYear": false,
+          "isOutsideMonthRange": true
         },
         {
           "getMonthAbbrev": "Oct",
@@ -1180,7 +1213,8 @@ describe("getMonths helper", () => {
           "isFromChosenYear": false,
           "isCurrentMonth": false,
           "isChosenMonth": false,
-          "isFirstMonthOfCurrentYear": false
+          "isFirstMonthOfCurrentYear": false,
+          "isOutsideMonthRange": true
         },
         {
           "getMonthAbbrev": "Nov",
@@ -1188,7 +1222,8 @@ describe("getMonths helper", () => {
           "isFromChosenYear": false,
           "isCurrentMonth": false,
           "isChosenMonth": false,
-          "isFirstMonthOfCurrentYear": false
+          "isFirstMonthOfCurrentYear": false,
+          "isOutsideMonthRange": true
         },
         {
           "getMonthAbbrev": "Dec",
@@ -1196,7 +1231,8 @@ describe("getMonths helper", () => {
           "isFromChosenYear": false,
           "isCurrentMonth": false,
           "isChosenMonth": false,
-          "isFirstMonthOfCurrentYear": false
+          "isFirstMonthOfCurrentYear": false,
+          "isOutsideMonthRange": true
         },
         {
           "getMonthAbbrev": "Jan",
@@ -1204,7 +1240,8 @@ describe("getMonths helper", () => {
           "isFromChosenYear": false,
           "isCurrentMonth": false,
           "isChosenMonth": false,
-          "isFirstMonthOfCurrentYear": false
+          "isFirstMonthOfCurrentYear": false,
+          "isOutsideMonthRange": true
         },
         {
           "getMonthAbbrev": "Feb",
@@ -1212,7 +1249,8 @@ describe("getMonths helper", () => {
           "isFromChosenYear": false,
           "isCurrentMonth": false,
           "isChosenMonth": false,
-          "isFirstMonthOfCurrentYear": false
+          "isFirstMonthOfCurrentYear": false,
+          "isOutsideMonthRange": true
         },
         {
           "getMonthAbbrev": "Mar",
@@ -1220,7 +1258,8 @@ describe("getMonths helper", () => {
           "isFromChosenYear": false,
           "isCurrentMonth": false,
           "isChosenMonth": false,
-          "isFirstMonthOfCurrentYear": false
+          "isFirstMonthOfCurrentYear": false,
+          "isOutsideMonthRange": true
         },
         {
           "getMonthAbbrev": "Apr",
@@ -1228,7 +1267,8 @@ describe("getMonths helper", () => {
           "isFromChosenYear": false,
           "isCurrentMonth": false,
           "isChosenMonth": false,
-          "isFirstMonthOfCurrentYear": false
+          "isFirstMonthOfCurrentYear": false,
+          "isOutsideMonthRange": true
         },
         {
           "getMonthAbbrev": "May",
@@ -1236,7 +1276,8 @@ describe("getMonths helper", () => {
           "isFromChosenYear": false,
           "isCurrentMonth": false,
           "isChosenMonth": false,
-          "isFirstMonthOfCurrentYear": false
+          "isFirstMonthOfCurrentYear": false,
+          "isOutsideMonthRange": true
         },
         {
           "getMonthAbbrev": "Jun",
@@ -1244,7 +1285,8 @@ describe("getMonths helper", () => {
           "isFromChosenYear": false,
           "isCurrentMonth": false,
           "isChosenMonth": false,
-          "isFirstMonthOfCurrentYear": false
+          "isFirstMonthOfCurrentYear": false,
+          "isOutsideMonthRange": true
         },
         {
           "getMonthAbbrev": "Jul",
@@ -1252,7 +1294,8 @@ describe("getMonths helper", () => {
           "isFromChosenYear": false,
           "isCurrentMonth": false,
           "isChosenMonth": false,
-          "isFirstMonthOfCurrentYear": false
+          "isFirstMonthOfCurrentYear": false,
+          "isOutsideMonthRange": true
         },
         {
           "getMonthAbbrev": "Aug",
@@ -1260,7 +1303,8 @@ describe("getMonths helper", () => {
           "isFromChosenYear": false,
           "isCurrentMonth": false,
           "isChosenMonth": false,
-          "isFirstMonthOfCurrentYear": false
+          "isFirstMonthOfCurrentYear": false,
+          "isOutsideMonthRange": true
         },
         {
           "getMonthAbbrev": "Sep",
@@ -1268,7 +1312,8 @@ describe("getMonths helper", () => {
           "isFromChosenYear": false,
           "isCurrentMonth": false,
           "isChosenMonth": false,
-          "isFirstMonthOfCurrentYear": false
+          "isFirstMonthOfCurrentYear": false,
+          "isOutsideMonthRange": true
         },
         {
           "getMonthAbbrev": "Oct",
@@ -1276,7 +1321,8 @@ describe("getMonths helper", () => {
           "isFromChosenYear": false,
           "isCurrentMonth": false,
           "isChosenMonth": false,
-          "isFirstMonthOfCurrentYear": false
+          "isFirstMonthOfCurrentYear": false,
+          "isOutsideMonthRange": true
         },
         {
           "getMonthAbbrev": "Nov",
@@ -1284,7 +1330,8 @@ describe("getMonths helper", () => {
           "isFromChosenYear": false,
           "isCurrentMonth": false,
           "isChosenMonth": false,
-          "isFirstMonthOfCurrentYear": false
+          "isFirstMonthOfCurrentYear": false,
+          "isOutsideMonthRange": true
         },
         {
           "getMonthAbbrev": "Dec",
@@ -1292,14 +1339,17 @@ describe("getMonths helper", () => {
           "isFromChosenYear": false,
           "isCurrentMonth": false,
           "isChosenMonth": false,
-          "isFirstMonthOfCurrentYear": false
+          "isFirstMonthOfCurrentYear": false,
+          "isOutsideMonthRange": true
         }
       ]
     })
 
     it("should return the expected result if set a date from 2020 as parameter", () => {
+      const minDate = new Date(2019, 10, 11)
+      const maxDate = new Date(2020, 2, 10)
       const date = new Date(2020, 0, 1)
-      expect(getMonths(date)).toEqual(expectedResultsFor2020)
+      expect(getMonths(date, minDate, maxDate)).toEqual(expectedResultsFor2020)
     })
   })
 
@@ -1336,6 +1386,26 @@ describe("areMonthsIdentical helper", () => {
     const firstDate = new Date(2050, 1, 11)
     const secondDate = null
     expect(areMonthsIdentical(firstDate, secondDate)).toBe(false)
+  })
+})
+
+describe("areYearsIdentical helper", () => {
+  it("Should return true for 2 dates with the same year", () => {
+    const firstDate = new Date(2050, 1, 11)
+    const secondDate = new Date(2050, 6, 13)
+    expect(areYearsIdentical(firstDate, secondDate)).toBe(true)
+  })
+
+  it("Should return false for 2 dates with different years", () => {
+    const firstDate = new Date(2055, 1, 11)
+    const secondDate = new Date(2030, 6, 13)
+    expect(areYearsIdentical(firstDate, secondDate)).toBe(false)
+  })
+
+  it("Should return false if second argument is null", () => {
+    const firstDate = new Date(2055, 1, 11)
+    const secondDate = null
+    expect(areYearsIdentical(firstDate, secondDate)).toBe(false)
   })
 })
 
@@ -1396,11 +1466,77 @@ describe("isOutOfDateRange helper", () => {
     expect(isOutOfDateRange(date, startDate, endDate)).toBe(false)
   })
 
-  it("Should return false if date is equal to endDate but have less hours", () => {
+  it("Should return false if date is equal to endDate but have more hours", () => {
     const date = new Date(2020, 10, 10, 11)
     const startDate = new Date(2018, 10, 10, 5)
     const endDate = new Date(2020, 10, 10, 2)
 
     expect(isOutOfDateRange(date, startDate, endDate)).toBe(false)
+  })
+})
+
+describe("checkIfOutsideMonthRange helper", () => {
+  it("Should return false if monthDate is between startMonthDate and endMonthDate", () => {
+    const monthDate = new Date("2020-05-10")
+    const startMonthDate = new Date("2020-04-01")
+    const endMonthDate = new Date("2050-07-02")
+
+    expect(checkIfOutsideMonthRange(monthDate, startMonthDate, endMonthDate)).toBe(false)
+  })
+
+  it("Should return true if monthDate is before startMonthDate", () => {
+    const monthDate = new Date("2019-11-23")
+    const startMonthDate = new Date("2020-01-10")
+    const endMonthDate = new Date("2050-02-02")
+
+    expect(checkIfOutsideMonthRange(monthDate, startMonthDate, endMonthDate)).toBe(true)
+  })
+
+  it("Should return true if monthDate is after endMonthDate", () => {
+    const monthDate = new Date("2050-03-02")
+    const startMonthDate = new Date("2025-01-01")
+    const endMonthDate = new Date("2050-02-02")
+
+    expect(checkIfOutsideMonthRange(monthDate, startMonthDate, endMonthDate)).toBe(true)
+  })
+
+  it("Should return false if monthDate is equal to startMonthDate and below endMonthDate", () => {
+    const monthDate = new Date("2020-10-10")
+    const startMonthDate = new Date("2020-10-10")
+    const endMonthDate = new Date("2020-11-02")
+
+    expect(checkIfOutsideMonthRange(monthDate, startMonthDate, endMonthDate)).toBe(false)
+  })
+
+  it("Should return false if monthDate is after startMonthDate and equal to endMonthDate", () => {
+    const monthDate = new Date("2020-11-10")
+    const startMonthDate = new Date("2020-10-10")
+    const endMonthDate = new Date("2020-11-10")
+
+    expect(checkIfOutsideMonthRange(monthDate, startMonthDate, endMonthDate)).toBe(false)
+  })
+
+  it("Should return false if monthDate is equal to startMonthDate and endMonthDate", () => {
+    const monthDate = new Date("2020-10-10")
+    const startMonthDate = new Date("2020-10-10")
+    const endMonthDate = new Date("2020-10-10")
+
+    expect(checkIfOutsideMonthRange(monthDate, startMonthDate, endMonthDate)).toBe(false)
+  })
+
+  it("Should return false if monthDate is equal to startMonthDate but have less days", () => {
+    const monthDate = new Date(2020, 10, 10)
+    const startMonthDate = new Date(2020, 10, 20)
+    const endMonthDate = new Date(2020, 10, 10)
+
+    expect(checkIfOutsideMonthRange(monthDate, startMonthDate, endMonthDate)).toBe(false)
+  })
+
+  it("Should return false if monthDate is equal to endMonthDate but have more days", () => {
+    const monthDate = new Date(2020, 10, 25)
+    const startMonthDate = new Date(2020, 10, 20)
+    const endMonthDate = new Date(2020, 10, 10)
+
+    expect(checkIfOutsideMonthRange(monthDate, startMonthDate, endMonthDate)).toBe(false)
   })
 })
