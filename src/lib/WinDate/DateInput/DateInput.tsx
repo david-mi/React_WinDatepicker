@@ -29,8 +29,8 @@ const DateInput = ({ inputProps, dateInputRef }: Props) => {
     onFocus,
     ...propsToApply
   } = inputProps
-  const { date, setDate, openCalendar, updateInput, setMinDate, setMaxDate } = useContext(GlobalContext)
-  const editFromInput = useRef(false)
+  const { date, setDate, openCalendar, setMinDate, setMaxDate } = useContext(GlobalContext)
+  const isFocusingInputRef = useRef<boolean | undefined>()
 
   /**
   * Update date based on input value
@@ -94,13 +94,13 @@ const DateInput = ({ inputProps, dateInputRef }: Props) => {
   }
 
   /**
-   * Sets editFromInput.current to false so useEffect callback can update input Value
+   * Sets isFocusingInputRef.current to false so useEffect callback can update input Value
    * 
    * - calls onBlur props if defined
    */
 
   function handleBlur(event: FocusEvent<HTMLInputElement>) {
-    editFromInput.current = false
+    isFocusingInputRef.current = false
 
     if (onBlur !== undefined) {
       onBlur(event)
@@ -108,13 +108,13 @@ const DateInput = ({ inputProps, dateInputRef }: Props) => {
   }
 
   /**
-   * Sets editFromInput.current to true
+   * Sets isFocusingInputRef.current to true
    * 
    * - calls onFocus props if defined
    */
 
   function handleFocus(event: FocusEvent<HTMLInputElement>) {
-    editFromInput.current = true
+    isFocusingInputRef.current = true
 
     if (onFocus !== undefined) {
       onFocus(event)
@@ -167,7 +167,7 @@ const DateInput = ({ inputProps, dateInputRef }: Props) => {
   useEffect(() => {
     /** Update dateInput value if a date has been clicked from calendar */
 
-    if (editFromInput.current === false && updateInput) {
+    if (isFocusingInputRef.current === false) {
       dateInputRef.current.value = formatDate(date)
       onDateChange({
         formatted: dateInputRef.current.value,
@@ -188,7 +188,7 @@ const DateInput = ({ inputProps, dateInputRef }: Props) => {
         onBlur={handleBlur}
         onFocus={handleFocus}
       />
-      <InputButton ref={dateInputRef} />
+      <InputButton dateInputRef={dateInputRef} isFocusingInputRef={isFocusingInputRef} />
     </div>
   )
 }

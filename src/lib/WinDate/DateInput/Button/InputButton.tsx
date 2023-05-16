@@ -1,13 +1,19 @@
-import { useContext, useRef, forwardRef, useLayoutEffect, MutableRefObject } from "react"
+import { useContext, useRef, useLayoutEffect, MutableRefObject } from "react"
 import { GlobalContext } from "../../../Context/Global"
 import styles from "./inputButton.module.css"
 import { defineCalendarPosition } from "../../helper"
 
-const InputButton = forwardRef<HTMLInputElement>((_, dateInputRef) => {
+interface Props {
+  dateInputRef: MutableRefObject<HTMLInputElement>
+  isFocusingInputRef: MutableRefObject<boolean>
+}
+
+const InputButton = ({ dateInputRef, isFocusingInputRef }: Props) => {
   const { setTimeline, isCalendarOpen, openCalendar, closeCalendar, setCalendarPosition } = useContext(GlobalContext)
   const buttonRef = useRef<HTMLButtonElement>(null!)
 
   function handleClick() {
+    isFocusingInputRef.current = false
     setTimeline("MONTH")
 
     if (isCalendarOpen) {
@@ -36,6 +42,6 @@ const InputButton = forwardRef<HTMLInputElement>((_, dateInputRef) => {
     >
     </button>
   )
-})
+}
 
 export default InputButton

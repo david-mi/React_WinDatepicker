@@ -18,7 +18,7 @@ const MonthButton = forwardRef(({ month }: Props, ref: ForwardedRef<HTMLButtonEl
     isOutsideMonthRange
   } = month
 
-  const { setDate, setTimeline, setIsSwitchingTimeline, setUpdateInput } = useContext(GlobalContext)
+  const { setDate, setTimeline, setIsSwitchingTimeline } = useContext(GlobalContext)
 
   /** Gets called right after a month is clicked */
 
@@ -33,7 +33,6 @@ const MonthButton = forwardRef(({ month }: Props, ref: ForwardedRef<HTMLButtonEl
     setDate(newDate)
     setTimeline("MONTH")
     setIsSwitchingTimeline(false)
-    setUpdateInput(true)
   }
 
   return (
