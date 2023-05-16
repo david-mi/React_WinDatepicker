@@ -1,9 +1,9 @@
 import { useContext, useRef, forwardRef, useLayoutEffect, MutableRefObject } from "react"
 import { GlobalContext } from "../../../Context/Global"
-import styles from "./button.module.css"
+import styles from "./inputButton.module.css"
 import { defineCalendarPosition } from "../../helper"
 
-const Button = forwardRef<HTMLInputElement>((_, dateInputRef) => {
+const InputButton = forwardRef<HTMLInputElement>((_, dateInputRef) => {
   const { setTimeline, isCalendarOpen, openCalendar, closeCalendar, setCalendarPosition } = useContext(GlobalContext)
   const buttonRef = useRef<HTMLButtonElement>(null!)
 
@@ -20,7 +20,7 @@ const Button = forwardRef<HTMLInputElement>((_, dateInputRef) => {
   }
 
   useLayoutEffect(() => {
-    /** Set right position of open / close calendar invisible button based on input right padding */
+    /** Set right position of open / close calendar invisible button based to match input padding-right value */
 
     const inputComputedStyle = getComputedStyle((dateInputRef as MutableRefObject<HTMLInputElement>).current)
     const inputPaddingLeft = inputComputedStyle.getPropertyValue("padding-right")
@@ -38,4 +38,4 @@ const Button = forwardRef<HTMLInputElement>((_, dateInputRef) => {
   )
 })
 
-export default Button
+export default InputButton

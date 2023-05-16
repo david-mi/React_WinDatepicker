@@ -67,10 +67,10 @@ export function getDates(chosenDate: Date, minDate: Date, maxDate: Date | null):
       getDate: dayDate,
       getFormatedDate: formatDate(date),
       isFromChosenMonth: date.getMonth() === chosenMonth,
-      isToday: areDatesIdentical(new Date(), date),
-      isChosenDate: areDatesIdentical(chosenDate, date),
+      isToday: checkIfDatesAreIdentical(new Date(), date),
+      isChosenDate: checkIfDatesAreIdentical(chosenDate, date),
       isFirstDayOfCurrentMonth: date.getMonth() === chosenMonth && dayDate === 1,
-      isOutOfMinOrMaxRange: isOutOfDateRange(date, minDate, maxDate)
+      isOutOfMinOrMaxRange: checkIfDateIsOutsideRange(date, minDate, maxDate)
     })
 
     date.setDate(dayDate + 1)
@@ -84,7 +84,7 @@ export function getDates(chosenDate: Date, minDate: Date, maxDate: Date | null):
  * Check if the passed date it outside of startDate or endDate range, comparing dates
  */
 
-export function isOutOfDateRange(date: Date, startDate: Date, endDate: Date | null) {
+export function checkIfDateIsOutsideRange(date: Date, startDate: Date, endDate: Date | null) {
   const dateWithHoursReset = new Date(date)
   dateWithHoursReset.setHours(0, 0, 0, 0)
 
@@ -110,7 +110,7 @@ export function isOutOfDateRange(date: Date, startDate: Date, endDate: Date | nu
  * Checks if the passed date correspond to today
  */
 
-export function areDatesIdentical(firstDate: Date, secondDate: Date) {
+export function checkIfDatesAreIdentical(firstDate: Date, secondDate: Date) {
   const firstDateToString = new Date(firstDate).toDateString()
   const secondDateToString = new Date(secondDate).toDateString()
   return firstDateToString === secondDateToString

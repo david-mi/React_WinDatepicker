@@ -6,8 +6,8 @@ import styles from "./months.module.css"
 
 interface Props {
   months: MonthsFormat[]
-  setNextYear: () => void
   setPreviousYear: () => void
+  setNextYear: () => void
   shouldDisablePreviousYear: boolean
   shouldDisableNextYear: boolean
   monthsContainerRef: MutableRefObject<HTMLDivElement>
@@ -31,6 +31,7 @@ const Months = (props: Props) => {
   useLayoutEffect(() => {
     /** Each time year is changed, scroll monthsContainerRef at the top
     of first month of chosen year */
+
     scrollToTopOfCurrentYear()
   }, [months])
 
@@ -39,7 +40,7 @@ const Months = (props: Props) => {
   }
 
   /**
-   * - If scroll reach bottom monthsContainerRef, update months for the next year
+   * - If scroll reach bottom of monthsContainerRef, update months for the next year
    * - If scroll reach top monthsContainerRef, update months for the previous year
    * - Prevent scrolling down / up if months are out of range
    */

@@ -1,3 +1,4 @@
+import styles from "./navButton.module.css"
 import NavButtonIcon from "./NavButtonIcon/NavButtonIcon"
 
 export interface Props {
@@ -11,6 +12,7 @@ const NavButton = ({ handler, direction, disabled }: Props) => {
     <button
       disabled={disabled}
       onClick={handler}
+      className={styles.navButton}
       data-testid="nav-button"
     >
       <NavButtonIcon direction={direction} />

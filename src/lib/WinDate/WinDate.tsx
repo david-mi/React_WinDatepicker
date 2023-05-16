@@ -5,7 +5,6 @@ import DateInput from "./DateInput/DateInput"
 import styles from "./winDate.module.css"
 import type { Props } from "../index"
 
-
 const Windate = ({ calendarColors = {}, inputProps }: Props) => {
   const { isCalendarOpen } = useContext(GlobalContext)
   const winDateRef = useRef<HTMLDivElement>(null!)
@@ -34,6 +33,7 @@ const Windate = ({ calendarColors = {}, inputProps }: Props) => {
 
   useLayoutEffect(() => {
     /** Applies css root colors values for calendar, based on calendarColors props */
+
     calendarColorsRoot.forEach(([rootProperty, color]) => {
       document.documentElement.style.setProperty(rootProperty, color)
     })

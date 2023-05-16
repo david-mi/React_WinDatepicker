@@ -20,9 +20,13 @@ const MonthButton = forwardRef(({ month }: Props, ref: ForwardedRef<HTMLButtonEl
 
   const { setDate, setTimeline, setIsSwitchingTimeline, setUpdateInput } = useContext(GlobalContext)
 
+  /** Gets called right after a month is clicked */
+
   function preTimeoutCallback() {
     setIsSwitchingTimeline(true)
   }
+
+  /** Update date state with clicked month from calendar, once the timeout is done */
 
   function timeoutCallback() {
     const newDate = new Date(getFormatedDate)

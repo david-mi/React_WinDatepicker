@@ -4,7 +4,7 @@ import Header from "../Header/Header"
 import Weekdays from "./Weekdays/Weekdays"
 import Dates from "./Dates/Dates"
 import { getDates } from "./helper"
-import { areMonthsIdentical } from "../Year/helper"
+import { checkIfMonthsAreIdentical } from "../Year/helper"
 import { monthsNamesIndexes, MonthIndex } from "../../../langs"
 import type { DatesFormat } from "./type"
 
@@ -15,6 +15,9 @@ const Month = () => {
 
   const chosenMonth = date.getMonth()
   const chosenYear = date.getFullYear()
+  const headerText = `${monthsNamesIndexes[chosenMonth as MonthIndex]} ${String(chosenYear).padStart(4, "0")}`;
+  const shouldDisablePreviousMonth = checkIfMonthsAreIdentical(date, minDate)
+  const shouldDisableNextMonth = checkIfMonthsAreIdentical(date, maxDate)
 
   function scrollToTopOfDates() {
     datesContainerRef.current.scrollTo({ top: 0, behavior: "smooth" })
@@ -41,10 +44,6 @@ const Month = () => {
     setDate(previousMonth)
   }
 
-  const infos = `${monthsNamesIndexes[chosenMonth as MonthIndex]} ${String(chosenYear).padStart(4, "0")}`;
-  const shouldDisablePreviousMonth = areMonthsIdentical(date, minDate)
-  const shouldDisableNextMonth = areMonthsIdentical(date, maxDate)
-
   return (
     <div>
       <Header
@@ -52,7 +51,7 @@ const Month = () => {
         handleNext={scrollToBottomOfDates}
         shouldDisablePrevious={shouldDisablePreviousMonth}
         shouldDisableNext={shouldDisableNextMonth}
-        infos={infos}
+        infos={headerText}
       />
       <Weekdays />
       <Dates

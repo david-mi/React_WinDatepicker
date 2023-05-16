@@ -10,9 +10,9 @@ import {
 } from "react"
 import { GlobalContext } from "../../Context/Global"
 import type { Props as WinDateProps } from "../../index"
-import { formatDate, getDateOrNull } from "../utils"
+import { formatDate, getValidDateOrNull } from "../utils"
 import styles from "./dateInput.module.css"
-import Button from "./Button/Button"
+import InputButton from "./Button/InputButton"
 
 type Props = Pick<WinDateProps, "inputProps"> & {
   dateInputRef: MutableRefObject<HTMLInputElement>
@@ -28,17 +28,16 @@ const DateInput = ({ inputProps, dateInputRef }: Props) => {
     onBlur,
     onFocus,
     ...propsToApply
-  }
-    = inputProps
+  } = inputProps
   const { date, setDate, openCalendar, updateInput, setMinDate, setMaxDate } = useContext(GlobalContext)
-  // const dateInputRef = useRef<HTMLInputElement>(null!)
   const editFromInput = useRef(false)
 
   /**
-  * Update date from retrieved date from input
+  * Update date based on input value
   * 
   * - if retrieved date is null, add the current date
-  * - handle onChange props if defined
+  * - calls onChange props if defined
+  * - calls onDateChange
   */
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
@@ -61,9 +60,9 @@ const DateInput = ({ inputProps, dateInputRef }: Props) => {
   }
 
   /**
-   * Prevents opening the navigator calendar
+   * Prevents opening the native browser calendar
    * 
-   * - handle onClick props if defined
+   * - calls onClick props if defined
    */
 
   function handleClick(event: MouseEvent<HTMLInputElement>) {
@@ -75,10 +74,10 @@ const DateInput = ({ inputProps, dateInputRef }: Props) => {
   }
 
   /**
-   * Open calendar component instead of opening the navigator calendar
+   * Open calendar component instead of opening the native browser calendar
    * when pressing enter on focused calendar icon
    * 
-   * - handle onKeyDown props if defined
+   * - calls onKeyDown props if defined
    */
 
   function handleKeyDown(event: KeyboardEvent<HTMLInputElement>) {
@@ -97,7 +96,7 @@ const DateInput = ({ inputProps, dateInputRef }: Props) => {
   /**
    * Sets editFromInput.current to false so useEffect callback can update input Value
    * 
-   * - handle onBlur props if defined
+   * - calls onBlur props if defined
    */
 
   function handleBlur(event: FocusEvent<HTMLInputElement>) {
@@ -111,7 +110,7 @@ const DateInput = ({ inputProps, dateInputRef }: Props) => {
   /**
    * Sets editFromInput.current to true
    * 
-   * - handle onFocus props if defined
+   * - calls onFocus props if defined
    */
 
   function handleFocus(event: FocusEvent<HTMLInputElement>) {
@@ -123,7 +122,7 @@ const DateInput = ({ inputProps, dateInputRef }: Props) => {
   }
 
   /**
-   * - set dataInputRef current value
+   * - set dataInputRef.current value
    * - if inputProps.ref exists, assign element to its current value
    */
 
@@ -139,29 +138,35 @@ const DateInput = ({ inputProps, dateInputRef }: Props) => {
   }
 
   useEffect(() => {
-    const minDate = getDateOrNull(new Date(dateInputRef.current.min)) || new Date("0001-01-01")
-    const maxDate = getDateOrNull(new Date(dateInputRef.current.max))
+    /**
+     * Handle date that will be set on initial render
+     * - Set min and max date
+     */
+
+    const minDate = getValidDateOrNull(new Date(dateInputRef.current.min)) || new Date("0001-01-01")
+    const maxDate = getValidDateOrNull(new Date(dateInputRef.current.max))
     const today = new Date()
+    const maxDateIsBeforeToday = maxDate !== null && maxDate < today
+    const minDateIsAfterToday = minDate > today
+    const dateInputIsNotEmpty = dateInputRef.current.value !== ""
 
     if (setTodayByDefault) {
       dateInputRef.current.value = formatDate(new Date())
-    } else if (dateInputRef.current.value !== "") {
+    } else if (dateInputIsNotEmpty) {
       setDate(new Date(dateInputRef.current.value))
-    } else if (maxDate !== null && maxDate < today) {
+    } else if (maxDateIsBeforeToday) {
       setDate(maxDate)
-    } else if (minDate > today) {
+    } else if (minDateIsAfterToday) {
       setDate(minDate)
     }
 
-    if (minDate !== null) {
-      setMinDate(minDate)
-    }
-
+    setMinDate(minDate)
     setMaxDate(maxDate)
   }, [])
 
   useEffect(() => {
-    /** Change input value only if date edition is not coming from input */
+    /** Update dateInput value if a date has been clicked from calendar */
+
     if (editFromInput.current === false && updateInput) {
       dateInputRef.current.value = formatDate(date)
       onDateChange({
@@ -183,7 +188,7 @@ const DateInput = ({ inputProps, dateInputRef }: Props) => {
         onBlur={handleBlur}
         onFocus={handleFocus}
       />
-      <Button ref={dateInputRef} />
+      <InputButton ref={dateInputRef} />
     </div>
   )
 }

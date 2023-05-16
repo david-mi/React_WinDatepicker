@@ -3,9 +3,9 @@ import { formatDate } from "../../utils"
 import { monthAbbrev } from "../../../langs"
 
 /**
- * Retrieve all 16 months to display on a calendar page
+ * Retrieve all 48 months to display on a calendar page
  * 
- * - Add all months from the {@link yearMonths} month
+ * - Add all months from the chosen year
  * - Add the first 4 months from the next year
  */
 
@@ -29,8 +29,8 @@ export function getMonths(chosenDate: Date, minDate: Date, maxDate: Date | null)
       getMonthAbbrev: monthAbbrev[i % monthAbbrev.length],
       getFormatedDate: formatDate(date),
       isFromChosenYear: date.getFullYear() === chosenYear,
-      isCurrentMonth: areMonthsIdentical(new Date(), date),
-      isChosenMonth: areMonthsIdentical(chosenDate, date),
+      isCurrentMonth: checkIfMonthsAreIdentical(new Date(), date),
+      isChosenMonth: checkIfMonthsAreIdentical(chosenDate, date),
       isFirstMonthOfCurrentYear: date.getFullYear() === chosenYear && date.getMonth() === 0,
       isOutsideMonthRange: checkIfOutsideMonthRange(date, minDate, maxDate)
     })
@@ -74,7 +74,7 @@ export function checkIfOutsideMonthRange(monthDate: Date, startMonthDate: Date, 
  * Checks if months from firstDate and secondDate are identicals and from the same year
  */
 
-export function areMonthsIdentical(firstDate: Date, secondDate: Date | null) {
+export function checkIfMonthsAreIdentical(firstDate: Date, secondDate: Date | null) {
   if (secondDate === null) return false
 
   const firstDateMonth = firstDate.getMonth()
@@ -93,7 +93,7 @@ export function areMonthsIdentical(firstDate: Date, secondDate: Date | null) {
  * Checks if years from firstDate and secondDate are identicals
  */
 
-export function areYearsIdentical(firstDate: Date, secondDate: Date | null) {
+export function checkIfYearsAreIdentical(firstDate: Date, secondDate: Date | null) {
   if (secondDate === null) return false
 
   const firstDateYear = firstDate.getFullYear()

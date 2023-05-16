@@ -2,7 +2,7 @@ import { useMemo, useContext, useRef } from "react"
 import { GlobalContext } from "../../../Context/Global"
 import Header from "../Header/Header"
 import Months from "./Months/Months"
-import { getMonths, areYearsIdentical } from "./helper"
+import { getMonths, checkIfYearsAreIdentical } from "./helper"
 import type { MonthsFormat } from "./type"
 
 const Year = () => {
@@ -11,7 +11,9 @@ const Year = () => {
   const monthsContainerRef = useRef<HTMLDivElement>(null!)
 
   const chosenYear = date.getFullYear()
-  const infos = String(chosenYear).padStart(4, "0")
+  const headerText = String(chosenYear).padStart(4, "0")
+  const shouldDisablePreviousYear = checkIfYearsAreIdentical(date, minDate)
+  const shouldDisableNextYear = checkIfYearsAreIdentical(date, maxDate)
 
   function scrollToTopOfMonths() {
     monthsContainerRef.current.scrollTo({ top: 0, behavior: "smooth" })
@@ -38,9 +40,6 @@ const Year = () => {
     setDate(previousMonth)
   }
 
-  const shouldDisablePreviousYear = areYearsIdentical(date, minDate)
-  const shouldDisableNextYear = areYearsIdentical(date, maxDate)
-
   return (
     <div>
       <Header
@@ -48,7 +47,7 @@ const Year = () => {
         handleNext={scrollToBottomOfMonths}
         shouldDisablePrevious={shouldDisablePreviousYear}
         shouldDisableNext={shouldDisableNextYear}
-        infos={infos}
+        infos={headerText}
       />
       <Months
         months={months}

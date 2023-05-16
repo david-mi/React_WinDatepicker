@@ -18,8 +18,8 @@ const Dates = (props: Props) => {
     dates,
     setPreviousMonth,
     setNextMonth,
-    shouldDisableNextMonth,
     shouldDisablePreviousMonth,
+    shouldDisableNextMonth,
     datesContainerRef
   } = props
   const { isSwitchingTimeline } = useContext(GlobalContext)
@@ -28,8 +28,9 @@ const Dates = (props: Props) => {
   const className = `${styles.dates} ${isSwitchingTimeline ? styles.switchTimeline : ""}`
 
   useLayoutEffect(() => {
-    /** Each time month is changed, scroll datesContainerRef at the top
+    /** Each time a month is changed, scroll datesContainerRef at the top
     of first day of chosen month */
+
     scrollToTopOfCurrentMonth()
   }, [dates])
 
@@ -38,7 +39,7 @@ const Dates = (props: Props) => {
   }
 
   /**
-   * - If scroll reach bottom datesContainerRef, update dates for the next month
+   * - If scroll reach bottom of datesContainerRef, update dates for the next month
    * - If scroll reach top datesContainerRef, update dates for the previous month
    * - Prevent scrolling down / up if dates are out of range
    */

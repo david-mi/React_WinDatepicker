@@ -1,7 +1,7 @@
 import { expect } from "vitest";
-import { getDates, areDatesIdentical, isOutOfDateRange } from "../../lib/WinDate/Calendar/Month/helper";
+import { getDates, checkIfDatesAreIdentical, checkIfDateIsOutsideRange } from "../../lib/WinDate/Calendar/Month/helper";
 import type { DatesFormat } from "../../lib/WinDate/Calendar/Month/type";
-import { getMonths, areMonthsIdentical, checkIfOutsideMonthRange, areYearsIdentical } from "../../lib/WinDate/Calendar/Year/helper"
+import { getMonths, checkIfMonthsAreIdentical, checkIfOutsideMonthRange, checkIfYearsAreIdentical } from "../../lib/WinDate/Calendar/Year/helper"
 import type { MonthsFormat } from "../../lib/WinDate/Calendar/Year/type";
 
 describe("getDate helper", () => {
@@ -1355,67 +1355,67 @@ describe("getMonths helper", () => {
 
 })
 
-describe("areDatesIdentical helper", () => {
+describe("checkIfDatesAreIdentical helper", () => {
   it("Should return true for the same 2 dates", () => {
     const firstDate = new Date(2005, 2, 5)
     const secondDate = new Date(2005, 2, 5)
-    expect(areDatesIdentical(firstDate, secondDate)).toBe(true)
+    expect(checkIfDatesAreIdentical(firstDate, secondDate)).toBe(true)
   })
 
   it("Should return false for 2 different dates", () => {
     const firstDate = new Date(2020, 10, 11)
     const secondDate = new Date(2006, 1, 5)
-    expect(areDatesIdentical(firstDate, secondDate)).toBe(false)
+    expect(checkIfDatesAreIdentical(firstDate, secondDate)).toBe(false)
   })
 })
 
-describe("areMonthsIdentical helper", () => {
+describe("checkIfMonthsAreIdentical helper", () => {
   it("Should return true for 2 dates with the same month and year", () => {
     const firstDate = new Date(2010, 3, 5)
     const secondDate = new Date(2010, 3, 15)
-    expect(areMonthsIdentical(firstDate, secondDate)).toBe(true)
+    expect(checkIfMonthsAreIdentical(firstDate, secondDate)).toBe(true)
   })
 
   it("Should return false for 2 dates with the same month but different years", () => {
     const firstDate = new Date(2050, 1, 11)
     const secondDate = new Date(2006, 1, 5)
-    expect(areMonthsIdentical(firstDate, secondDate)).toBe(false)
+    expect(checkIfMonthsAreIdentical(firstDate, secondDate)).toBe(false)
   })
 
   it("Should return false if second argument is null", () => {
     const firstDate = new Date(2050, 1, 11)
     const secondDate = null
-    expect(areMonthsIdentical(firstDate, secondDate)).toBe(false)
+    expect(checkIfMonthsAreIdentical(firstDate, secondDate)).toBe(false)
   })
 })
 
-describe("areYearsIdentical helper", () => {
+describe("checkIfYearsAreIdentical helper", () => {
   it("Should return true for 2 dates with the same year", () => {
     const firstDate = new Date(2050, 1, 11)
     const secondDate = new Date(2050, 6, 13)
-    expect(areYearsIdentical(firstDate, secondDate)).toBe(true)
+    expect(checkIfYearsAreIdentical(firstDate, secondDate)).toBe(true)
   })
 
   it("Should return false for 2 dates with different years", () => {
     const firstDate = new Date(2055, 1, 11)
     const secondDate = new Date(2030, 6, 13)
-    expect(areYearsIdentical(firstDate, secondDate)).toBe(false)
+    expect(checkIfYearsAreIdentical(firstDate, secondDate)).toBe(false)
   })
 
   it("Should return false if second argument is null", () => {
     const firstDate = new Date(2055, 1, 11)
     const secondDate = null
-    expect(areYearsIdentical(firstDate, secondDate)).toBe(false)
+    expect(checkIfYearsAreIdentical(firstDate, secondDate)).toBe(false)
   })
 })
 
-describe("isOutOfDateRange helper", () => {
+describe("checkIfDateIsOutsideRange helper", () => {
   it("Should return false if date is between startDate and endDate", () => {
     const date = new Date("2020-10-10")
     const startDate = new Date("2015-01-01")
     const endDate = new Date("2050-02-02")
 
-    expect(isOutOfDateRange(date, startDate, endDate)).toBe(false)
+    expect(checkIfDateIsOutsideRange(date, startDate, endDate)).toBe(false)
   })
 
   it("Should return true if date is before startDate", () => {
@@ -1423,7 +1423,7 @@ describe("isOutOfDateRange helper", () => {
     const startDate = new Date("2025-01-01")
     const endDate = new Date("2050-02-02")
 
-    expect(isOutOfDateRange(date, startDate, endDate)).toBe(true)
+    expect(checkIfDateIsOutsideRange(date, startDate, endDate)).toBe(true)
   })
 
   it("Should return true if date is after endDate", () => {
@@ -1431,7 +1431,7 @@ describe("isOutOfDateRange helper", () => {
     const startDate = new Date("2025-01-01")
     const endDate = new Date("2050-02-02")
 
-    expect(isOutOfDateRange(date, startDate, endDate)).toBe(true)
+    expect(checkIfDateIsOutsideRange(date, startDate, endDate)).toBe(true)
   })
 
   it("Should return false if date is equal to startDate and below endDate", () => {
@@ -1439,7 +1439,7 @@ describe("isOutOfDateRange helper", () => {
     const startDate = new Date("2020-10-10")
     const endDate = new Date("2050-02-02")
 
-    expect(isOutOfDateRange(date, startDate, endDate)).toBe(false)
+    expect(checkIfDateIsOutsideRange(date, startDate, endDate)).toBe(false)
   })
 
   it("Should return false if date is after startDate and equal to endDate", () => {
@@ -1447,7 +1447,7 @@ describe("isOutOfDateRange helper", () => {
     const startDate = new Date("2020-10-10")
     const endDate = new Date("2050-02-02")
 
-    expect(isOutOfDateRange(date, startDate, endDate)).toBe(false)
+    expect(checkIfDateIsOutsideRange(date, startDate, endDate)).toBe(false)
   })
 
   it("Should return false if date is equal to startDate and endDate", () => {
@@ -1455,7 +1455,7 @@ describe("isOutOfDateRange helper", () => {
     const startDate = new Date("2020-10-10")
     const endDate = new Date("2020-10-10")
 
-    expect(isOutOfDateRange(date, startDate, endDate)).toBe(false)
+    expect(checkIfDateIsOutsideRange(date, startDate, endDate)).toBe(false)
   })
 
   it("Should return false if date is equal to startDate but have less hour", () => {
@@ -1463,7 +1463,7 @@ describe("isOutOfDateRange helper", () => {
     const startDate = new Date(2020, 10, 10, 5)
     const endDate = new Date(2020, 10, 10)
 
-    expect(isOutOfDateRange(date, startDate, endDate)).toBe(false)
+    expect(checkIfDateIsOutsideRange(date, startDate, endDate)).toBe(false)
   })
 
   it("Should return false if date is equal to endDate but have more hours", () => {
@@ -1471,7 +1471,7 @@ describe("isOutOfDateRange helper", () => {
     const startDate = new Date(2018, 10, 10, 5)
     const endDate = new Date(2020, 10, 10, 2)
 
-    expect(isOutOfDateRange(date, startDate, endDate)).toBe(false)
+    expect(checkIfDateIsOutsideRange(date, startDate, endDate)).toBe(false)
   })
 })
 

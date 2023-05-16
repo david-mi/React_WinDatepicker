@@ -1,0 +1,25 @@
+.navButton:nth-child(2) {
+  margin-right: 20px;
+}
+
+.navButton:disabled {
+  pointer-events: none;
+}
+
+.navButton:disabled path {
+  fill: var(--calendar-disabled-clr);
+}
+
+.navButton svg {
+  width: 15px;
+  height: 15px;
+}
+
+
+.navButton path {
+  fill: var(--calendar-header-buttons-clr);
+}
+
+.navButton:hover path {
+  fill: var(--calendar-header-buttons-clr-hover);
+}
