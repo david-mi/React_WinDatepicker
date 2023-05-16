@@ -1,5 +1,4 @@
-import { useRef, useLayoutEffect, MutableRefObject, UIEvent } from "react"
-import { useContext } from "react"
+import { useRef, useLayoutEffect, MutableRefObject, UIEvent, useContext } from "react"
 import { GlobalContext } from "../../../../Context/Global"
 import DateButton from "./DateButton/DateButton"
 import type { DatesFormat } from "../type"
@@ -29,7 +28,7 @@ const Dates = (props: Props) => {
   const className = `${styles.dates} ${isSwitchingTimeline ? styles.switchTimeline : ""}`
 
   useLayoutEffect(() => {
-    /** Each time dates are changed, scroll datesContainerRef at the top
+    /** Each time month is changed, scroll datesContainerRef at the top
     of first day of chosen month */
     scrollToTopOfCurrentMonth()
   }, [dates])

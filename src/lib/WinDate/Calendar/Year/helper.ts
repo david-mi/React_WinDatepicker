@@ -41,7 +41,8 @@ export function getMonths(chosenDate: Date): MonthsFormat[] {
 }
 
 /**
- * Checks if the passed date correspond to today
+/**
+ * Checks if months from firstDate and secondDate are identicals and from the same year
  */
 
 export function areMonthsIdentical(firstDate: Date, secondDate: Date | null) {

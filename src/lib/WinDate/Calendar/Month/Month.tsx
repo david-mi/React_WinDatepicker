@@ -49,9 +49,9 @@ const Month = () => {
     <div>
       <Header
         handlePrevious={scrollToTopOfDates}
+        handleNext={scrollToBottomOfDates}
         shouldDisablePrevious={shouldDisablePreviousMonth}
         shouldDisableNext={shouldDisableNextMonth}
-        handleNext={scrollToBottomOfDates}
         infos={infos}
       />
       <Weekdays />
