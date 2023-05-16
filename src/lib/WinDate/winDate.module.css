@@ -1,6 +1,6 @@
 .winDate {
-  width: fit-content;
   position: relative;
+  height: fit-content;
 }
 
 .winDate * {
