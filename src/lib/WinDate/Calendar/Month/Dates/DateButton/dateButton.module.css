@@ -25,7 +25,7 @@
 }
 
 .date[data-today="true"] {
-  background-color: var(--calendar-current-bg);
+  background: var(--calendar-current-bg);
   font-weight: 500;
   border: solid 2px var(--calendar-current-border);
 }
@@ -48,6 +48,6 @@
 .date:disabled {
   pointer-events: none;
   color: var(--calendar-disabled-clr);
-  background-color: var(--calendar-disabled-bg);
+  background: var(--calendar-disabled-bg);
   border-color: transparent;
 }

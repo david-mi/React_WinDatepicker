@@ -4,7 +4,7 @@
   --calendar-height: 345px;
   height: 345px;
   width: 352px;
-  background-color: var(--calendar-bg);
+  background: var(--calendar-bg);
   padding-inline: 6px;
   padding-block: 4px 12px;
   overflow: hidden;
