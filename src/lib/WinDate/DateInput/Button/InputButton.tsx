@@ -5,7 +5,7 @@ import { defineCalendarPosition } from "../../helper"
 
 interface Props {
   dateInputRef: MutableRefObject<HTMLInputElement>
-  isFocusingInputRef: MutableRefObject<boolean>
+  isFocusingInputRef: MutableRefObject<boolean | undefined>
 }
 
 const InputButton = ({ dateInputRef, isFocusingInputRef }: Props) => {

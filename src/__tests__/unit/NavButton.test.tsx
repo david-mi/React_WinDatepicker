@@ -8,7 +8,8 @@ describe("<NavButton>", () => {
   beforeAll(() => {
     navButtonProps = {
       handler: vi.fn(),
-      direction: "up"
+      direction: "up",
+      disabled: false
     }
   })
 

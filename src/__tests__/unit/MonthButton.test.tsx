@@ -19,7 +19,8 @@ describe("<Date>", () => {
       isFromChosenYear: true,
       isCurrentMonth: true,
       isChosenMonth: true,
-      isFirstMonthOfCurrentYear: false
+      isFirstMonthOfCurrentYear: false,
+      isOutsideMonthRange: false
     }
   })
 

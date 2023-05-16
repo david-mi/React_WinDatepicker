@@ -1,6 +1,7 @@
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { atomOneDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import { WinDateWrapper } from "../../../lib";
+import type { OnDateChangeProps } from "../../../lib";
 
 const code = `
 const App = () => {
@@ -34,7 +35,7 @@ const App = () => {
 }`;
 
 const CustomColors = () => {
-  function handleDateChange(date) {
+  function handleDateChange(date: OnDateChangeProps) {
     console.log(date);
   }
 

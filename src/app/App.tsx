@@ -1,4 +1,4 @@
-import Testing from "./Testing/Testing"
+// import Testing from "./Testing/Testing"
 import Examples from "./Examples/Examples"
 
 const App = () => {

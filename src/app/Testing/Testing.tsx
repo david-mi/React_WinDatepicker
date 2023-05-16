@@ -5,6 +5,7 @@ import { WinDateWrapper } from "../../lib"
 import "./testing.css"
 
 const Testing = () => {
+  //@ts-ignore
   const [inputValue, setInputValue] = useState("")
   const myInputRef = useRef<HTMLInputElement>(null!)
   const myInputRef2 = useRef<HTMLInputElement>(null!)
