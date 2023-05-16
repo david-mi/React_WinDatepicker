@@ -6,6 +6,7 @@ import Year from "./Year/Year"
 import type { Timeline } from "../../Context/Global"
 import type { CalendarColors } from "../.."
 import { defineCalendarPosition } from "../helper"
+import { handleTimeout } from "../utils"
 
 interface Props {
   dateInputRef: MutableRefObject<HTMLInputElement>
@@ -49,33 +50,20 @@ const Calendar = ({ dateInputRef, winDateRef, calendarColors = {} }: Props) => {
   }, [calendarColors])
 
 
-  useLayoutEffect(() => {
-    /** 
-     * Observe intersections for calendar div 
-     * 
-     * Define calendar dataset position for each intersections to put it on top or
-     * bottom of input
-     */
-
-    const observer = new IntersectionObserver(([{ isIntersecting }]) => {
-      if (isIntersecting || calendarRef.current === null) return
-
-      const calendarPosition = defineCalendarPosition(dateInputRef as MutableRefObject<HTMLInputElement>)
-      calendarRef.current.dataset.position = calendarPosition
-    }, { threshold: 1 })
-
-    observer.observe(calendarRef.current)
-
-    return () => {
-      observer.unobserve(calendarRef.current)
-    }
-  }, [])
+  function handleScroll() {
+    const calendarPosition = defineCalendarPosition(dateInputRef as MutableRefObject<HTMLInputElement>)
+    calendarRef.current.dataset.position = calendarPosition
+  }
 
   useEffect(() => {
+    const handleScrollThrottle = handleTimeout({ timeoutCallback: handleScroll, delay: 200 })
+
     document.addEventListener("click", handleClick)
+    document.addEventListener("scroll", handleScrollThrottle)
 
     return () => {
       document.removeEventListener("click", handleClick)
+      document.removeEventListener("scroll", handleScrollThrottle)
     }
   }, [])
 
