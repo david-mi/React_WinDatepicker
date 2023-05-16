@@ -3,10 +3,12 @@ import { formatDate } from "../../utils"
 import { monthAbbrev } from "../../../langs"
 
 /**
- * Retrieve all 48 months to display on a calendar page
+ * Retrieve all 40 months to display on a calendar page
  * 
- * - Add all months from the chosen year
- * - Add the first 4 months from the next year
+ * - Add months from the year preceding the chosen year
+ * - Add months from the current year
+ * - Add months from the next year
+ * - Add first 4 months after the next year to have 40 months
  */
 
 export function getMonths(chosenDate: Date, minDate: Date, maxDate: Date | null): MonthsFormat[] {
@@ -14,7 +16,7 @@ export function getMonths(chosenDate: Date, minDate: Date, maxDate: Date | null)
   const date = new Date(chosenDate)
 
   const months = []
-  const amountOfYearsToReturn = 3 * 16
+  const amountOfMonthsToReturn = 40
   const firstMonthOfTheYear = 0
   const chosenYear = date.getFullYear()
 
@@ -23,12 +25,12 @@ export function getMonths(chosenDate: Date, minDate: Date, maxDate: Date | null)
 
   let month: number
 
-  for (let i = 0; i < amountOfYearsToReturn; i++) {
+  for (let i = 0; i < amountOfMonthsToReturn; i++) {
     month = date.getMonth()
     months.push({
       getMonthAbbrev: monthAbbrev[i % monthAbbrev.length],
       getFormatedDate: formatDate(date),
-      isFromChosenYear: date.getFullYear() === chosenYear,
+      isFromChosenYear: checkIfYearsAreIdentical(chosenDate, date),
       isCurrentMonth: checkIfMonthsAreIdentical(new Date(), date),
       isChosenMonth: checkIfMonthsAreIdentical(chosenDate, date),
       isFirstMonthOfCurrentYear: date.getFullYear() === chosenYear && date.getMonth() === 0,
