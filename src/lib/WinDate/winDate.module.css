@@ -8,3 +8,7 @@
   box-sizing: border-box;
   user-select: none;
 }
+
+.winDate button {
+  cursor: pointer;
+}
