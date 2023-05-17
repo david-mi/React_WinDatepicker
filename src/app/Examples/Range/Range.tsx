@@ -29,7 +29,7 @@ const App = () => {
     <WinDateWrapper
       calendarColors={{
         disabled: "rgb(121, 121, 121)",
-        disabledBackground: "rgba(107, 107, 107, 0.33)"
+        disabledButtonsBackground: "rgba(107, 107, 107, 0.33)"
       }}
       inputProps={{
         onDateChange: handleDateChange,
@@ -75,7 +75,7 @@ const Range = () => {
       <WinDateWrapper
         calendarColors={{
           disabled: "rgb(121, 121, 121)",
-          disabledBackground: "rgba(107, 107, 107, 0.33)"
+          disabledButtonsBackground: "rgba(107, 107, 107, 0.33)"
         }}
         inputProps={{
           onDateChange: handleDateChange,

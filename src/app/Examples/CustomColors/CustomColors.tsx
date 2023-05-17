@@ -5,33 +5,38 @@ import type { OnDateChangeProps } from "../../../lib";
 
 const code = `
 const App = () => {
-  
+
   function handleDateChange(date) {
     console.log(date)
   }
 
   return (
     <WinDateWrapper
-        calendarColors={{
-          background: "black",
-          headerButtonsText: "white",
-          headerButtonsTextHover: "#68dcff",
-          weekDaysText: "white",
-          chosenButtonText: "#68dcff",
-          chosenBorder: "white",
-          currentButtonBackground: "#222729",
-          currentButtonBorder: "#68dcff",
-          currentButtonSecondBorder: "black",
-          notCurrentButtonText: "#264b57",
-          buttonBorderHover: "#68dcff",
-          disabled: "blue",
-          disabledBackground: "blue",
-          weekendButtonBackground: "#d94141"
-        }}
-        inputProps={{
-          onDateChange: handleDateChange
-        }}
-      />
+      calendarColors={{
+        background: "black",
+        headerButtons: "white",
+        headerButtonsHover: "#68dcff",
+        weekDays: "white",
+        datesButtonsBorderHover: "#68dcff",
+        datesFromChosenMonthButtons: "#68dcff",
+        datesFromChosenMonthButtonsBackground: "#222729",
+        datesFromChosenMonthButtonsBorder: "white",
+        datesOutsideChosenMonthButtons: "#264b57",
+        selectedDateButton: "white",
+        selectedDateButtonBackground: "#1e36bd",
+        selectedDateButtonBorder: "#1e36bd",
+        todayButton: "black",
+        todayButtonBackground: "#68dcff",
+        todayButtonBorder: "#1e36bd",
+        todayButtonSecondBorder: "#000531",
+        weekendsButtonsBackground: "#01102c",
+        disabledButtons: "blue",
+        disabledButtonsBackground: "blue"
+      }}
+      inputProps={{
+        onDateChange: handleDateChange
+      }}
+    />
   )
 }`;
 
@@ -53,19 +58,24 @@ const CustomColors = () => {
       <WinDateWrapper
         calendarColors={{
           background: "black",
-          headerButtonsText: "white",
-          headerButtonsTextHover: "#68dcff",
-          weekDaysText: "white",
-          chosenButtonText: "#68dcff",
-          chosenBorder: "white",
-          currentButtonBackground: "#222729",
-          currentButtonBorder: "#68dcff",
-          currentButtonSecondBorder: "black",
-          notCurrentButtonText: "#264b57",
-          buttonBorderHover: "#68dcff",
-          disabled: "blue",
-          disabledBackground: "blue",
-          weekendButtonBackground: "#01102c"
+          headerButtons: "white",
+          headerButtonsHover: "#68dcff",
+          weekDays: "white",
+          datesButtonsBorderHover: "#68dcff",
+          datesFromChosenMonthButtons: "#68dcff",
+          datesFromChosenMonthButtonsBackground: "#222729",
+          datesFromChosenMonthButtonsBorder: "white",
+          datesOutsideChosenMonthButtons: "#264b57",
+          selectedDateButton: "white",
+          selectedDateButtonBackground: "#1e36bd",
+          selectedDateButtonBorder: "#1e36bd",
+          todayButton: "black",
+          todayButtonBackground: "#68dcff",
+          todayButtonBorder: "#1e36bd",
+          todayButtonSecondBorder: "#000531",
+          weekendsButtonsBackground: "#01102c",
+          disabledButtons: "blue",
+          disabledButtonsBackground: "blue"
         }}
         inputProps={{
           onDateChange: handleDateChange

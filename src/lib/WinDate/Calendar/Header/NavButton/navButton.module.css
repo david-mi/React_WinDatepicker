@@ -7,7 +7,7 @@
 }
 
 .navButton:disabled path {
-  fill: var(--calendar-disabled-clr);
+  fill: var(--calendar-dates-buttons-disabled-clr);
 }
 
 .navButton svg {

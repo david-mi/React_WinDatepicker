@@ -19,22 +19,25 @@ import { WinDateWrapper } from "react-windate";
 ## Options
 ```js
 interface CalendarColors {
-    /** background color behind calendar */
-    background?: Color;
-    headerButtonsText?: Color;
-    headerButtonsTextHover?: Color;
-    weekDaysText?: Color;
-    chosenButtonText?: Color;
-    /** border color of chosen day / month */
-    chosenBorder?: Color;
-    /** text color of today / current month */
-    currentButtonBackground?: Color;
-    currentButtonBorder?: Color;
-    currentButtonSecondBorder?: Color;
-    notCurrentButtonText?: Color;
-    buttonBorderHover?: Color;
-    disabled?: Color
-    disabledBackground?: Color
+  background?: Color
+  headerButtons?: Color
+  headerButtonsHover?: Color
+  weekDays?: Color
+  datesButtonsBorderHover?: Color
+  datesFromChosenMonthButtons?: Color
+  datesFromChosenMonthButtonsBackground?: Color
+  datesFromChosenMonthButtonsBorder?: Color
+  datesOutsideChosenMonthButtons?: Color
+  selectedDateButton?: Color
+  selectedDateButtonBackground?: Color
+  selectedDateButtonBorder?: Color
+  todayButton?: Color
+  todayButtonBackground?: Color
+  todayButtonBorder?: Color
+  todayButtonSecondBorder?: Color
+  weekendsButtonsBackground?: Color
+  disabledButtons?: Color
+  disabledButtonsBackground?: Color
 }
 
 type OnDateChangeProps = {

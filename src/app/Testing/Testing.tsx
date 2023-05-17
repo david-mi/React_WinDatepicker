@@ -44,19 +44,25 @@ const Testing = () => {
     <div>
       <WinDateWrapper
         calendarColors={{
-          background: "linear-gradient(to right, #000000, #434343)",
-          headerButtonsText: "white",
-          // headerButtonsTextHover: "green",
-          // weekDaysText: "purple",
-          // chosenButtonText: "aqua",
-          // chosenBorder: "red",
-          // currentButtonBackground: "blue",
-          // currentButtonBorder: "green",
-          // currentButtonSecondBorder: "orange",
-          // notCurrentButtonText: "yellow",
-          // buttonBorderHover: "blue",
-          disabled: "red",
-          disabledBackground: "rgb(235, 235, 235)"
+          background: "black",
+          headerButtons: "white",
+          headerButtonsHover: "#68dcff",
+          weekDays: "white",
+          datesButtonsBorderHover: "#68dcff",
+          datesFromChosenMonthButtons: "#68dcff",
+          datesFromChosenMonthButtonsBackground: "#222729",
+          datesFromChosenMonthButtonsBorder: "white",
+          datesOutsideChosenMonthButtons: "#264b57",
+          selectedDateButton: "white",
+          selectedDateButtonBackground: "#1e36bd",
+          selectedDateButtonBorder: "#1e36bd",
+          todayButton: "black",
+          todayButtonBackground: "#68dcff",
+          todayButtonBorder: "#1e36bd",
+          todayButtonSecondBorder: "#000531",
+          weekendsButtonsBackground: "#01102c",
+          disabledButtons: "blue",
+          disabledButtonsBackground: "blue"
         }}
         inputProps={{
           id: "super-id",

@@ -4,8 +4,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: none;
-  color: var(--calendar-not-current-clr);
+  border: solid 2px transparent;
+  color: var(--calendar-dates-outside-chosen-month-buttons-clr);
   background: transparent;
   font-weight: 400;
   font-size: 0.92rem;
@@ -13,43 +13,46 @@
   height: 40px;
 }
 
-.date:hover {
-  border: solid 2px var(--calendar-border-hover);
-}
-
 .date[data-chosen-month="true"] {
-  color: var(--calendar-chosen-clr);
-}
-
-.date[data-today="true"] {
-  background: var(--calendar-current-bg);
-  font-weight: 500;
-  border: solid 2px var(--calendar-current-border);
+  color: var(--calendar-dates-from-chosen-month-buttons-clr);
 }
 
 .date[data-weekend="true"] {
-  background: var(--calendar-weekend-bg-clr);
+  background: var(--calendar-weekends-buttons-clr-bg);
 }
 
+.date[data-today="true"] {
+  font-weight: 500;
+  border-color: var(--calendar-today-button-clr-border);
+  background: var(--calendar-today-button-clr-bg);
+  color: var(--calendar-today-button-clr)
+}
 
 .date[data-today="true"]::before {
   content: "";
   position: absolute;
-  inset: 0px;
-  border: solid 2px var(--calendar-current-border-inner);
+  inset: 0;
+  border: solid 2px var(--calendar-today-button-clr-border-inner);
 }
 
 .date[data-today="true"]:hover {
-  border-color: var(--calendar-border-hover);
+  border-color: var(--calendar-dates-buttons-clr-border-hover);
 }
 
 .date[data-chosen-date="true"] {
-  border: solid 2px var(--calendar-chosen-border);
+  font-weight: 500;
+  border-color: var(--calendar-date-selected-button-clr-border);
+  background: var(--calendar-date-selected-button-clr-bg);
+  color: var(--calendar-date-selected-button-clr);
+}
+
+.date:hover {
+  border-color: var(--calendar-dates-buttons-clr-border-hover);
 }
 
 .date:disabled {
   pointer-events: none;
-  color: var(--calendar-disabled-clr);
-  background: var(--calendar-disabled-bg);
+  color: var(--calendar-dates-buttons-disabled-clr);
+  background: var(--calendar-dates-buttons-disabled-clr-bg);
   border-color: transparent;
 }

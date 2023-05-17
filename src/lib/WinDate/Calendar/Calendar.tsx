@@ -26,20 +26,25 @@ const Calendar = ({ dateInputRef, winDateRef, calendarColors = {} }: Props) => {
   }
 
   const calendarColorsRoot = [
-    ["--calendar-bg", calendarColors.background || "#1f1f1f"],
-    ["--calendar-header-buttons-clr", calendarColors.headerButtonsText || "#cdcdcd"],
-    ["--calendar-header-buttons-clr-hover", calendarColors.headerButtonsTextHover || "white"],
-    ["--calendar-weekdays-clr", calendarColors.weekDaysText || "white"],
-    ["--calendar-chosen-clr", calendarColors.chosenButtonText || "white"],
-    ["--calendar-chosen-border", calendarColors.chosenBorder || "#8c8c8c"],
-    ["--calendar-current-bg", calendarColors.currentButtonBackground || "#3f3f3f"],
-    ["--calendar-current-border", calendarColors.currentButtonBorder || "#3f3f3f"],
-    ["--calendar-current-border-inner", calendarColors.currentButtonSecondBorder || "black"],
-    ["--calendar-not-current-clr", calendarColors.notCurrentButtonText || "#797979"],
-    ["--calendar-border-hover", calendarColors.buttonBorderHover || "#8c8c8c"],
-    ["--calendar-disabled-clr", calendarColors.disabled || "rgba(185, 185, 185, 0.089)"],
-    ["--calendar-disabled-bg", calendarColors.disabledBackground || "rgba(128, 128, 128, 0.068)"],
-    ["--calendar-weekend-bg-clr", calendarColors.weekendButtonBackground || "inherit"],
+    ["--calendar-clr-bg", calendarColors.background || "#1f1f1f"],
+    ["--calendar-header-buttons-clr", calendarColors.headerButtons || "#cdcdcd"],
+    ["--calendar-header-buttons-clr-hover", calendarColors.headerButtonsHover || "white"],
+    ["--calendar-weekdays-clr", calendarColors.weekDays || "white"],
+    ["--calendar-dates-buttons-clr-border-hover", calendarColors.datesButtonsBorderHover || "#8c8c8c"],
+    ["--calendar-dates-from-chosen-month-buttons-clr", calendarColors.datesFromChosenMonthButtons || "white"],
+    ["--calendar-dates-from-chosen-month-buttons-clr-bg", calendarColors.datesFromChosenMonthButtonsBackground || "#3f3f3f"],
+    ["--calendar-dates-from-chosen-month-buttons-clr-border", calendarColors.datesFromChosenMonthButtonsBorder || "#8c8c8c"],
+    ["--calendar-dates-outside-chosen-month-buttons-clr", calendarColors.datesOutsideChosenMonthButtons || "#797979"],
+    ["--calendar-date-selected-button-clr", calendarColors.selectedDateButton || "white"],
+    ["--calendar-date-selected-button-clr-bg", calendarColors.selectedDateButtonBackground || "inherit"],
+    ["--calendar-date-selected-button-clr-border", calendarColors.selectedDateButtonBorder || "#8c8c8c"],
+    ["--calendar-today-button-clr", calendarColors.todayButton || "white"],
+    ["--calendar-today-button-clr-bg", calendarColors.todayButtonBackground || "#3f3f3f"],
+    ["--calendar-today-button-clr-border", calendarColors.todayButtonBorder || "#3f3f3f"],
+    ["--calendar-today-button-clr-border-inner", calendarColors.todayButtonSecondBorder || "black"],
+    ["--calendar-weekends-buttons-clr-bg", calendarColors.weekendsButtonsBackground || "inherit"],
+    ["--calendar-dates-buttons-disabled-clr", calendarColors.disabledButtons || "rgba(185, 185, 185, 0.089)"],
+    ["--calendar-dates-buttons-disabled-clr-bg", calendarColors.disabledButtonsBackground || "rgba(128, 128, 128, 0.068)"]
   ]
 
   useLayoutEffect(() => {
