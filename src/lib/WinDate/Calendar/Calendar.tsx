@@ -61,15 +61,52 @@ const Calendar = ({ dateInputRef, winDateRef, calendarColors = {} }: Props) => {
     calendarRef.current.dataset.position = calendarPosition
   }
 
+  // function handleResize({ target }: UIEvent) {
+  //   const remainingScreenWidth = (target as Window).innerWidth
+  //   const calendarRect = calendarRef.current.getBoundingClientRect()
+  //   const { left: calendarLeftPosition, right: calendarRightPosition, x } = calendarRect
+  //   const remainingScreenWidth2 = document.documentElement.clientWidth
+  //   console.log({ remainingScreenWidth, remainingScreenWidth2, calendarRightPosition, x, calendarLeftPosition })
+  //   const isCalendarOverflowingOnRight = calendarRightPosition > remainingScreenWidth2
+  //   const overflowAmount = calendarRightPosition - remainingScreenWidth2
+  //   const remainingSpaceOnCalendarLeft = calendarLeftPosition
+
+  //   if (isCalendarOverflowingOnRight) {
+  //     if (remainingSpaceOnCalendarLeft - overflowAmount > 0) {
+
+  //       console.log({ overflowAmount, remainingSpaceOnCalendarLeft })
+  //       calendarRef.current.style.left = `-${overflowAmount}px`
+  //     }
+  //   }
+  // }
+
+  // useEffect(() => {
+  //   const intersectionObserver = new IntersectionObserver(([calendarEntry]) => {
+  //     if (calendarEntry.isIntersecting === false) {
+  //       console.log(calendarEntry)
+  //       calendarRef.current.style.left = `-100px`
+  //     }
+  //   }, { threshold: 1 })
+
+  //   intersectionObserver.observe(calendarRef.current)
+
+  //   return () => {
+  //     intersectionObserver.unobserve(calendarRef.current)
+  //   }
+  // }, [])
+
   useEffect(() => {
-    const handleScrollThrottle = handleTimeout({ timeoutCallback: handleScroll, delay: 200 })
+    const handleScrollThrottle = handleTimeout<Event>({ timeoutCallback: handleScroll, delay: 200 })
+    // const handleResizeThrottle = handleTimeout<UIEvent>({ timeoutCallback: handleResize, delay: 200 })
 
     document.addEventListener("click", handleClick)
     document.addEventListener("scroll", handleScrollThrottle)
+    // window.addEventListener("resize", handleResizeThrottle)
 
     return () => {
       document.removeEventListener("click", handleClick)
       document.removeEventListener("scroll", handleScrollThrottle)
+      // window.removeEventListener("resize", handleResizeThrottle)
     }
   }, [])
 

@@ -6,6 +6,17 @@
   margin: 0;
 }
 
+@media screen and (max-width: 800px) {
+  .example {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .example-code {
+    order: 1;
+  }
+}
+
 .examples {
   font-family: 'Libre Franklin', sans-serif;
   display: flex;
@@ -29,6 +40,7 @@
   padding: 4rem 1rem 1rem;
   border-radius: 20px;
   justify-content: space-around;
+  gap: 2rem;
 }
 
 .example-title {
