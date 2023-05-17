@@ -12,4 +12,5 @@ export interface DatesFormat {
   isFirstDayOfCurrentMonth: boolean
   /** set to true if the date is out of min-max date range */
   isOutOfMinOrMaxRange: boolean
+  isWeekend: boolean
 }

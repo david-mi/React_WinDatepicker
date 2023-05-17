@@ -6,7 +6,7 @@
   justify-content: center;
   border: none;
   color: var(--calendar-not-current-clr);
-  background-color: transparent;
+  background: transparent;
   font-weight: 400;
   font-size: 0.92rem;
   width: 46px;
@@ -26,6 +26,11 @@
   font-weight: 500;
   border: solid 2px var(--calendar-current-border);
 }
+
+.date[data-weekend="true"] {
+  background: var(--calendar-weekend-bg-clr);
+}
+
 
 .date[data-today="true"]::before {
   content: "";

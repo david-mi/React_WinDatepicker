@@ -22,6 +22,7 @@ export interface CalendarColors {
   buttonBorderHover?: Color
   disabled?: Color
   disabledBackground?: Color
+  weekendButtonBackground?: Color
 }
 
 export type OnDateChangeProps = {

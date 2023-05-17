@@ -70,7 +70,8 @@ export function getDates(chosenDate: Date, minDate: Date, maxDate: Date | null):
       isToday: checkIfDatesAreIdentical(new Date(), date),
       isChosenDate: checkIfDatesAreIdentical(chosenDate, date),
       isFirstDayOfCurrentMonth: date.getMonth() === chosenMonth && dayDate === 1,
-      isOutOfMinOrMaxRange: checkIfDateIsOutsideRange(date, minDate, maxDate)
+      isOutOfMinOrMaxRange: checkIfDateIsOutsideRange(date, minDate, maxDate),
+      isWeekend: checkIfDateIsFromWeekend(date)
     })
 
     date.setDate(dayDate + 1)
@@ -78,6 +79,13 @@ export function getDates(chosenDate: Date, minDate: Date, maxDate: Date | null):
   }
 
   return dates
+}
+
+export function checkIfDateIsFromWeekend(date: Date) {
+  const isSaturday = date.getDay() === 6
+  const isSunday = date.getDay() === 0
+
+  return isSaturday || isSunday
 }
 
 /**

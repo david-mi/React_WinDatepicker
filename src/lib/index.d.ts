@@ -2,21 +2,22 @@ import type { ComponentProps } from "react";
 type Color = string;
 export interface CalendarColors {
     /** background color behind calendar */
-    background?: Color;
-    headerButtonsText?: Color;
-    headerButtonsTextHover?: Color;
-    weekDaysText?: Color;
-    chosenButtonText?: Color;
+    background?: Color
+    headerButtonsText?: Color
+    headerButtonsTextHover?: Color
+    weekDaysText?: Color
+    chosenButtonText?: Color
     /** border color of chosen day / month */
-    chosenBorder?: Color;
+    chosenBorder?: Color
     /** text color of today / current month */
-    currentButtonBackground?: Color;
-    currentButtonBorder?: Color;
-    currentButtonSecondBorder?: Color;
-    notCurrentButtonText?: Color;
-    buttonBorderHover?: Color;
+    currentButtonBackground?: Color
+    currentButtonBorder?: Color
+    currentButtonSecondBorder?: Color
+    notCurrentButtonText?: Color
+    buttonBorderHover?: Color
     disabled?: Color
     disabledBackground?: Color
+    weekendButtonBackground?: Color
 }
 export type OnDateChangeProps = {
     /** updated Date formatted to "YYYY-MM-DD" string */
