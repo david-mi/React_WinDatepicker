@@ -73,7 +73,7 @@ const langsData: Record<LangDataProps, LangData> = {
     monthAbbrev: ["Janv", "Févr", "Mars", "Avr", "Mai", "Juin", "Juil", "Août", "Sept", "Oct", "Nov", "Déc"]
   },
   "en": {
-    weekDays: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
+    weekDays: ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"],
     monthsNamesIndexes: {
       0: "January",
       1: "February",
