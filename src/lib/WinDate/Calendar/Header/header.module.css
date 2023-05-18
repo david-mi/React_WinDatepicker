@@ -8,7 +8,6 @@
   padding: 0;
   background: transparent;
   border: none;
-  transition: 100ms;
 }
 
 .header button:first-child {
@@ -22,9 +21,11 @@
 }
 
 .header button:active {
+  transition: 200ms;
   color: var(--calendar-button-clicked-clr);
 }
 
 .header button:active path {
+  transition: 200ms;
   fill: var(--calendar-button-clicked-clr);
 }

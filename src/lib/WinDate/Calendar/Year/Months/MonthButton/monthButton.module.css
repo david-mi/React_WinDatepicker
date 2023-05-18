@@ -12,7 +12,6 @@
   color: var(--calendar-dates-outside-chosen-month-buttons-clr);
   width: 82px;
   height: 69px;
-  transition: 200ms;
 }
 
 .month[data-chosen-year="true"] {
@@ -49,6 +48,7 @@
 }
 
 .month:active {
+  transition: 200ms;
   border-color: var(--calendar-button-clicked-clr);
 }
 
