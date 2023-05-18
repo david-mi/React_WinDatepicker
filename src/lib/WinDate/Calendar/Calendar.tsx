@@ -55,72 +55,69 @@ const Calendar = ({ dateInputRef, winDateRef, calendarColors = {} }: Props) => {
     })
   }, [calendarColors])
 
-
-  function handleScroll() {
-    const calendarPosition = defineCalendarPosition(dateInputRef as MutableRefObject<HTMLInputElement>)
-    calendarRef.current.dataset.position = calendarPosition
-  }
-
-  // function handleResize({ target }: UIEvent) {
-  //   const remainingScreenWidth = (target as Window).innerWidth
-  //   const calendarRect = calendarRef.current.getBoundingClientRect()
-  //   const { left: calendarLeftPosition, right: calendarRightPosition, x } = calendarRect
-  //   const remainingScreenWidth2 = document.documentElement.clientWidth
-  //   console.log({ remainingScreenWidth, remainingScreenWidth2, calendarRightPosition, x, calendarLeftPosition })
-  //   const isCalendarOverflowingOnRight = calendarRightPosition > remainingScreenWidth2
-  //   const overflowAmount = calendarRightPosition - remainingScreenWidth2
-  //   const remainingSpaceOnCalendarLeft = calendarLeftPosition
-
-  //   if (isCalendarOverflowingOnRight) {
-  //     if (remainingSpaceOnCalendarLeft - overflowAmount > 0) {
-
-  //       console.log({ overflowAmount, remainingSpaceOnCalendarLeft })
-  //       calendarRef.current.style.left = `-${overflowAmount}px`
-  //     }
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   const intersectionObserver = new IntersectionObserver(([calendarEntry]) => {
-  //     if (calendarEntry.isIntersecting === false) {
-  //       console.log(calendarEntry)
-  //       calendarRef.current.style.left = `-100px`
-  //     }
-  //   }, { threshold: 1 })
-
-  //   intersectionObserver.observe(calendarRef.current)
-
-  //   return () => {
-  //     intersectionObserver.unobserve(calendarRef.current)
-  //   }
-  // }, [])
+  useLayoutEffect(() => {
+    setCalendarHorizontalTranslate()
+  }, [])
 
   useEffect(() => {
     const handleScrollThrottle = handleTimeout<Event>({ timeoutCallback: handleScroll, delay: 200 })
-    // const handleResizeThrottle = handleTimeout<UIEvent>({ timeoutCallback: handleResize, delay: 200 })
 
     document.addEventListener("click", handleClick)
     document.addEventListener("scroll", handleScrollThrottle)
-    // window.addEventListener("resize", handleResizeThrottle)
+    window.addEventListener("resize", setCalendarHorizontalTranslate)
 
     return () => {
       document.removeEventListener("click", handleClick)
       document.removeEventListener("scroll", handleScrollThrottle)
-      // window.removeEventListener("resize", handleResizeThrottle)
+      window.removeEventListener("resize", setCalendarHorizontalTranslate)
     }
   }, [])
 
+  /**
+   * Defines calendar horizontal translate based on overflow amount at the right side of the screen
+   * - if there is no more space to translate on the left, return null
+   */
 
-  function handleScroll() {
-    const calendarVerticalPosition = defineCalendarVerticalPosition(dateInputRef as MutableRefObject<HTMLInputElement>)
-    calendarRef.current.dataset.position = calendarVerticalPosition
+  function defineCalendarHorizontalTranslate(): number | null {
+    const screenWidth = document.documentElement.clientWidth
+    const calendarWidth = calendarRef.current.offsetWidth
+    const remainingSpaceAtCalendarLeft = calendarRef.current.getBoundingClientRect().left
+    const remainingSpaceAtInputLeft = dateInputRef.current.getBoundingClientRect().left
+
+    const calendarRightOverflow = (remainingSpaceAtInputLeft + calendarWidth) - screenWidth
+    const calendarHorizontalTranslate = calendarRightOverflow > 0
+      ? -calendarRightOverflow
+      : 0
+
+    const shouldTranslate = remainingSpaceAtCalendarLeft > 0
+
+    return shouldTranslate
+      ? calendarHorizontalTranslate
+      : null
+  }
+
+  function setCalendarHorizontalTranslate() {
+    const calendarHorizontalTranslate = defineCalendarHorizontalTranslate()
+    if (calendarHorizontalTranslate !== null) {
+      calendarRef.current.style.transform = `translateX(${calendarHorizontalTranslate}px)`
+    }
   }
 
   /**
-   * Close calendar only if we click outstide winDateRef div scope
-   * 
-   * - Clicking on calendar won't trigger closeCalendar
-   * - Clicking on input won't trigger closeCalendar
+   * Set a new calendar vertical position if needed when scrolling
+   */
+
+  function handleScroll() {
+    const calendarVerticalPosition = defineCalendarVerticalPosition(dateInputRef as MutableRefObject<HTMLInputElement>)
+    const currentCalendarVerticalPosition = calendarRef.current.dataset.positionVertical
+
+    if (calendarVerticalPosition !== currentCalendarVerticalPosition) {
+      calendarRef.current.dataset.positionVertical = calendarVerticalPosition
+    }
+  }
+
+  /**
+   * Close calendar if clicking ouside of windateRef structure
    */
 
   function handleClick(event: MouseEvent) {
@@ -136,7 +133,7 @@ const Calendar = ({ dateInputRef, winDateRef, calendarColors = {} }: Props) => {
   return (
     <div
       ref={calendarRef}
-      data-position={calendarVerticalPosition}
+      data-position-vertical={calendarVerticalPosition}
       className={styles.calendar}
     >
       {componentsTimeline[timeline]}

@@ -17,6 +17,7 @@ const Windate = ({ calendarColors, inputProps }: Props) => {
 
   return (
     <div className={styles.winDate} ref={winDateRef}>
+      <DateInput inputProps={inputProps} dateInputRef={dateInputRef} />
       {isCalendarOpen && (
         <Calendar
           winDateRef={winDateRef}
@@ -24,7 +25,6 @@ const Windate = ({ calendarColors, inputProps }: Props) => {
           calendarColors={calendarColors}
         />
       )}
-      <DateInput inputProps={inputProps} dateInputRef={dateInputRef} />
     </div>
   )
 }

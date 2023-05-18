@@ -11,10 +11,10 @@
   border-radius: 7px;
 }
 
-.calendar[data-position="TOP"] {
+.calendar[data-position-vertical="TOP"] {
   top: calc((var(--calendar-height) + 10px) * -1);
 }
 
-.calendar[data-position="BOTTOM"] {
+.calendar[data-position-vertical="BOTTOM"] {
   bottom: calc((var(--calendar-height) + 10px) * -1);
 }
