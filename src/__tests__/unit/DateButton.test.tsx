@@ -19,7 +19,8 @@ describe("<Date>", () => {
       isToday: true,
       isChosenDate: true,
       isFirstDayOfCurrentMonth: false,
-      isOutOfMinOrMaxRange: false
+      isOutOfMinOrMaxRange: false,
+      isWeekend: false
     }
   })
 

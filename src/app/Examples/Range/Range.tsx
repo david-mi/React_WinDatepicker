@@ -74,7 +74,7 @@ const Range = () => {
       </SyntaxHighlighter>
       <WinDateWrapper
         calendarColors={{
-          disabled: "rgb(121, 121, 121)",
+          disabledButtons: "rgb(121, 121, 121)",
           disabledButtonsBackground: "rgba(107, 107, 107, 0.33)"
         }}
         inputProps={{

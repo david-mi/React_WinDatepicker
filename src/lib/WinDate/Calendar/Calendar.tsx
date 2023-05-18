@@ -61,7 +61,7 @@ const Calendar = ({ dateInputRef, winDateRef, calendarColors = {} }: Props) => {
   }, [])
 
   useEffect(() => {
-    const handleScrollThrottle = handleTimeout<Event>({ timeoutCallback: handleScroll, delay: 200 })
+    const handleScrollThrottle = handleTimeout({ timeoutCallback: handleScroll, delay: 200 })
 
     document.addEventListener("click", handleClick)
     document.addEventListener("scroll", handleScrollThrottle)

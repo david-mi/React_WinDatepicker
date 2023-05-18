@@ -10,11 +10,11 @@ export function formatDate(date: Date): string {
   return `${year}-${month}-${day}`
 }
 
-export type HandleTimeout<T> = {
+export type HandleTimeout = {
   /** timeout callback */
-  timeoutCallback: (arg: T) => void,
+  timeoutCallback: () => void,
   /** function to execute before timeout */
-  preTimeoutCallback?: (arg: T) => void,
+  preTimeoutCallback?: () => void,
   /** timeout delay, defaults to 0 */
   delay?: number
 }
@@ -25,18 +25,18 @@ export type HandleTimeout<T> = {
  * Prevent firing callbacks multiple times when a timeout is in process
  */
 
-export function handleTimeout<T>({ timeoutCallback, preTimeoutCallback, delay = 0 }: HandleTimeout<T>): (arg: T) => void {
+export function handleTimeout({ timeoutCallback, preTimeoutCallback, delay = 0 }: HandleTimeout): () => void {
   let timeoutId: NodeJS.Timeout | null = null;
 
-  return (arg) => {
+  return () => {
     if (timeoutId !== null) return;
 
     if (typeof preTimeoutCallback === "function") {
-      preTimeoutCallback(arg)
+      preTimeoutCallback()
     }
 
     timeoutId = setTimeout(() => {
-      timeoutCallback(arg)
+      timeoutCallback()
       timeoutId = null;
     }, delay);
   };
