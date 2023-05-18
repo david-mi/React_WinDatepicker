@@ -5,7 +5,7 @@ import Month from "./Month/Month"
 import Year from "./Year/Year"
 import type { Timeline } from "../../Context/Global"
 import type { CalendarColors } from "../.."
-import { defineCalendarPosition } from "../helper"
+import { defineCalendarVerticalPosition } from "../helper"
 import { handleTimeout } from "../utils"
 
 interface Props {
@@ -15,7 +15,7 @@ interface Props {
 }
 
 const Calendar = ({ dateInputRef, winDateRef, calendarColors = {} }: Props) => {
-  const { closeCalendar, timeline, calendarPosition } = useContext(GlobalContext)
+  const { closeCalendar, timeline, calendarVerticalPosition } = useContext(GlobalContext)
   const calendarRef = useRef<HTMLDivElement>(null!)
 
   const componentsTimeline: {
@@ -110,6 +110,12 @@ const Calendar = ({ dateInputRef, winDateRef, calendarColors = {} }: Props) => {
     }
   }, [])
 
+
+  function handleScroll() {
+    const calendarVerticalPosition = defineCalendarVerticalPosition(dateInputRef as MutableRefObject<HTMLInputElement>)
+    calendarRef.current.dataset.position = calendarVerticalPosition
+  }
+
   /**
    * Close calendar only if we click outstide winDateRef div scope
    * 
@@ -130,7 +136,7 @@ const Calendar = ({ dateInputRef, winDateRef, calendarColors = {} }: Props) => {
   return (
     <div
       ref={calendarRef}
-      data-position={calendarPosition}
+      data-position={calendarVerticalPosition}
       className={styles.calendar}
     >
       {componentsTimeline[timeline]}

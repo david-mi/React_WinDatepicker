@@ -7,7 +7,7 @@ import type { MutableRefObject } from "react"
  * - Calendar will be set above input only if there is enough visible space above input but not below 
  */
 
-export function defineCalendarPosition(dateInputRef: MutableRefObject<HTMLInputElement>) {
+export function defineCalendarVerticalPosition(dateInputRef: MutableRefObject<HTMLInputElement>) {
   const {
     bottom: inputBottom,
     top: inputTop
@@ -20,9 +20,9 @@ export function defineCalendarPosition(dateInputRef: MutableRefObject<HTMLInputE
 
   const canPutCalendarOnTop = visibleSpaceAboveInput > neededSpaceForCalendar
   const canPutCalendarOnBottom = visibleSpaceUnderInput >= neededSpaceForCalendar
-  const calendarPosition = canPutCalendarOnBottom === false && canPutCalendarOnTop
+  const calendarVerticalPosition = canPutCalendarOnBottom === false && canPutCalendarOnTop
     ? "TOP"
     : "BOTTOM"
 
-  return calendarPosition
+  return calendarVerticalPosition
 }

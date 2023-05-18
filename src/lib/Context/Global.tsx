@@ -11,8 +11,8 @@ interface Context {
   timeline: Timeline
   isSwitchingTimeline: boolean
   setIsSwitchingTimeline: Dispatch<SetStateAction<boolean>>
-  setCalendarPosition: Dispatch<SetStateAction<CalendarPosition>>
-  calendarPosition: CalendarPosition
+  setCalendarVerticalPosition: Dispatch<SetStateAction<CalendarVerticalPosition>>
+  calendarVerticalPosition: CalendarVerticalPosition
   minDate: Date
   setMinDate: Dispatch<SetStateAction<Date>>
   maxDate: Date | null
@@ -29,8 +29,8 @@ export const GlobalContext = createContext<Context>({
   timeline: "MONTH",
   isSwitchingTimeline: false,
   setIsSwitchingTimeline: () => { },
-  setCalendarPosition: () => { },
-  calendarPosition: "BOTTOM",
+  setCalendarVerticalPosition: () => { },
+  calendarVerticalPosition: "BOTTOM",
   minDate: new Date("0001-01-01"),
   setMinDate: () => { },
   maxDate: null,
@@ -38,7 +38,7 @@ export const GlobalContext = createContext<Context>({
 })
 
 export type Timeline = "MONTH" | "YEAR"
-type CalendarPosition = "TOP" | "BOTTOM"
+type CalendarVerticalPosition = "TOP" | "BOTTOM"
 
 interface Props {
   children: ReactNode
@@ -49,7 +49,7 @@ const GlobalProvider = ({ children }: Props) => {
   const [isCalendarOpen, setIsCalendarOpen] = useState(false)
   const [timeline, setTimeline] = useState<Timeline>("MONTH")
   const [isSwitchingTimeline, setIsSwitchingTimeline] = useState(false)
-  const [calendarPosition, setCalendarPosition] = useState<CalendarPosition>("BOTTOM")
+  const [calendarVerticalPosition, setCalendarVerticalPosition] = useState<CalendarVerticalPosition>("BOTTOM")
   const [minDate, setMinDate] = useState<Date>(new Date("0001-01-01"))
   const [maxDate, setMaxDate] = useState<Date | null>(null)
 
@@ -71,8 +71,8 @@ const GlobalProvider = ({ children }: Props) => {
     timeline,
     isSwitchingTimeline,
     setIsSwitchingTimeline,
-    calendarPosition,
-    setCalendarPosition,
+    calendarVerticalPosition,
+    setCalendarVerticalPosition,
     minDate,
     setMinDate,
     maxDate,

@@ -1,7 +1,7 @@
 import { useContext, useRef, useLayoutEffect, MutableRefObject } from "react"
 import { GlobalContext } from "../../../Context/Global"
 import styles from "./inputButton.module.css"
-import { defineCalendarPosition } from "../../helper"
+import { defineCalendarVerticalPosition } from "../../helper"
 
 interface Props {
   dateInputRef: MutableRefObject<HTMLInputElement>
@@ -9,7 +9,7 @@ interface Props {
 }
 
 const InputButton = ({ dateInputRef, isFocusingInputRef }: Props) => {
-  const { setTimeline, isCalendarOpen, openCalendar, closeCalendar, setCalendarPosition } = useContext(GlobalContext)
+  const { setTimeline, isCalendarOpen, openCalendar, closeCalendar, setCalendarVerticalPosition } = useContext(GlobalContext)
   const buttonRef = useRef<HTMLButtonElement>(null!)
 
   function handleClick() {
@@ -20,8 +20,8 @@ const InputButton = ({ dateInputRef, isFocusingInputRef }: Props) => {
       return closeCalendar()
     }
 
-    const calendarPosition = defineCalendarPosition(dateInputRef as MutableRefObject<HTMLInputElement>)
-    setCalendarPosition(calendarPosition)
+    const calendarVerticalPosition = defineCalendarVerticalPosition(dateInputRef as MutableRefObject<HTMLInputElement>)
+    setCalendarVerticalPosition(calendarVerticalPosition)
     openCalendar()
   }
 
