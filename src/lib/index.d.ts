@@ -20,6 +20,7 @@ export interface CalendarColors {
     weekendsButtonsBackground?: Color
     disabledButtons?: Color
     disabledButtonsBackground?: Color
+    clickedButton?: Color
 }
 export type OnDateChangeProps = {
     /** updated Date formatted to "YYYY-MM-DD" string */

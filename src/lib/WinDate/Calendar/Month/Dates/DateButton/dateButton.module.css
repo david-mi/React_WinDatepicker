@@ -11,6 +11,7 @@
   font-size: 0.92rem;
   width: 46px;
   height: 40px;
+  transition: 100ms;
 }
 
 .date[data-chosen-month="true"] {
@@ -48,6 +49,10 @@
 
 .date:hover {
   border-color: var(--calendar-dates-buttons-clr-border-hover);
+}
+
+.date:active {
+  border-color: var(--calendar-button-clicked-clr);
 }
 
 .date:disabled {

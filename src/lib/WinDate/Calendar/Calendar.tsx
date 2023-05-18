@@ -44,7 +44,8 @@ const Calendar = ({ dateInputRef, winDateRef, calendarColors = {} }: Props) => {
     ["--calendar-today-button-clr-border-inner", calendarColors.todayButtonSecondBorder || "black"],
     ["--calendar-weekends-buttons-clr-bg", calendarColors.weekendsButtonsBackground || "inherit"],
     ["--calendar-dates-buttons-disabled-clr", calendarColors.disabledButtons || "rgba(185, 185, 185, 0.089)"],
-    ["--calendar-dates-buttons-disabled-clr-bg", calendarColors.disabledButtonsBackground || "rgba(128, 128, 128, 0.068)"]
+    ["--calendar-dates-buttons-disabled-clr-bg", calendarColors.disabledButtonsBackground || "rgba(128, 128, 128, 0.068)"],
+    ["--calendar-button-clicked-clr", calendarColors.clickedButton || "#4f4f4f"]
   ]
 
   useLayoutEffect(() => {

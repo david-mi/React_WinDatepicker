@@ -8,6 +8,7 @@
   padding: 0;
   background: transparent;
   border: none;
+  transition: 100ms;
 }
 
 .header button:first-child {
@@ -18,4 +19,12 @@
 
 .header button:hover {
   color: var(--calendar-header-buttons-clr-hover);
+}
+
+.header button:active {
+  color: var(--calendar-button-clicked-clr);
+}
+
+.header button:active path {
+  fill: var(--calendar-button-clicked-clr);
 }

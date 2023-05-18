@@ -31,7 +31,8 @@ const App = () => {
         todayButtonSecondBorder: "#000531",
         weekendsButtonsBackground: "#01102c",
         disabledButtons: "blue",
-        disabledButtonsBackground: "blue"
+        disabledButtonsBackground: "blue",
+        clickedButton: "#41869b"
       }}
       inputProps={{
         onDateChange: handleDateChange
@@ -75,7 +76,8 @@ const CustomColors = () => {
           todayButtonSecondBorder: "#000531",
           weekendsButtonsBackground: "#01102c",
           disabledButtons: "blue",
-          disabledButtonsBackground: "blue"
+          disabledButtonsBackground: "blue",
+          clickedButton: "#41869b"
         }}
         inputProps={{
           onDateChange: handleDateChange
