@@ -1,7 +1,6 @@
 import Windate from "./WinDate/WinDate";
 import GlobalProvider from "./Context/Global";
 import type { ComponentProps } from "react";
-import "./styles/global.css"
 
 type Color = string
 

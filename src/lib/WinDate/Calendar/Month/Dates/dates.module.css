@@ -1,4 +1,32 @@
-@import "../../../../styles/global.css";
+@keyframes displayDates {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes removeDates {
+  0% {
+    transform: scale(1);
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+}
 
 .wrapper {
   overflow: hidden;
@@ -15,7 +43,7 @@
   gap: 2px;
   text-align: center;
   justify-content: center;
-  animation: displayTimeline 200ms forwards linear;
+  animation: displayDates 200ms forwards ease-out;
 }
 
 .dates::-webkit-scrollbar {
@@ -27,6 +55,10 @@
   -ms-overflow-style: none;
 }
 
+.dates {
+  animation: displayDates 200ms forwards ease-out;
+}
+
 .switchTimeline {
-  animation: removeTimeline 200ms forwards linear;
+  animation: removeDates 200ms forwards ease-in;
 }
