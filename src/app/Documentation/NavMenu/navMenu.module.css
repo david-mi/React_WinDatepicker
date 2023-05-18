@@ -1,0 +1,130 @@
+.nav {
+  position: fixed;
+  left: 0;
+  height: 100%;
+  background-color: white;
+  width: 200px;
+  --nav-clr: rgb(0, 10, 31);
+  --nav-clr-second: #44c4e4;
+  background-color: white;
+  z-index: 10;
+}
+
+@media screen and (max-width: 650px) {
+  .nav {
+    display: none;
+  }
+}
+
+.nav::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  width: 16px;
+  top: 0;
+  bottom: 0;
+  background: linear-gradient(135deg,
+      var(--nav-clr-second) 0%,
+      var(--nav-clr-second) 5%,
+      transparent 5%,
+      transparent 10%,
+      var(--nav-clr-second) 10%,
+      var(--nav-clr-second) 15%,
+      transparent 15%,
+      transparent 20%,
+      var(--nav-clr-second) 20%,
+      var(--nav-clr-second) 25%,
+      transparent 25%,
+      transparent 30%,
+      var(--nav-clr-second) 30%,
+      var(--nav-clr-second) 35%,
+      transparent 35%,
+      transparent 40%,
+      var(--nav-clr-second) 40%,
+      var(--nav-clr-second) 45%,
+      transparent 45%,
+      transparent 50%,
+      var(--nav-clr-second) 50%,
+      var(--nav-clr-second) 55%,
+      transparent 55%,
+      transparent 60%,
+      var(--nav-clr-second) 60%,
+      var(--nav-clr-second) 65%,
+      transparent 65%,
+      transparent 70%,
+      var(--nav-clr-second) 70%,
+      var(--nav-clr-second) 75%,
+      transparent 70%,
+      transparent 80%,
+      var(--nav-clr-second) 80%,
+      var(--nav-clr-second) 85%,
+      transparent 85%,
+      transparent 90%,
+      var(--nav-clr-second) 90%,
+      var(--nav-clr-second) 95%,
+      transparent 95%);
+  background-size: 1em 1em;
+  background-color: #ffffff;
+}
+
+.nav ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-block: 2rem;
+}
+
+.nav li {
+  display: flex;
+  width: 80%;
+  margin-right: 16px;
+}
+
+.nav a {
+  display: block;
+  position: relative;
+  font-family: 'Libre Franklin', sans-serif;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  background-color: var(--nav-clr);
+  text-align: center;
+  padding-block: 1rem;
+  padding-inline: 1rem;
+  border-radius: 10px;
+  width: 100%;
+  transition: 300ms;
+}
+
+.nav a::before {
+  position: absolute;
+  content: "";
+  inset: 0;
+  border-radius: 10px;
+  border-left: solid 0px var(--nav-clr-second);
+  border-right: solid 0px var(--nav-clr-second);
+  transition: border 200ms linear;
+}
+
+.nav a:hover {
+  color: var(--nav-clr-second);
+}
+
+.nav a:hover::first-letter {
+  color: white;
+}
+
+.nav a:hover::before {
+  border-left-width: 20px;
+  border-right-width: 20px;
+}
+
+.nav a::first-letter {
+  color: var(--nav-clr-second);
+}
+
+nav a:focus {
+  outline-color: #44c4e4;
+}

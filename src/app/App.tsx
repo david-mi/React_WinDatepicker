@@ -1,10 +1,10 @@
 // import Testing from "./Testing/Testing"
-import Examples from "./Examples/Examples"
+import Documentation from "./Documentation/Documentation"
 
 const App = () => {
   return (
     // <Testing />
-    <Examples />
+    <Documentation />
   )
 }
 

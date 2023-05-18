@@ -1,7 +1,7 @@
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { atomOneDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
-import { WinDateWrapper } from "../../../lib";
-import type { OnDateChangeProps } from "../../../lib";
+import { WinDateWrapper } from "../../../../lib";
+import type { OnDateChangeProps } from "../../../../lib";
 
 const code = `
 const App = () => {
@@ -47,8 +47,8 @@ const CustomColors = () => {
   }
 
   return (
-    <div className="example">
-      <h2 className="example-title">Custom Colors</h2>
+    <div id="colors" className="example">
+      <h2 className="example-title">Colors</h2>
       <SyntaxHighlighter
         language="javascript"
         style={atomOneDark}

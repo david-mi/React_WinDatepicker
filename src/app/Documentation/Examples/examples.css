@@ -1,22 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@500;600;700&display=swap');
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-@media screen and (max-width: 800px) {
-  .example {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .example-code {
-    order: 1;
-  }
-}
-
 .examples {
   font-family: 'Libre Franklin', sans-serif;
   display: flex;
@@ -24,14 +5,17 @@
   align-items: center;
   gap: 5rem;
   padding: 4rem 1rem;
+  margin-left: 200px;
 }
 
 .examples-title {
   font-size: 4rem;
   margin-bottom: 2rem;
+  color: rgb(0, 10, 31);
 }
 
 .example {
+  scroll-margin-top: 50px;
   max-width: 800px;
   width: 100%;
   position: relative;
@@ -39,11 +23,21 @@
   border: solid 3px black;
   padding: 4rem 1rem 1rem;
   border-radius: 20px;
-  justify-content: space-around;
+  justify-content: space-between;
   gap: 2rem;
+  padding-inline: 2rem;
+}
+
+.example div {
+  margin-inline: auto;
+}
+
+.example:last-child {
+  margin-bottom: 110px;
 }
 
 .example-title {
+  color: rgb(0, 10, 31);
   font-size: 2.5rem;
   font-weight: 600;
   position: absolute;
@@ -53,20 +47,36 @@
   background-color: white;
   padding-inline: 1rem;
   white-space: nowrap;
-
 }
 
 .example-title:first-letter {
   font-weight: 700;
-  color: red;
+  color: #44c4e4;
 }
 
 .example-code {
-  width: 100%;
   max-width: 550px;
+  min-width: 330px;
   display: flex;
   padding: 2rem !important;
   height: fit-content;
   align-self: center;
   border-radius: 0.5rem;
+  max-width: 100%;
+}
+
+@media screen and (max-width: 1000px) {
+  .example {
+    flex-direction: column;
+  }
+
+  .example-code {
+    order: 1;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .examples {
+    margin-left: 0;
+  }
 }

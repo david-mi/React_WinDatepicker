@@ -1,7 +1,7 @@
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { atomOneDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
-import { WinDateWrapper } from "../../../lib";
-import type { OnDateChangeProps } from "../../../lib";
+import { WinDateWrapper } from "../../../../lib";
+import type { OnDateChangeProps } from "../../../../lib";
 
 const code = `
 const App = () => {
@@ -25,7 +25,7 @@ const Basic = () => {
   }
 
   return (
-    <div className="example">
+    <div id="basic" className="example">
       <h2 className="example-title">Basic</h2>
       <SyntaxHighlighter
         language="javascript"
