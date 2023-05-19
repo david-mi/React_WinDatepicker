@@ -47,6 +47,23 @@ export interface WinDatePickerProps {
 }
 
 export const WinDatePicker = (props: WinDatePickerProps) => {
+  const { inputProps } = props
+
+  if (inputProps?.onDateChange === undefined) {
+    console.error("onDateChange callback is missing from inputProps props")
+
+    return null
+  } else if (typeof inputProps.onDateChange !== "function") {
+    console.error("onDateChange should be a function")
+
+    return null
+  }
+
+  if (inputProps.setTodayByDefault && typeof inputProps.setTodayByDefault !== "boolean") {
+    console.error("setTodayByDefault props should be of type boolean")
+    return null
+  }
+
   return (
     <GlobalProvider>
       <Windate {...props} />

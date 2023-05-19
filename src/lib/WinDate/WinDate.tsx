@@ -10,11 +10,6 @@ const Windate = ({ calendarColors, inputProps }: WinDatePickerProps) => {
   const winDateRef = useRef<HTMLDivElement>(null!)
   const dateInputRef = useRef<HTMLInputElement>(null!)
 
-  if (inputProps.onDateChange === undefined) {
-    console.error("onDateChange callback is missing from props and is required")
-    return null
-  }
-
   return (
     <div className={styles.winDate} ref={winDateRef}>
       <DateInput inputProps={inputProps} dateInputRef={dateInputRef} />
