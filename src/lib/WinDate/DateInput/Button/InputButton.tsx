@@ -38,6 +38,7 @@ const InputButton = ({ dateInputRef, isFocusingInputRef }: Props) => {
     <button
       onClick={handleClick}
       ref={buttonRef}
+      type="button"
       className={styles.button}
     >
     </button>

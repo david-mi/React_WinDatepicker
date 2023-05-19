@@ -12,6 +12,7 @@ const NavButton = ({ handler, direction, disabled }: Props) => {
     <button
       disabled={disabled}
       onClick={handler}
+      type="button"
       className={styles.navButton}
       data-testid="nav-button"
     >

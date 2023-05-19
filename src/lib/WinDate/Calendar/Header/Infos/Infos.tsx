@@ -25,6 +25,7 @@ const Infos = ({ infos }: Props) => {
   return (
     <button
       onClick={handleTimeout({ timeoutCallback, preTimeoutCallback, delay: 200 })}
+      type="button"
       className={styles.infos}
     >
       {infos}

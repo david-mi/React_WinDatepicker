@@ -38,10 +38,11 @@ const DateButton = forwardRef(({ date }: Props, ref: ForwardedRef<HTMLButtonElem
       data-chosen-month={isFromChosenMonth}
       data-chosen-date={isChosenDate}
       data-weekend={isWeekend}
-      className={styles.date}
       onClick={handleDateClick}
       autoFocus={isChosenDate}
       disabled={isOutOfMinOrMaxRange}
+      type="button"
+      className={styles.date}
     >
       {getDate}
     </button>

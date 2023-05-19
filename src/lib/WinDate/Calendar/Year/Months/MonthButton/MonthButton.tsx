@@ -42,6 +42,7 @@ const MonthButton = forwardRef(({ month }: Props, ref: ForwardedRef<HTMLButtonEl
       data-current-month={isCurrentMonth}
       data-chosen-year={isFromChosenYear}
       data-chosen-month={isChosenMonth}
+      type="button"
       className={styles.month}
       onClick={handleTimeout({ timeoutCallback, preTimeoutCallback, delay: 200 })}
       disabled={isOutsideMonthRange}
