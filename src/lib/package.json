@@ -1,15 +1,11 @@
 {
   "name": "react-windatepicker",
   "private": false,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "React date input package with windows skin",
   "type": "module",
   "main": "index.umd.cjs",
   "module": "index.js",
-  "peerDependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/david-mi/React_WinDatepicker.git"

@@ -1,5 +1,5 @@
 # React WinDatepicker
-![Calendar gif demo](public/demo_gif.gif)
+![Calendar gif demo](https://i.imgur.com/pUYTDoi.gif)
 
 ## Description
 
