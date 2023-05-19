@@ -1,17 +1,5 @@
 type LangDataProps = "fr" | "en"
-
-type SupportedLangs = {
-  [key: string]: LangDataProps
-}
-
-const supportedLangs: SupportedLangs = {
-  "fr-FR": "fr",
-  "fr": "fr",
-  "en-US": "en",
-  "en": "en"
-}
-
-const supportedLang = supportedLangs[navigator.language] || "en"
+const navigatorLanguageFirstTwoLetters = navigator.language.slice(0, 2) as LangDataProps
 
 type LangData = {
   weekDays: readonly [
@@ -92,5 +80,10 @@ const langsData: Record<LangDataProps, LangData> = {
   }
 }
 
-export const { weekDays, monthsNamesIndexes, monthAbbrev } = langsData[supportedLang]
+export const {
+  weekDays,
+  monthsNamesIndexes,
+  monthAbbrev
+} = langsData[navigatorLanguageFirstTwoLetters] || langsData.en
+
 export type MonthIndex = keyof typeof monthsNamesIndexes
