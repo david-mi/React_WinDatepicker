@@ -17,6 +17,7 @@ npm i react-windatepicker
 ```
 ## Usage
 ```js
+import "react-windatepicker/style.css";
 import { WinDatePicker } from "react-windatepicker";
 
 const App = () => {

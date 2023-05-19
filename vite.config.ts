@@ -2,7 +2,6 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { resolve } from 'path'
-import { libInjectCss } from 'vite-plugin-lib-inject-css';
 import { viteStaticCopy } from 'vite-plugin-static-copy'
 
 export default defineConfig(({ mode }) => {
@@ -10,7 +9,6 @@ export default defineConfig(({ mode }) => {
     return {
       plugins: [
         react(),
-        libInjectCss(),
         viteStaticCopy({
           targets: [
             { src: "./src/lib/package.json", dest: "./" },
