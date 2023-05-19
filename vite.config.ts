@@ -3,12 +3,22 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { resolve } from 'path'
 import { libInjectCss } from 'vite-plugin-lib-inject-css';
+import { viteStaticCopy } from 'vite-plugin-static-copy'
 
 export default defineConfig(({ mode }) => {
-  console.log(mode)
   if (mode == "lib") {
     return {
-      plugins: [react(), libInjectCss()],
+      plugins: [
+        react(),
+        libInjectCss(),
+        viteStaticCopy({
+          targets: [
+            { src: "./src/lib/package.json", dest: "./" },
+            { src: "./README.md", dest: "./" },
+            { src: "./src/lib/index.d.ts", dest: "./" }
+          ]
+        })
+      ],
       build: {
         lib: {
           entry: resolve(__dirname, "src/lib/index.tsx"),

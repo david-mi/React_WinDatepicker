@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "test": "vitest --reporter verbose",
-    "build-lib": "tsc && vite build --mode lib && cp ./README.md ./dist && cp ./src/lib/package.json ./dist && cp ./src/lib/index.d.ts ./dist",
+    "build-lib": "tsc && vite build --mode lib",
     "build-doc": "tsc && vite build --mode doc",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
@@ -32,6 +32,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.3.4",
     "typescript": "^5.0.2",
-    "vite": "^4.3.2"
+    "vite": "^4.3.2",
+    "vite-plugin-static-copy": "^0.15.0"
   }
 }
