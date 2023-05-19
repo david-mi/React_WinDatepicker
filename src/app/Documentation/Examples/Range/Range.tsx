@@ -1,7 +1,7 @@
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { atomOneDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
-import { WinDateWrapper } from "../../../../lib";
-import type { OnDateChangeProps } from "../../../../lib";
+import { WinDatePicker } from "../../../../lib";
+import type { OnDateChange } from "../../../../lib";
 
 const code = `
 const App = () => {
@@ -9,7 +9,7 @@ const App = () => {
   const today = new Date();
   const todayDate = today.getDate();
 
-  function handleDateChange(date: OnDateChangeProps) {
+  function handleDateChange(date: OnDateChange) {
     console.log(date);
   }
 
@@ -31,16 +31,16 @@ const App = () => {
   const [startDate, endDate] = getDatesIntervals(5, 25);
 
   return (
-    <WinDateWrapper
-      calendarColors={{
-        disabledButtons: "rgb(121, 121, 121)",
-        disabledButtonsBackground: "rgba(107, 107, 107, 0.33)"
-      }}
+    <WinDatePicker
       inputProps={{
         onDateChange: handleDateChange,
         setTodayByDefault: true,
         min: startDate,
         max: endDate
+      }}
+      calendarColors={{
+        disabledButtons: "rgb(121, 121, 121)",
+        disabledButtonsBackground: "rgba(107, 107, 107, 0.33)"
       }}
     />
   )
@@ -50,7 +50,7 @@ const Range = () => {
   const today = new Date();
   const todayDate = today.getDate();
 
-  function handleDateChange(date: OnDateChangeProps) {
+  function handleDateChange(date: OnDateChange) {
     console.log(date);
   }
 
@@ -82,16 +82,16 @@ const Range = () => {
       >
         {code}
       </SyntaxHighlighter>
-      <WinDateWrapper
-        calendarColors={{
-          disabledButtons: "rgb(121, 121, 121)",
-          disabledButtonsBackground: "rgba(107, 107, 107, 0.33)"
-        }}
+      <WinDatePicker
         inputProps={{
           onDateChange: handleDateChange,
           setTodayByDefault: true,
           min: startDate,
           max: endDate
+        }}
+        calendarColors={{
+          disabledButtons: "rgb(121, 121, 121)",
+          disabledButtonsBackground: "rgba(107, 107, 107, 0.33)"
         }}
       />
     </div>

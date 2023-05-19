@@ -1,7 +1,7 @@
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { atomOneDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
-import { WinDateWrapper } from "../../../../lib";
-import type { OnDateChangeProps } from "../../../../lib";
+import { WinDatePicker } from "../../../../lib";
+import type { OnDateChange } from "../../../../lib";
 
 const code = `
 const App = () => {
@@ -11,7 +11,10 @@ const App = () => {
   }
 
   return (
-    <WinDateWrapper
+    <WinDatePicker
+      inputProps={{
+        onDateChange: handleDateChange
+      }}
       calendarColors={{
         background: "black",
         headerButtons: "white",
@@ -34,15 +37,12 @@ const App = () => {
         disabledButtonsBackground: "blue",
         clickedButton: "#41869b"
       }}
-      inputProps={{
-        onDateChange: handleDateChange
-      }}
     />
   )
 }`;
 
 const CustomColors = () => {
-  function handleDateChange(date: OnDateChangeProps) {
+  function handleDateChange(date: OnDateChange) {
     console.log(date);
   }
 
@@ -56,7 +56,10 @@ const CustomColors = () => {
       >
         {code}
       </SyntaxHighlighter>
-      <WinDateWrapper
+      <WinDatePicker
+        inputProps={{
+          onDateChange: handleDateChange
+        }}
         calendarColors={{
           background: "black",
           headerButtons: "white",
@@ -78,9 +81,6 @@ const CustomColors = () => {
           disabledButtons: "blue",
           disabledButtonsBackground: "blue",
           clickedButton: "#41869b"
-        }}
-        inputProps={{
-          onDateChange: handleDateChange
         }}
       />
     </div>

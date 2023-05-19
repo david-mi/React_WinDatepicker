@@ -1,5 +1,7 @@
 import type { ComponentProps } from "react";
-type Color = string;
+
+type Color = string
+
 export interface CalendarColors {
     background?: Color
     headerButtons?: Color
@@ -22,26 +24,26 @@ export interface CalendarColors {
     disabledButtonsBackground?: Color
     clickedButton?: Color
 }
-export type OnDateChangeProps = {
-    /** updated Date formatted to "YYYY-MM-DD" string */
-    formatted: string | "";
-    /** updated Date */
-    raw: Date | null;
-};
-export interface Props {
-    /** Custom colors to apply on calendar */
-    calendarColors?: CalendarColors;
-    /**
-     * Props to apply on date input
-     *
-     * - accept all react input props and a onDateChange callback
-     */
-    inputProps: ComponentProps<"input"> & {
-        /** Gets called whenever date gets updated from input or calendar */
-        onDateChange: (date: OnDateChangeProps) => any;
-        /** sets input value to today by default, set to false by default */
-        setTodayByDefault: boolean;
-    };
+
+export type OnDateChange = {
+    /** "YYYY-MM-DD" format */
+    formatted: string | ""
+    /** Date format */
+    raw: Date | null
 }
-export declare const WinDateWrapper: (props: Props) => JSX.Element;
+
+export interface WinDatePickerProps {
+    inputProps:
+    /** Any react input props */
+    ComponentProps<"input"> & {
+        /** required date update callback */
+        onDateChange: (date: OnDateChange) => any
+        /** sets input value to today, default to false */
+        setTodayByDefault?: boolean
+    }
+    calendarColors?: CalendarColors
+}
+
+export declare const WinDatePicker: (props: WinDatePickerProps) => JSX.Element;
+
 export { };

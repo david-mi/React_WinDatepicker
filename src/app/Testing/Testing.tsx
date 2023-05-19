@@ -1,7 +1,7 @@
 import React, { useState, ChangeEvent, useRef, useEffect } from "react";
-import type { OnDateChangeProps } from "../../lib";
-import { WinDateWrapper } from "../../lib"
-// import { WinDateWrapper } from "../../../dist/index";
+import type { OnDateChange } from "../../lib";
+import { WinDatePicker } from "../../lib"
+// import { WinDatePicker } from "../../../dist/index";
 import "./testing.css"
 
 const Testing = () => {
@@ -30,7 +30,7 @@ const Testing = () => {
     console.log("Focused", event)
   }
 
-  function handleDateChange(args: OnDateChangeProps) {
+  function handleDateChange(args: OnDateChange) {
     console.log(args)
     setInputValue(args.formatted)
   }
@@ -42,7 +42,7 @@ const Testing = () => {
 
   return (
     <div>
-      <WinDateWrapper
+      <WinDatePicker
         calendarColors={{
           background: "black",
           headerButtons: "white",

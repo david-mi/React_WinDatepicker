@@ -3,9 +3,9 @@ import { GlobalContext } from "../Context/Global"
 import Calendar from "./Calendar/Calendar"
 import DateInput from "./DateInput/DateInput"
 import styles from "./winDate.module.css"
-import type { Props } from "../index"
+import type { WinDatePickerProps } from "../index"
 
-const Windate = ({ calendarColors, inputProps }: Props) => {
+const Windate = ({ calendarColors, inputProps }: WinDatePickerProps) => {
   const { isCalendarOpen } = useContext(GlobalContext)
   const winDateRef = useRef<HTMLDivElement>(null!)
   const dateInputRef = useRef<HTMLInputElement>(null!)

@@ -9,12 +9,12 @@ import {
   ChangeEvent
 } from "react"
 import { GlobalContext } from "../../Context/Global"
-import type { Props as WinDateProps } from "../../index"
+import type { WinDatePickerProps } from "../../index"
 import { formatDate, getValidDateOrNull } from "../utils"
 import styles from "./dateInput.module.css"
 import InputButton from "./Button/InputButton"
 
-type Props = Pick<WinDateProps, "inputProps"> & {
+type Props = Pick<WinDatePickerProps, "inputProps"> & {
   dateInputRef: MutableRefObject<HTMLInputElement>
 }
 

@@ -27,30 +27,26 @@ export interface CalendarColors {
   clickedButton?: Color
 }
 
-export type OnDateChangeProps = {
-  /** updated Date formatted to "YYYY-MM-DD" string */
+export type OnDateChange = {
+  /** "YYYY-MM-DD" format */
   formatted: string | ""
-  /** updated Date */
+  /** Date format */
   raw: Date | null
 }
 
-export interface Props {
-  /** Custom colors to apply on calendar */
-  calendarColors?: CalendarColors
-  /** 
-   * Props to apply on date input 
-   * 
-   * - accept all react input props and a onDateChange callback
-   */
-  inputProps: ComponentProps<"input"> & {
-    /** Gets called whenever date gets updated from input or calendar */
-    onDateChange: (date: OnDateChangeProps) => any
-    /** sets input value to today by default, set to false by default */
+export interface WinDatePickerProps {
+  inputProps:
+  /** Any react input props */
+  ComponentProps<"input"> & {
+    /** required date update callback */
+    onDateChange: (date: OnDateChange) => any
+    /** sets input value to today, default to false */
     setTodayByDefault?: boolean
   }
+  calendarColors?: CalendarColors
 }
 
-export const WinDateWrapper = (props: Props) => {
+export const WinDatePicker = (props: WinDatePickerProps) => {
   return (
     <GlobalProvider>
       <Windate {...props} />

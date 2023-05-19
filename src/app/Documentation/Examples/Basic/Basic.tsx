@@ -1,7 +1,7 @@
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { atomOneDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
-import { WinDateWrapper } from "../../../../lib";
-import type { OnDateChangeProps } from "../../../../lib";
+import { WinDatePicker } from "../../../../lib";
+import type { OnDateChange } from "../../../../lib";
 
 const code = `
 const App = () => {
@@ -11,7 +11,7 @@ const App = () => {
   }
 
   return (
-    <WinDateWrapper
+    <WinDatePicker
     inputProps={{
       onDateChange: handleDateChange
     }}
@@ -20,7 +20,7 @@ const App = () => {
 }`
 
 const Basic = () => {
-  function handleDateChange(date: OnDateChangeProps) {
+  function handleDateChange(date: OnDateChange) {
     console.log(date)
   }
 
@@ -34,7 +34,7 @@ const Basic = () => {
       >
         {code}
       </SyntaxHighlighter>
-      <WinDateWrapper
+      <WinDatePicker
         inputProps={{
           onDateChange: handleDateChange
         }}
