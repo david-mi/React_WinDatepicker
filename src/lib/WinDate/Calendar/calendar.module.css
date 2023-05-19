@@ -9,6 +9,7 @@
   padding-block: 4px 12px;
   overflow: hidden;
   border-radius: 7px;
+  left: 0;
 }
 
 .calendar[data-position-vertical="TOP"] {
