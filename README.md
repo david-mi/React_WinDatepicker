@@ -126,11 +126,11 @@ WinDatePickerProps {
 
 ## Examples
 
-### You can find some examples here :  https://react-windatepicker.vercel.app/
+### You can find some examples here :  [Link](https://react-windatepicker.vercel.app/)
 ### CodeSandbox examples :
-### Basic :
-### Colors :
-### Range : 
+### Basic (With TypeScript): [Link](https://codesandbox.io/s/react-windatepicker-example-basic-typescript-o9o124?file=/src/App.tsx)
+### Colors : [Link](https://codesandbox.io/s/react-windatepicker-example-colors-6nui0p?file=/src/App.js)
+### Range : [Link](https://codesandbox.io/s/react-windatepicker-example-range-gm99ze?file=/src/App.js)
 
 ## TBA
 - More translated langs
