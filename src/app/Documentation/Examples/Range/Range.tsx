@@ -3,7 +3,7 @@ import { atomOneDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import { WinDatePicker } from "../../../../lib";
 import type { OnDateChange } from "../../../../lib";
 
-const code = `
+const code = `\
 const App = () => {
 
   const today = new Date();
