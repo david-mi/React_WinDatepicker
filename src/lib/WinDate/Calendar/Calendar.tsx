@@ -76,32 +76,25 @@ const Calendar = ({ dateInputRef, winDateRef, calendarColors = {} }: Props) => {
 
   /**
    * Defines calendar horizontal translate based on overflow amount at the right side of the screen
-   * - if there is no more space to translate on the left, return null
+   * - if there is overflow on right part return the negative amount, else return 0
    */
 
-  function defineCalendarHorizontalTranslate(): number | null {
+  function defineCalendarHorizontalTranslate(): number {
     const screenWidth = document.documentElement.clientWidth
     const calendarWidth = calendarRef.current.offsetWidth
-    const remainingSpaceAtCalendarLeft = calendarRef.current.getBoundingClientRect().left
     const remainingSpaceAtInputLeft = dateInputRef.current.getBoundingClientRect().left
 
     const calendarRightOverflow = (remainingSpaceAtInputLeft + calendarWidth) - screenWidth
-    const calendarHorizontalTranslate = calendarRightOverflow > 0
+    const calendarTranslateX = calendarRightOverflow > 0
       ? -calendarRightOverflow
       : 0
 
-    const shouldTranslate = remainingSpaceAtCalendarLeft > 0
-
-    return shouldTranslate
-      ? calendarHorizontalTranslate
-      : null
+    return calendarTranslateX
   }
 
   function setCalendarHorizontalTranslate() {
     const calendarHorizontalTranslate = defineCalendarHorizontalTranslate()
-    if (calendarHorizontalTranslate !== null) {
-      calendarRef.current.style.transform = `translateX(${calendarHorizontalTranslate}px)`
-    }
+    calendarRef.current.style.transform = `translateX(${calendarHorizontalTranslate}px)`
   }
 
   /**
