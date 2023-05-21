@@ -47,8 +47,8 @@ const App = () => {
 
 | Key name | Type | Description | required |
 |--|--|--|--|
-| setTodayByDefault | boolean |Sets input value to today, default to false  | true |
-| onDateChange | function | Date update callback. Argument will give back an object with the raw retrieved date and the date formatted as a **YYYY-MM-DD** string format | false |
+| setTodayByDefault | boolean |Sets input value to today, default to false  | false |
+| onDateChange | function | Date update callback. Argument will give back an object with the raw retrieved date and the date formatted as a **YYYY-MM-DD** string format | true |
 | *React input props* | any | You can pass any react input props to complete | false |
 
 ### calendarColors
@@ -125,6 +125,7 @@ WinDatePickerProps {
 ```
 
 ## Examples
+
 ### You can find some examples here :  https://react-windatepicker.vercel.app/
 ### CodeSandbox examples :
 ### Basic :

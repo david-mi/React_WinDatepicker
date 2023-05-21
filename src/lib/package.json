@@ -1,7 +1,7 @@
 {
   "name": "react-windatepicker",
   "private": false,
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "React date input package with windows skin",
   "type": "module",
   "main": "index.umd.cjs",
