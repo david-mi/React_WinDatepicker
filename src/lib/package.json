@@ -1,7 +1,7 @@
 {
   "name": "react-windatepicker",
   "private": false,
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "React date input package with windows skin",
   "type": "module",
   "main": "index.umd.cjs",
@@ -20,5 +20,5 @@
   "bugs": {
     "url": "https://github.com/david-mi/React_WinDatepicker/issues"
   },
-  "homepage": "https://github.com/david-mi/React_WinDatepicker#readme"
+  "homepage": "https://react-windatepicker.vercel.app/"
 }

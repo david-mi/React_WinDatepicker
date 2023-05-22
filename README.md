@@ -5,10 +5,10 @@
 
 A react custom date picker with Windows 10 skin and customizable colors
 
-## Functionnalities
+## Functionalities
 - Navigate through dates or months
 - Switch from dates to months or months to dates
-- Set up a min and max range for clickable dates / months
+- Set up a min and max range for clickable dates/months
 - Multiple language support to translate months and weekdays (english and french for now)
 
 ## Installation
@@ -48,7 +48,7 @@ const App = () => {
 | Key name | Type | Description | required |
 |--|--|--|--|
 | setTodayByDefault | boolean |Sets input value to today, default to false  | false |
-| onDateChange | function | Date update callback. Argument will give back an object with the raw retrieved date and the date formatted as a **YYYY-MM-DD** string format | true |
+| onDateChange | function | Date update callback. The argument will give back an object with the raw retrieved date and the date formatted as a **YYYY-MM-DD** string format | true |
 | *React input props* | any | You can pass any react input props to complete | false |
 
 ### calendarColors
