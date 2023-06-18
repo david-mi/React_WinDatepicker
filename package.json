@@ -4,7 +4,8 @@
   "version": "1.0.6",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev-doc": "vite --mode doc",
+    "dev-lib": "vite --mode lib",
     "test": "vitest --reporter verbose",
     "build-lib": "tsc && vite build --mode lib",
     "build-doc": "tsc && vite build --mode doc",
